@@ -2,6 +2,6 @@
 
 import { usersRouter } from './routes/users'
 
-export const orpcRouter = {
+export const serverRouter = {
 	users: usersRouter,
 }

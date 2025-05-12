@@ -1,14 +1,11 @@
 import type { QueryClient } from '@tanstack/react-query'
-import type { PropsWithChildren, ReactElement } from 'react'
-
 import {
 	HeadContent,
 	Outlet,
 	Scripts,
 	createRootRouteWithContext,
 } from '@tanstack/react-router'
-
-import '~/lib/orpc.server' // Ensure the server-side orpc client is registered
+import type { PropsWithChildren, ReactElement } from 'react'
 
 export const Route = createRootRouteWithContext<{
 	queryClient: QueryClient

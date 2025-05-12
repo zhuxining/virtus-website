@@ -1,8 +1,7 @@
-'server only'
-
 import { os } from '@orpc/server'
 import { z } from 'zod'
-import prisma from '~/lib/prisma'
+
+import { db } from '~/server/prisma'
 
 export const usersRouter = {
 	list: os
@@ -15,12 +14,10 @@ export const usersRouter = {
 				.optional(),
 		)
 		.handler(async ({ input }) => {
-			const users = await prisma.user.findMany({
+			const users = await db.user.findMany({
 				take: input?.take,
 				skip: input?.skip,
 			})
-
-			console.log(users)
 			return { users }
 		}),
 }

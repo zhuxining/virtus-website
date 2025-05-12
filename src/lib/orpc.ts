@@ -1,27 +1,37 @@
 import { createORPCClient } from '@orpc/client'
 import { RPCLink } from '@orpc/client/fetch'
+import { createORPCReactQueryUtils } from '@orpc/react-query'
+import { createRouterClient } from '@orpc/server'
 import type { RouterClient } from '@orpc/server'
+import { createIsomorphicFn } from '@tanstack/react-start'
+import { getHeaders } from '@tanstack/react-start/server'
 
 import { RPC_PATH_PREFIX } from '~/constants'
-import type { orpcRouter } from '~/server/router'
+import { serverRouter } from '~/server/router'
 
-declare global {
-	// eslint-disable-next-line
-	var $client: RouterClient<typeof orpcRouter> | undefined
-}
+const getORPCClient = createIsomorphicFn()
+	.server(() =>
+		createRouterClient(serverRouter, {
+			/**
+			 * Provide initial context if needed.
+			 *
+			 * Because this client instance is shared across all requests,
+			 * only include context that's safe to reuse globally.
+			 * For per-request context, use middleware context or pass a function as the initial context.
+			 */
+			context: async () => ({
+				headers: getHeaders(),
+			}),
+		}),
+	)
+	.client((): RouterClient<typeof serverRouter> => {
+		const link = new RPCLink({
+			url: new URL(RPC_PATH_PREFIX, window.location.href),
+		})
 
-const link = new RPCLink({
-	url: () => {
-		if (typeof window === 'undefined') {
-			throw new Error('RPCLink is not allowed on the server side.')
-		}
+		return createORPCClient(link)
+	})
 
-		return new URL(RPC_PATH_PREFIX, window.location.href)
-	},
-})
+export const client: RouterClient<typeof serverRouter> = getORPCClient()
 
-/**
- * Fallback to client-side client if server-side client is not available.
- */
-export const client: RouterClient<typeof orpcRouter> =
-	globalThis.$client ?? createORPCClient(link)
+export const orpc = createORPCReactQueryUtils(client)

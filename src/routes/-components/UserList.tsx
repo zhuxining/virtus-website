@@ -1,9 +1,9 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
 
-import { orpcReactQuery } from '~/lib/react-query'
+import { orpc } from '~/lib/orpc'
 
 export function UserList() {
-	const usersQuery = useSuspenseQuery(orpcReactQuery.users.list.queryOptions())
+	const usersQuery = useSuspenseQuery(orpc.users.list.queryOptions())
 
 	return (
 		<div>

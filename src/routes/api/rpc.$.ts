@@ -1,10 +1,10 @@
 import { createAPIFileRoute } from '@tanstack/react-start/api'
 
 import { RPC_PATH_PREFIX } from '~/constants'
-import { orpcHandler } from '~/server/handler'
+import { serverHandler } from '~/server/handler'
 
 async function handle({ request }: { request: Request }) {
-	const { response } = await orpcHandler.handle(request, {
+	const { response } = await serverHandler.handle(request, {
 		context: {}, // Provide initial context if needed
 		prefix: RPC_PATH_PREFIX,
 	})
@@ -15,6 +15,7 @@ async function handle({ request }: { request: Request }) {
 export const APIRoute = createAPIFileRoute(`${RPC_PATH_PREFIX}/$`)({
 	DELETE: handle,
 	GET: handle,
+	HEAD: handle,
 	PATCH: handle,
 	POST: handle,
 	PUT: handle,
