@@ -26,10 +26,12 @@ A powerful, full-stack SaaS starter template built with modern technologies. Thi
 
 - [TanStack Start](https://tanstack.com/start/latest) - Full-stack framework
 - [ORPC](https://orpc.unnoq.com) - Type-safe RPC
+- [Prisma](https://www.prisma.io/)
 
 ### Development & Tooling
 
 - [Zod](https://zod.dev) - Runtime type validation
+- [Zod Prisma Types](https://github.com/chrishoermann/zod-prisma-types)
 
 ## Getting Started
 
@@ -53,7 +55,19 @@ A powerful, full-stack SaaS starter template built with modern technologies. Thi
     npm ci
     ```
 
-3. Start the development server
+3. Create .env
+
+    ```bash
+    cp .env.example .env
+    ```
+
+4. Generate Prisma client
+
+    ```bash
+    npm run generate
+    ```
+
+5. Start the development server
 
     ```bash
     npm run dev

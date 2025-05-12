@@ -10,7 +10,7 @@
     "ignore": [
       "node_modules",
       "routeTree.gen.ts",
-      "src/generated/prisma"
+      "src/generated"
     ]
   },
   "formatter": {

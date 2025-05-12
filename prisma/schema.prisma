@@ -11,6 +11,14 @@ generator client {
   importFileExtension    = "ts"
 }
 
+generator zod {
+  provider         = "zod-prisma-types"
+  output           = "../src/generated/zod"
+  prismaClientPath = "~/generated/prisma"
+  useMultipleFiles = true
+  // createModelTypes = false
+}
+
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
