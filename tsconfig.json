@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
     // Modules
-    "module": "ESNext",
     "moduleResolution": "Bundler",
+    "module": "ESNext",
     "target": "ES2022",
 
     // JSX
     "jsx": "react-jsx",
 
     // Strictness
+    "allowImportingTsExtensions": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "skipLibCheck": true,

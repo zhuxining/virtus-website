@@ -2,7 +2,7 @@ import { RPCHandler } from '@orpc/server/fetch'
 import { createAPIFileRoute } from '@tanstack/react-start/api'
 
 import { RPC_PATH_PREFIX } from '~/constants'
-import { orpcRouter } from '~/server/orpc'
+import { orpcRouter } from '~/server/router'
 
 const handler = new RPCHandler(orpcRouter)
 

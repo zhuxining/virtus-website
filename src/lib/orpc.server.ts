@@ -5,7 +5,7 @@ import { createRouterClient } from '@orpc/server'
 import { createIsomorphicFn } from '@tanstack/react-start'
 import { getHeaders } from '@tanstack/react-start/server'
 
-import { orpcRouter } from '~/server/orpc'
+import { orpcRouter } from '~/server/router'
 
 globalThis.$client = createRouterClient(orpcRouter, {
 	/**

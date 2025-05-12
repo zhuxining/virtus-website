@@ -3,7 +3,7 @@ import { RPCLink } from '@orpc/client/fetch'
 import type { RouterClient } from '@orpc/server'
 
 import { RPC_PATH_PREFIX } from '~/constants'
-import type { orpcRouter } from '~/server/orpc'
+import type { orpcRouter } from '~/server/router'
 
 declare global {
 	// eslint-disable-next-line

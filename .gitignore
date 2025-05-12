@@ -15,3 +15,8 @@ node_modules/
 
 # Wrangler state
 .wrangler/
+
+# Prisma
+src/generated/prisma/
+prisma/data.db
+prisma/data.db-journal
