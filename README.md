@@ -11,8 +11,7 @@ A powerful, full-stack SaaS starter template built with modern technologies. Thi
 - 🔒 **Type-Safe RPC** - End-to-end type safety with ORPC
 - ✨ **Best Practices** - Following modern development standards
 - 🎨 **Component Architecture** - Well-organized and scalable component structure
-- 📱 **Responsive Design** - Mobile-first approach
-- 🛠️ **Developer Experience** - Enhanced with ESLint configurations
+- 🛠️ **Developer Experience** - Enhanced with Biome configurations
 
 ## Tech Stack
 
