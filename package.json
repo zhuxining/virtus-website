@@ -13,10 +13,11 @@
 		"migrate:dev": "prisma migrate dev",
 		"migrate": "prisma migrate deploy",
 		"fix:biome": "biome check --write --unsafe ./src",
-		"check:ts": "tsc --incremental"
+		"check:ts": "tsc -b --incremental"
 	},
 	"dependencies": {
 		"@orpc/client": "^1.2.0",
+		"@orpc/contract": "^1.2.0",
 		"@orpc/react-query": "^1.2.0",
 		"@orpc/server": "^1.2.0",
 		"@prisma/client": "^6.7.0",

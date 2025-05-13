@@ -1,7 +1,7 @@
 'server only'
 
-import { usersRouter as users } from './routes/users'
+import { userRouter as user } from './routes/user'
 
 export const serverRouter = {
-	users,
+	user,
 }
