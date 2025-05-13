@@ -78,7 +78,7 @@ A powerful, full-stack SaaS starter template built with modern technologies. Thi
 ### Project Structure
 
 ```txt
-src/
+app/
 ├── components/     # Reusable UI components
 ├── generated/      # Generated files
 ├── lib/           # Shared utilities and hooks

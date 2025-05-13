@@ -1,49 +1,64 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "vcs": {
-    "enabled": false,
-    "clientKind": "git",
-    "useIgnoreFile": false
-  },
-  "files": {
-    "ignoreUnknown": false,
-    "ignore": [
-      "node_modules",
-      "routeTree.gen.ts",
-      "src/generated"
-    ]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "tab"
-  },
-  "organizeImports": {
-    "enabled": true
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "all": true,
-      "nursery": {
-        "useConsistentCurlyBraces": "error"
-      },
-      "style": {
-        "noDefaultExport": "off",
-        "useFilenamingConvention": "off",
-        "useNamingConvention": "off"
-      },
-      "correctness": {
-        "useImportExtensions": "off"
-      },
-      "suspicious": {
-        "noConsole": "off"
-      }
-    }
-  },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "single",
-      "semicolons": "asNeeded"
-    }
-  }
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": ["node_modules", "routeTree.gen.ts", "app/generated"]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"all": true,
+			"nursery": {
+				"useConsistentCurlyBraces": "error"
+			},
+			"style": {
+				"noDefaultExport": "off",
+				"noNamespaceImport": "off",
+				"useBlockStatements": "off",
+				"useExplicitLengthCheck": "off",
+				"useFilenamingConvention": "off",
+				"useNamingConvention": "off"
+			},
+			"correctness": {
+				"useImportExtensions": "off"
+			},
+			"suspicious": {
+				"noConsole": "off",
+				"noReactSpecificProps": "off"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "asNeeded"
+		}
+	},
+	"overrides": [
+		{
+			"include": ["app/components/ui/**/*.tsx"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"useExhaustiveDependencies": "off"
+					},
+					"style": {
+						"useImportType": "off"
+					}
+				}
+			}
+		}
+	]
 }

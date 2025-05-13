@@ -3,7 +3,7 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  output   = "../app/generated/prisma"
 
   runtime                = "nodejs"
   moduleFormat           = "esm"
@@ -13,7 +13,7 @@ generator client {
 
 generator zod {
   provider         = "zod-prisma-types"
-  output           = "../src/generated/zod"
+  output           = "../app/generated/zod"
   prismaClientPath = "~/generated/prisma"
   useMultipleFiles = true
   // createModelTypes = false

@@ -3,9 +3,6 @@ import { cloudflare } from 'unenv'
 import tsConfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-	tsr: {
-		appDirectory: 'src',
-	},
 	server: {
 		preset: 'cloudflare-module',
 		unenv: cloudflare,
