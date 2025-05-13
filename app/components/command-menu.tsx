@@ -1,9 +1,4 @@
-import {
-	IconArrowRightDashed,
-	IconDeviceLaptop,
-	IconMoon,
-	IconSun,
-} from '@tabler/icons-react'
+import { IconArrowRightDashed, IconMoon, IconSun } from '@tabler/icons-react'
 import { useNavigate } from '@tanstack/react-router'
 import React from 'react'
 
@@ -24,19 +19,23 @@ import { ScrollArea } from './ui/scroll-area'
 
 export function CommandMenu() {
 	const navigate = useNavigate()
-	const { setTheme } = useTheme()
-	const { open, setOpen } = useSearch()
+	const themeContext = useTheme()
+	const searchContext = useSearch()
 
 	const runCommand = React.useCallback(
 		(command: () => unknown) => {
-			setOpen(false)
+			searchContext?.setOpen(false)
 			command()
 		},
-		[setOpen],
+		[searchContext],
 	)
 
 	return (
-		<CommandDialog modal={true} open={open} onOpenChange={setOpen}>
+		<CommandDialog
+			modal={true}
+			open={searchContext?.open}
+			onOpenChange={searchContext?.setOpen}
+		>
 			<CommandInput placeholder="Type a command or search..." />
 			<CommandList>
 				<ScrollArea type="hover" className="h-72 pr-1">
@@ -79,16 +78,16 @@ export function CommandMenu() {
 					))}
 					<CommandSeparator />
 					<CommandGroup heading="Theme">
-						<CommandItem onSelect={() => runCommand(() => setTheme('light'))}>
+						<CommandItem
+							onSelect={() => runCommand(() => themeContext?.setTheme('light'))}
+						>
 							<IconSun /> <span>Light</span>
 						</CommandItem>
-						<CommandItem onSelect={() => runCommand(() => setTheme('dark'))}>
+						<CommandItem
+							onSelect={() => runCommand(() => themeContext?.setTheme('dark'))}
+						>
 							<IconMoon className="scale-90" />
 							<span>Dark</span>
-						</CommandItem>
-						<CommandItem onSelect={() => runCommand(() => setTheme('system'))}>
-							<IconDeviceLaptop />
-							<span>System</span>
 						</CommandItem>
 					</CommandGroup>
 				</ScrollArea>

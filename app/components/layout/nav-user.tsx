@@ -25,15 +25,15 @@ import {
 	useSidebar,
 } from '../ui/sidebar'
 
-export function NavUser({
-	user,
-}: {
+type Props = {
 	user: {
 		name: string
 		email: string
 		avatar: string
 	}
-}) {
+}
+
+export function NavUser({ user }: Props) {
 	const { isMobile } = useSidebar()
 
 	return (

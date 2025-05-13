@@ -6,15 +6,19 @@ import {
 	Scripts,
 	createRootRouteWithContext,
 } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools'
-import type { PropsWithChildren, ReactElement } from 'react'
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
+import type { ReactElement, ReactNode } from 'react'
 
+import { ThemeProvider, useTheme } from '~/contexts/theme-context'
+import { getThemeServerFn } from '~/lib/theme'
+import { cn } from '~/lib/utils'
 import appCss from '~/styles/app.css?url'
 
 export const Route = createRootRouteWithContext<{
 	queryClient: QueryClient
 }>()({
 	component: RootComponent,
+	loader: () => getThemeServerFn(),
 	head: () => ({
 		links: [
 			{
@@ -42,22 +46,30 @@ export const Route = createRootRouteWithContext<{
 })
 
 function RootComponent(): ReactElement {
+	const theme = Route.useLoaderData()
 	return (
-		<RootDocument>
-			<Outlet />
-			{import.meta.env.MODE === 'development' && (
-				<>
-					<ReactQueryDevtools buttonPosition="bottom-left" />
-					<TanStackRouterDevtools position="bottom-right" />
-				</>
-			)}
-		</RootDocument>
+		<ThemeProvider defaultTheme={theme}>
+			<RootDocument>
+				<Outlet />
+				{import.meta.env.MODE === 'development' && (
+					<>
+						<ReactQueryDevtools buttonPosition="bottom-left" />
+						<TanStackRouterDevtools position="bottom-right" />
+					</>
+				)}
+			</RootDocument>
+		</ThemeProvider>
 	)
 }
 
-function RootDocument({ children }: Readonly<PropsWithChildren>): ReactElement {
+function RootDocument({ children }: { children: ReactNode }): ReactElement {
+	const themeContext = useTheme()
 	return (
-		<html lang="en">
+		<html
+			lang="en"
+			className={cn(themeContext?.theme)}
+			suppressHydrationWarning={true}
+		>
 			<head>
 				<HeadContent />
 			</head>

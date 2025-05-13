@@ -43,11 +43,5 @@ export function SearchProvider({ children }: Props) {
 }
 
 export const useSearch = () => {
-	const searchContext = use(SearchContext)
-
-	if (!searchContext) {
-		throw new Error('useSearch has to be used within <SearchProvider>')
-	}
-
-	return searchContext
+	return use(SearchContext)
 }

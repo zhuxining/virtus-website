@@ -1,6 +1,6 @@
 import { Link, useLocation } from '@tanstack/react-router'
 import { ChevronRight } from 'lucide-react'
-import type { PropsWithChildren } from 'react'
+import type { ReactNode } from 'react'
 
 import { Badge } from '../ui/badge'
 import {
@@ -60,7 +60,7 @@ export function NavGroup({ title, items }: NavGroupType) {
 	)
 }
 
-const NavBadge = ({ children }: PropsWithChildren) => (
+const NavBadge = ({ children }: { children: ReactNode }) => (
 	<Badge className="rounded-full px-1 py-0 text-xs">{children}</Badge>
 )
 

@@ -1,11 +1,18 @@
-import { type ReactNode, createContext, use, useEffect, useState } from 'react'
+import {
+	type ReactNode,
+	createContext,
+	use,
+	useCallback,
+	useState,
+} from 'react'
+import { setThemeServerFn } from '~/lib/theme'
 
-type Theme = 'dark' | 'light' | 'system'
+export type Theme = 'dark' | 'light'
+export const DEFAULT_THEME: Theme = 'light'
 
 type ThemeProviderProps = {
 	children: ReactNode
-	defaultTheme?: Theme
-	storageKey?: string
+	defaultTheme: Theme
 }
 
 type ThemeProviderState = {
@@ -13,70 +20,26 @@ type ThemeProviderState = {
 	setTheme: (theme: Theme) => void
 }
 
-const initialState: ThemeProviderState = {
-	theme: 'system',
-	setTheme: () => null,
-}
-
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
+const ThemeProviderContext = createContext<ThemeProviderState | null>(null)
 
 export function ThemeProvider({
 	children,
-	defaultTheme = 'system',
-	storageKey = 'vite-ui-theme',
-	...props
+	defaultTheme = DEFAULT_THEME,
 }: ThemeProviderProps) {
-	const [theme, _setTheme] = useState<Theme>(
-		() => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
-	)
+	const [theme, _setTheme] = useState<Theme>(defaultTheme)
 
-	useEffect(() => {
-		const root = window.document.documentElement
-		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-
-		const applyTheme = (theme: Theme) => {
-			root.classList.remove('light', 'dark') // Remove existing theme classes
-			const systemTheme = mediaQuery.matches ? 'dark' : 'light'
-			const effectiveTheme = theme === 'system' ? systemTheme : theme
-			root.classList.add(effectiveTheme) // Add the new theme class
-		}
-
-		const handleChange = () => {
-			if (theme === 'system') {
-				applyTheme('system')
-			}
-		}
-
-		applyTheme(theme)
-
-		mediaQuery.addEventListener('change', handleChange)
-
-		return () => mediaQuery.removeEventListener('change', handleChange)
-	}, [theme])
-
-	const setTheme = (theme: Theme) => {
-		localStorage.setItem(storageKey, theme)
+	const setTheme = useCallback((theme: Theme) => {
+		setThemeServerFn({ data: theme })
 		_setTheme(theme)
-	}
-
-	const value = {
-		theme,
-		setTheme,
-	}
+	}, [])
 
 	return (
-		<ThemeProviderContext {...props} value={value}>
+		<ThemeProviderContext value={{ theme, setTheme }}>
 			{children}
 		</ThemeProviderContext>
 	)
 }
 
 export const useTheme = () => {
-	const context = use(ThemeProviderContext)
-
-	if (context === undefined) {
-		throw new Error('useTheme must be used within a ThemeProvider')
-	}
-
-	return context
+	return use(ThemeProviderContext)
 }

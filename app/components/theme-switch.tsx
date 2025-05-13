@@ -49,13 +49,6 @@ export function ThemeSwitch() {
 						className={cn('ml-auto', theme !== 'dark' && 'hidden')}
 					/>
 				</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => setTheme('system')}>
-					System
-					<IconCheck
-						size={14}
-						className={cn('ml-auto', theme !== 'system' && 'hidden')}
-					/>
-				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)
