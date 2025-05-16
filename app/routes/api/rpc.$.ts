@@ -1,6 +1,6 @@
 import { createAPIFileRoute } from '@tanstack/react-start/api'
 
-import { RPC_PATH_PREFIX } from '~/constants'
+import { RPC_PATH_PREFIX } from '~/constants/rpc'
 import { serverHandler } from '~/server/handler'
 
 async function handle({ request }: { request: Request }) {

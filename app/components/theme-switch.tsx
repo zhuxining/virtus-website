@@ -1,5 +1,4 @@
 import { IconCheck, IconMoon, IconSun } from '@tabler/icons-react'
-import { useEffect } from 'react'
 
 import { useTheme } from '~/contexts/theme-context'
 import { cn } from '~/lib/utils'
@@ -14,16 +13,6 @@ import {
 
 export function ThemeSwitch() {
 	const { theme, setTheme } = useTheme()
-
-	/* Update theme-color meta tag
-	 * when theme is updated */
-	useEffect(() => {
-		const themeColor = theme === 'dark' ? '#020817' : '#fff'
-		const metaThemeColor = document.querySelector("meta[name='theme-color']")
-		if (metaThemeColor) {
-			metaThemeColor.setAttribute('content', themeColor)
-		}
-	}, [theme])
 
 	return (
 		<DropdownMenu modal={false}>
@@ -47,6 +36,13 @@ export function ThemeSwitch() {
 					<IconCheck
 						size={14}
 						className={cn('ml-auto', theme !== 'dark' && 'hidden')}
+					/>
+				</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => setTheme('system')}>
+					System
+					<IconCheck
+						size={14}
+						className={cn('ml-auto', theme !== 'system' && 'hidden')}
 					/>
 				</DropdownMenuItem>
 			</DropdownMenuContent>

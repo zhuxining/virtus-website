@@ -1,19 +1,31 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
+import { getCookie } from '@tanstack/react-start/server'
 
 import { AppSidebar } from '~/components/layout/app-sidebar'
 import { SkipToMain } from '~/components/skip-to-main'
-import { SidebarProvider } from '~/components/ui/sidebar'
+import { SIDEBAR_COOKIE_NAME, SidebarProvider } from '~/components/ui/sidebar'
 import { SearchProvider } from '~/contexts/search-context'
 import { cn } from '~/lib/utils'
 
+const getSidebarCookie = createServerFn().handler(() => {
+	const cookie = getCookie(SIDEBAR_COOKIE_NAME)
+	return cookie ? (JSON.parse(cookie) as boolean) : false
+})
+
 export const Route = createFileRoute('/_admin-console')({
 	component: RouteComponent,
+	loader: async () => {
+		const sidebarState = await getSidebarCookie()
+		return { sidebarState }
+	},
 })
 
 function RouteComponent() {
+	const { sidebarState } = Route.useLoaderData()
 	return (
 		<SearchProvider>
-			<SidebarProvider>
+			<SidebarProvider defaultOpen={sidebarState}>
 				<SkipToMain />
 				<AppSidebar />
 				<div

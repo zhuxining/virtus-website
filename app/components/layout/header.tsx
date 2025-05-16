@@ -84,5 +84,3 @@ export function HeaderWrapper({
 		</header>
 	)
 }
-
-HeaderWrapper.displayName = 'Header'

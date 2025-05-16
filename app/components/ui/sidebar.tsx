@@ -1,7 +1,7 @@
 import { Slot } from '@radix-ui/react-slot'
 import { type VariantProps, cva } from 'class-variance-authority'
 import { PanelLeftIcon } from 'lucide-react'
-import * as React from 'react'
+import React from 'react'
 
 import { Button } from '~/components/ui/button'
 import { Input } from '~/components/ui/input'
@@ -23,7 +23,7 @@ import {
 import { useIsMobile } from '~/hooks/use-mobile'
 import { cn } from '~/lib/utils'
 
-const SIDEBAR_COOKIE_NAME = 'sidebar_state'
+export const SIDEBAR_COOKIE_NAME = 'sidebar_state'
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
 const SIDEBAR_WIDTH = '16rem'
 const SIDEBAR_WIDTH_MOBILE = '18rem'
@@ -43,12 +43,18 @@ type SidebarContextProps = {
 const SidebarContext = React.createContext<SidebarContextProps | null>(null)
 
 function useSidebar() {
-	const context = React.useContext(SidebarContext)
+	const context = React.use(SidebarContext)
 	if (!context) {
 		throw new Error('useSidebar must be used within a SidebarProvider.')
 	}
 
 	return context
+}
+
+type SidebarProviderProps = React.ComponentProps<'div'> & {
+	defaultOpen?: boolean
+	open?: boolean
+	onOpenChange?: (open: boolean) => void
 }
 
 function SidebarProvider({
@@ -59,11 +65,7 @@ function SidebarProvider({
 	style,
 	children,
 	...props
-}: React.ComponentProps<'div'> & {
-	defaultOpen?: boolean
-	open?: boolean
-	onOpenChange?: (open: boolean) => void
-}) {
+}: SidebarProviderProps) {
 	const isMobile = useIsMobile()
 	const [openMobile, setOpenMobile] = React.useState(false)
 
@@ -125,7 +127,7 @@ function SidebarProvider({
 	)
 
 	return (
-		<SidebarContext.Provider value={contextValue}>
+		<SidebarContext value={contextValue}>
 			<TooltipProvider delayDuration={0}>
 				<div
 					data-slot="sidebar-wrapper"
@@ -145,7 +147,7 @@ function SidebarProvider({
 					{children}
 				</div>
 			</TooltipProvider>
-		</SidebarContext.Provider>
+		</SidebarContext>
 	)
 }
 
