@@ -1,15 +1,15 @@
 import { IconCheck, IconMoon, IconSun } from '@tabler/icons-react'
 
-import { useTheme } from '~/contexts/theme-context'
-import { cn } from '~/lib/utils'
-
-import { Button } from './ui/button'
+import { Button } from '~/components/ui/button'
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from './ui/dropdown-menu'
+} from '~/components/ui/dropdown-menu'
+import { cn } from '~/lib/utils'
+
+import { useTheme } from '../contexts/theme-context'
 
 export function ThemeSwitch() {
 	const { theme, setTheme } = useTheme()
@@ -24,28 +24,22 @@ export function ThemeSwitch() {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end">
-				<DropdownMenuItem onClick={() => setTheme('light')}>
-					Light
-					<IconCheck
-						size={14}
-						className={cn('ml-auto', theme !== 'light' && 'hidden')}
-					/>
-				</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => setTheme('dark')}>
-					Dark
-					<IconCheck
-						size={14}
-						className={cn('ml-auto', theme !== 'dark' && 'hidden')}
-					/>
-				</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => setTheme('system')}>
-					System
-					<IconCheck
-						size={14}
-						className={cn('ml-auto', theme !== 'system' && 'hidden')}
-					/>
-				</DropdownMenuItem>
+				{themeOptions.map(({ value, label }) => (
+					<DropdownMenuItem key={value} onClick={() => setTheme(value)}>
+						{label}
+						<IconCheck
+							size={14}
+							className={cn('ml-auto', theme !== value && 'hidden')}
+						/>
+					</DropdownMenuItem>
+				))}
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)
 }
+
+const themeOptions = [
+	{ value: 'light', label: 'Light' },
+	{ value: 'dark', label: 'Dark' },
+	{ value: 'system', label: 'System' },
+]

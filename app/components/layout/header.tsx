@@ -7,9 +7,9 @@ import {
 
 import { cn } from '~/lib/utils'
 
+import { Search } from '../../features/global-search/components/search-button'
+import { ThemeSwitch } from '../../features/theme/components/theme-switch'
 import { ProfileDropdown } from '../profile-dropdown'
-import { Search } from '../search'
-import { ThemeSwitch } from '../theme-switch'
 import { Separator } from '../ui/separator'
 import { SidebarTrigger } from '../ui/sidebar'
 import { TopNav } from './top-nav'

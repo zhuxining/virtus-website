@@ -5,14 +5,7 @@
   next-themes can be found at https://github.com/pacocoursey/next-themes under the MIT license.
 */
 
-import React, { useEffect } from 'react'
-
-import {
-	COLOR_SCHEMES,
-	PREFERS_COLOR_SCHEME,
-	THEME_COLOR_MAP,
-	THEME_STORAGE_KEY,
-} from '~/constants/theme'
+import React from 'react'
 
 interface ValueObject {
 	[themeName: string]: string
@@ -44,6 +37,8 @@ export interface ThemeProviderProps extends React.PropsWithChildren {
 	disableTransitionOnChange?: boolean | undefined
 	/** Whether to indicate to browsers which color scheme is used (dark or light) for built-in UI like inputs and buttons */
 	enableColorScheme?: boolean | undefined
+	/** Key used to store theme setting in localStorage */
+	storageKey?: string | undefined
 	/** Default theme name (for v0.0.12 and lower the default was light). If `enableSystem` is false, the default theme is light */
 	defaultTheme?: string | undefined
 	/** HTML attribute modified based on the active theme. Accepts `class`, `data-*` (meaning any data attribute, `data-mode`, `data-color`, etc.), or an array which could include both */
@@ -54,26 +49,31 @@ export interface ThemeProviderProps extends React.PropsWithChildren {
 	nonce?: string | undefined
 }
 
+const colorSchemes = ['light', 'dark']
+const MEDIA = '(prefers-color-scheme: dark)'
+const isServer = typeof window === 'undefined'
 const ThemeContext = React.createContext<UseThemeProps | undefined>(undefined)
-// biome-ignore lint/suspicious/noEmptyBlockStatements: noop
-const defaultContext: UseThemeProps = { setTheme: () => {}, themes: [] }
+const defaultContext: UseThemeProps = { setTheme: (_) => {}, themes: [] }
 
-export const useTheme = () => React.use(ThemeContext) ?? defaultContext
+export const useTheme = () => React.useContext(ThemeContext) ?? defaultContext
 
 export const ThemeProvider = (props: ThemeProviderProps): React.ReactNode => {
-	const context = React.use(ThemeContext)
+	const context = React.useContext(ThemeContext)
 
 	// Ignore nested context providers, just passthrough children
 	if (context) return props.children
 	return <Theme {...props} />
 }
 
+const defaultThemes = ['light', 'dark']
+
 const Theme = ({
 	forcedTheme,
 	disableTransitionOnChange = false,
 	enableSystem = true,
 	enableColorScheme = true,
-	themes = COLOR_SCHEMES,
+	storageKey = 'theme',
+	themes = defaultThemes,
 	defaultTheme = enableSystem ? 'system' : 'light',
 	attribute = 'data-theme',
 	value,
@@ -81,13 +81,12 @@ const Theme = ({
 	nonce,
 }: ThemeProviderProps) => {
 	const [theme, setThemeState] = React.useState(() =>
-		getTheme(THEME_STORAGE_KEY, defaultTheme),
+		getTheme(storageKey, defaultTheme),
 	)
 	const attrs = value ? Object.values(value) : themes
 
 	// apply selected theme function (light, dark, system)
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
 	const applyTheme = React.useCallback((theme: string | undefined) => {
 		let resolved = theme
 		if (!resolved) return
@@ -118,10 +117,8 @@ const Theme = ({
 		else handleAttribute(attribute)
 
 		if (enableColorScheme) {
-			const fallback = COLOR_SCHEMES.includes(defaultTheme)
-				? defaultTheme
-				: null
-			const colorScheme = COLOR_SCHEMES.includes(resolved) ? resolved : fallback
+			const fallback = colorSchemes.includes(defaultTheme) ? defaultTheme : null
+			const colorScheme = colorSchemes.includes(resolved) ? resolved : fallback
 			// @ts-ignore
 			d.style.colorScheme = colorScheme
 		}
@@ -130,37 +127,42 @@ const Theme = ({
 	}, [])
 
 	// Set theme state and save to local storage
-	const setTheme: React.Dispatch<React.SetStateAction<string>> =
-		React.useCallback(
-			(value) => {
-				const newTheme =
-					typeof value === 'function' ? value(theme as string) : value
-				setThemeState(newTheme)
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	const setTheme = React.useCallback(
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+		(value: any) => {
+			const newTheme = typeof value === 'function' ? value(theme) : value
+			setThemeState(newTheme)
 
-				// Save to storage
-				try {
-					localStorage.setItem(THEME_STORAGE_KEY, newTheme)
-				} catch {
-					// Unsupported
-				}
-			},
-			[theme],
-		)
+			// Save to storage
+			try {
+				localStorage.setItem(storageKey, newTheme)
+			} catch (e) {
+				// Unsupported
+			}
+		},
+		[theme],
+	)
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	const handleMediaQuery = React.useCallback(() => {
-		if (theme === 'system' && enableSystem && !forcedTheme) {
-			applyTheme('system')
-		}
-	}, [theme, forcedTheme])
+	const handleMediaQuery = React.useCallback(
+		(e: MediaQueryListEvent | MediaQueryList) => {
+			const resolved = getSystemTheme(e)
+
+			if (theme === 'system' && enableSystem && !forcedTheme) {
+				applyTheme('system')
+			}
+		},
+		[theme, forcedTheme],
+	)
 
 	// Always listen to System preference
 	React.useEffect(() => {
-		const media = window.matchMedia(PREFERS_COLOR_SCHEME)
+		const media = window.matchMedia(MEDIA)
 
 		// Intentionally use deprecated listener methods to support iOS & old browsers
 		media.addListener(handleMediaQuery)
-		handleMediaQuery()
+		handleMediaQuery(media)
 
 		return () => media.removeListener(handleMediaQuery)
 	}, [handleMediaQuery])
@@ -169,7 +171,7 @@ const Theme = ({
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	React.useEffect(() => {
 		const handleStorage = (e: StorageEvent) => {
-			if (e.key !== THEME_STORAGE_KEY) {
+			if (e.key !== storageKey) {
 				return
 			}
 
@@ -188,15 +190,6 @@ const Theme = ({
 		applyTheme(forcedTheme ?? theme)
 	}, [forcedTheme, theme])
 
-	/* Update theme-color meta tag
-	 * when theme is updated */
-	useEffect(() => {
-		const color =
-			theme === 'dark' ? THEME_COLOR_MAP.dark : THEME_COLOR_MAP.light
-		const metaThemeColor = document.querySelector("meta[name='theme-color']")
-		metaThemeColor?.setAttribute('content', color)
-	}, [theme])
-
 	const providerValue = React.useMemo(
 		() => ({
 			theme,
@@ -208,10 +201,11 @@ const Theme = ({
 	)
 
 	return (
-		<ThemeContext value={providerValue}>
+		<ThemeContext.Provider value={providerValue}>
 			<ThemeScript
 				{...{
 					forcedTheme,
+					storageKey,
 					attribute,
 					enableSystem,
 					enableColorScheme,
@@ -222,13 +216,14 @@ const Theme = ({
 				}}
 			/>
 			{children}
-		</ThemeContext>
+		</ThemeContext.Provider>
 	)
 }
 
 const ThemeScript = React.memo(
 	({
 		forcedTheme,
+		storageKey,
 		attribute,
 		enableSystem,
 		enableColorScheme,
@@ -239,6 +234,7 @@ const ThemeScript = React.memo(
 	}: Omit<ThemeProviderProps, 'children'> & { defaultTheme: string }) => {
 		const scriptArgs = JSON.stringify([
 			attribute,
+			storageKey,
 			defaultTheme,
 			forcedTheme,
 			themes,
@@ -256,23 +252,21 @@ const ThemeScript = React.memo(
 					__html: `(${script.toString()})(${scriptArgs})`,
 				}}
 			/>
+			// <></>
 		)
 	},
 )
 
 // Helpers
-const getTheme = (key: string, fallback: string): string | undefined => {
-	if (typeof window === 'undefined') return undefined
+const getTheme = (key: string, fallback?: string) => {
+	if (isServer) return undefined
 	let theme: string | undefined
 	try {
 		theme = localStorage.getItem(key) || undefined
-	} catch {
+	} catch (e) {
 		// Unsupported
 	}
-
-	if (!theme) return fallback
-
-	return theme
+	return theme || fallback
 }
 
 const disableAnimation = () => {
@@ -296,7 +290,7 @@ const disableAnimation = () => {
 }
 
 const getSystemTheme = (e?: MediaQueryList | MediaQueryListEvent) => {
-	const event = e ?? window.matchMedia(PREFERS_COLOR_SCHEME)
+	const event = e ?? window.matchMedia(MEDIA)
 	const isDark = event.matches
 	const systemTheme = isDark ? 'dark' : 'light'
 	return systemTheme
@@ -308,8 +302,9 @@ const getSystemTheme = (e?: MediaQueryList | MediaQueryListEvent) => {
 */
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-const script: (...args: any[]) => void = (
+export const script: (...args: any[]) => void = (
 	attribute,
+	storageKey,
 	defaultTheme,
 	forcedTheme,
 	themes,
@@ -318,6 +313,7 @@ const script: (...args: any[]) => void = (
 	enableColorScheme,
 ) => {
 	const el = document.documentElement
+	const systemThemes = ['light', 'dark']
 	const isClass = attribute === 'class'
 	const classes =
 		isClass && value
@@ -336,7 +332,7 @@ const script: (...args: any[]) => void = (
 	}
 
 	function setColorScheme(theme: string) {
-		if (enableColorScheme && COLOR_SCHEMES.includes(theme)) {
+		if (enableColorScheme && systemThemes.includes(theme)) {
 			el.style.colorScheme = theme
 		}
 	}
@@ -351,11 +347,11 @@ const script: (...args: any[]) => void = (
 		updateDOM(forcedTheme)
 	} else {
 		try {
-			const themeName = localStorage.getItem(THEME_STORAGE_KEY) || defaultTheme
+			const themeName = localStorage.getItem(storageKey) || defaultTheme
 			const isSystem = enableSystem && themeName === 'system'
 			const theme = isSystem ? getSystemTheme() : themeName
 			updateDOM(theme)
-		} catch {
+		} catch (e) {
 			//
 		}
 	}

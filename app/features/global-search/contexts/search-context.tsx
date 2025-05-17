@@ -7,7 +7,7 @@ import {
 	useEffect,
 	useState,
 } from 'react'
-import { CommandMenu } from '~/components/command-menu'
+import { CommandMenu } from '~/features/global-search/components/command-menu'
 
 interface SearchContextType {
 	open: boolean

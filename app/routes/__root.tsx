@@ -10,7 +10,7 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import type { ReactElement, ReactNode } from 'react'
 
 import { NotFoundError } from '~/components/errors/not-found-error'
-import { ThemeProvider } from '~/contexts/theme-context'
+import { ThemeProvider } from '~/features/theme/contexts/theme-context'
 import appCss from '~/styles/app.css?url'
 
 export const Route = createRootRouteWithContext<{
@@ -47,7 +47,9 @@ export const Route = createRootRouteWithContext<{
 function RootComponent(): ReactElement {
 	return (
 		<RootDocument>
-			<Outlet />
+			<ThemeProvider attribute="class">
+				<Outlet />
+			</ThemeProvider>
 		</RootDocument>
 	)
 }
@@ -59,7 +61,7 @@ function RootDocument({ children }: { children: ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<ThemeProvider attribute="class">{children}</ThemeProvider>
+				{children}
 				{import.meta.env.MODE === 'development' && (
 					<>
 						<ReactQueryDevtools buttonPosition="bottom-left" />
