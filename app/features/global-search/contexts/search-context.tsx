@@ -1,29 +1,21 @@
-import {
-	type Dispatch,
-	type ReactNode,
-	type SetStateAction,
-	createContext,
-	use,
-	useEffect,
-	useState,
-} from 'react'
+import React from 'react'
 import { CommandMenu } from '~/features/global-search/components/command-menu'
 
 interface SearchContextType {
 	open: boolean
-	setOpen: Dispatch<SetStateAction<boolean>>
+	setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const SearchContext = createContext<SearchContextType | null>(null)
+const SearchContext = React.createContext<SearchContextType | null>(null)
 
 interface Props {
-	children: ReactNode
+	children: React.ReactNode
 }
 
 export function SearchProvider({ children }: Props) {
-	const [open, setOpen] = useState(false)
+	const [open, setOpen] = React.useState(false)
 
-	useEffect(() => {
+	React.useEffect(() => {
 		const down = (e: KeyboardEvent) => {
 			if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
 				e.preventDefault()
@@ -42,6 +34,4 @@ export function SearchProvider({ children }: Props) {
 	)
 }
 
-export const useSearch = () => {
-	return use(SearchContext)
-}
+export const useSearch = () => React.use(SearchContext)

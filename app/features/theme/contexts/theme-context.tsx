@@ -53,12 +53,13 @@ const colorSchemes = ['light', 'dark']
 const MEDIA = '(prefers-color-scheme: dark)'
 const isServer = typeof window === 'undefined'
 const ThemeContext = React.createContext<UseThemeProps | undefined>(undefined)
+// biome-ignore lint/suspicious/noEmptyBlockStatements: noop
 const defaultContext: UseThemeProps = { setTheme: (_) => {}, themes: [] }
 
-export const useTheme = () => React.useContext(ThemeContext) ?? defaultContext
+export const useTheme = () => React.use(ThemeContext) ?? defaultContext
 
 export const ThemeProvider = (props: ThemeProviderProps): React.ReactNode => {
-	const context = React.useContext(ThemeContext)
+	const context = React.use(ThemeContext)
 
 	// Ignore nested context providers, just passthrough children
 	if (context) return props.children
@@ -87,6 +88,7 @@ const Theme = ({
 
 	// apply selected theme function (light, dark, system)
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
 	const applyTheme = React.useCallback((theme: string | undefined) => {
 		let resolved = theme
 		if (!resolved) return
@@ -137,7 +139,7 @@ const Theme = ({
 			// Save to storage
 			try {
 				localStorage.setItem(storageKey, newTheme)
-			} catch (e) {
+			} catch (_e) {
 				// Unsupported
 			}
 		},
@@ -147,7 +149,7 @@ const Theme = ({
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
 	const handleMediaQuery = React.useCallback(
 		(e: MediaQueryListEvent | MediaQueryList) => {
-			const resolved = getSystemTheme(e)
+			const _resolved = getSystemTheme(e)
 
 			if (theme === 'system' && enableSystem && !forcedTheme) {
 				applyTheme('system')
@@ -201,7 +203,7 @@ const Theme = ({
 	)
 
 	return (
-		<ThemeContext.Provider value={providerValue}>
+		<ThemeContext value={providerValue}>
 			<ThemeScript
 				{...{
 					forcedTheme,
@@ -216,7 +218,7 @@ const Theme = ({
 				}}
 			/>
 			{children}
-		</ThemeContext.Provider>
+		</ThemeContext>
 	)
 }
 
@@ -263,7 +265,7 @@ const getTheme = (key: string, fallback?: string) => {
 	let theme: string | undefined
 	try {
 		theme = localStorage.getItem(key) || undefined
-	} catch (e) {
+	} catch (_e) {
 		// Unsupported
 	}
 	return theme || fallback
@@ -351,7 +353,7 @@ export const script: (...args: any[]) => void = (
 			const isSystem = enableSystem && themeName === 'system'
 			const theme = isSystem ? getSystemTheme() : themeName
 			updateDOM(theme)
-		} catch (e) {
+		} catch (_e) {
 			//
 		}
 	}

@@ -1,12 +1,5 @@
-import {
-	type ComponentProps,
-	type HTMLAttributes,
-	useEffect,
-	useState,
-} from 'react'
-
+import React from 'react'
 import { cn } from '~/lib/utils'
-
 import { Search } from '../../features/global-search/components/search-button'
 import { ThemeSwitch } from '../../features/theme/components/theme-switch'
 import { ProfileDropdown } from '../profile-dropdown'
@@ -16,7 +9,7 @@ import { TopNav } from './top-nav'
 
 interface HeaderProps {
 	fixed?: boolean
-	topNavLinks?: ComponentProps<typeof TopNav>['links']
+	topNavLinks?: React.ComponentProps<typeof TopNav>['links']
 }
 
 export function Header({ topNavLinks, fixed }: HeaderProps) {
@@ -44,7 +37,7 @@ export function Header({ topNavLinks, fixed }: HeaderProps) {
 	)
 }
 
-interface HeaderWrapperProps extends HTMLAttributes<HTMLElement> {
+interface HeaderWrapperProps extends React.HTMLAttributes<HTMLElement> {
 	fixed?: boolean
 }
 
@@ -54,9 +47,9 @@ export function HeaderWrapper({
 	children,
 	...props
 }: HeaderWrapperProps) {
-	const [offset, setOffset] = useState(0)
+	const [offset, setOffset] = React.useState(0)
 
-	useEffect(() => {
+	React.useEffect(() => {
 		const onScroll = () => {
 			setOffset(document.body.scrollTop || document.documentElement.scrollTop)
 		}

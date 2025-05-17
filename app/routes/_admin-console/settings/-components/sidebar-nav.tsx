@@ -6,8 +6,7 @@ import {
 	IconUser,
 } from '@tabler/icons-react'
 import { Link, useLocation, useNavigate } from '@tanstack/react-router'
-import { type HTMLAttributes, useState } from 'react'
-
+import React from 'react'
 import { buttonVariants } from '~/components/ui/button'
 import { ScrollArea } from '~/components/ui/scroll-area'
 import {
@@ -47,12 +46,12 @@ const sidebarNavItems = [
 	},
 ]
 
-type Props = HTMLAttributes<HTMLElement>
+type Props = React.HTMLAttributes<HTMLElement>
 
 export function SidebarNav({ className, ...props }: Props) {
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
-	const [val, setVal] = useState(pathname ?? '/settings')
+	const [val, setVal] = React.useState(pathname ?? '/settings')
 
 	const handleSelect = (e: string) => {
 		setVal(e)
