@@ -30,6 +30,7 @@
 		"tabler",
 		"unenv",
 		"vinxi",
+		"VITE",
 		"vitest"
 	],
 	"editor.codeActionsOnSave": {
