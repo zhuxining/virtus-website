@@ -12,7 +12,6 @@ main = ".output/server/index.mjs"
 
 compatibility_flags = ["nodejs_compat"]
 
-
 # Use a recent compatibility date
 
 compatibility_date = "2024-09-19" # Or a later date
@@ -23,31 +22,29 @@ compatibility_date = "2024-09-19" # Or a later date
 
 # Check Vinxi/Nitro Cloudflare preset docs for asset handling specifics.
 
-# assets = { directory = "./.output/public/", binding = "ASSETS" }
-
+assets = { directory = "./.output/public/", binding = "ASSETS" }
 
 # Example: Route traffic from your custom domain to this worker
 
 # routes = [{ pattern = "your-domain.com", custom_domain = true }]
-
 
 # Define bindings for Cloudflare resources (KV, R2, D1, etc.)
 
 # These names must match the variable names used in your Worker code
 
 
-[[kv_namespaces]]
+# [[kv_namespaces]]
 
-binding = "YOUR_KV_BINDING_NAME" # e.g., SESSION_KV
+# binding = "YOUR_KV_BINDING_NAME" # e.g., SESSION_KV
 
-id = "your_kv_namespace_id" # Find in Cloudflare Dashboard
+# id = "your_kv_namespace_id" # Find in Cloudflare Dashboard
 
 
-[[r2_buckets]]
+# [[r2_buckets]]
 
-binding = "PROFILE_BUCKET" # e.g., USER_PROFILES_BUCKET
+# binding = "PROFILE_BUCKET" # e.g., USER_PROFILES_BUCKET
 
-bucket_name = "user-profiles" # Your R2 bucket name
+# bucket_name = "user-profiles" # Your R2 bucket name
 
 # Add other bindings (D1 databases, Queues, etc.) as needed
 

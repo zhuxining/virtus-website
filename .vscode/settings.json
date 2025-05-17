@@ -37,5 +37,6 @@
 		"quickfix.biome": "explicit",
 		"source.organizeImports.biome": "explicit"
 	},
-	"editor.formatOnSave": true
+	"editor.formatOnSave": true,
+	"tailwindCSS.experimental.classRegex": ["cn\\(([^)]+)\\)"]
 }
