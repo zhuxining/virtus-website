@@ -49,16 +49,16 @@ A powerful, full-stack SaaS starter template built with modern technologies. Thi
     cd han-stack
     ```
 
-2. Install dependencies
-
-    ```bash
-    npm ci
-    ```
-
-3. Create .env
+2. Create .env
 
     ```bash
     cp .env.example .env
+    ```
+
+3. Install dependencies
+
+    ```bash
+    npm ci
     ```
 
 4. Generate Prisma client
@@ -79,12 +79,14 @@ A powerful, full-stack SaaS starter template built with modern technologies. Thi
 
 ```txt
 app/
-├── components/     # Reusable UI components
-├── generated/      # Generated files
+├── components/    # Reusable UI components
+├── constants/     # Constants
+├── contexts/      # React contexts
+├── generated/     # Generated files
+├── generated/     # Reusable hooks
 ├── lib/           # Shared utilities and hooks
 ├── routes/        # Application routes
 ├── server/        # Backend server code
-└── api.ts         # API definitions
 ```
 
 ### Scripts

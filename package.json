@@ -2,7 +2,7 @@
 	"name": "han-stack",
 	"version": "1.0.0",
 	"type": "module",
-	"license": "ISC",
+	"license": "MIT",
 	"scripts": {
 		"dev": "vinxi dev",
 		"build": "vinxi build",
