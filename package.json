@@ -6,6 +6,7 @@
 	"scripts": {
 		"dev": "vinxi dev",
 		"build": "vinxi build",
+		"preview": "wrangler  dev --port 3000",
 		"generate": "prisma generate zod",
 		"prisma:studio": "prisma studio",
 		"db:seed": "prisma db seed",
@@ -72,6 +73,7 @@
 		"tsx": "^4.19.4",
 		"typescript": "^5.8.3",
 		"vite-tsconfig-paths": "^5.1.4",
+		"wrangler": "^4.15.2",
 		"zod-prisma-types": "^3.2.4"
 	},
 	"prisma": {
