@@ -1,7 +1,6 @@
 import { Link, useLocation } from '@tanstack/react-router'
 import { ChevronRight } from 'lucide-react'
-import type { ReactNode } from 'react'
-
+import type React from 'react'
 import { Badge } from '../ui/badge'
 import {
 	Collapsible,
@@ -60,7 +59,7 @@ export function NavGroup({ title, items }: NavGroupType) {
 	)
 }
 
-const NavBadge = ({ children }: { children: ReactNode }) => (
+const NavBadge = ({ children }: { children: React.ReactNode }) => (
 	<Badge className="rounded-full px-1 py-0 text-xs">{children}</Badge>
 )
 

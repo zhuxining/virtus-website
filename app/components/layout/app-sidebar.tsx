@@ -1,5 +1,4 @@
-import type { ComponentProps } from 'react'
-
+import type React from 'react'
 import {
 	Sidebar,
 	SidebarContent,
@@ -12,7 +11,7 @@ import { NavGroup } from './nav-group'
 import { NavUser } from './nav-user'
 import { TeamSwitcher } from './team-switcher'
 
-export function AppSidebar({ ...props }: ComponentProps<typeof Sidebar>) {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (
 		<Sidebar collapsible="icon" variant="floating" {...props}>
 			<SidebarHeader>

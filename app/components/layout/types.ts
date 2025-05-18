@@ -1,5 +1,5 @@
 import type { LinkProps } from '@tanstack/react-router'
-import type { ElementType } from 'react'
+import type React from 'react'
 
 interface User {
 	name: string
@@ -9,14 +9,14 @@ interface User {
 
 interface Team {
 	name: string
-	logo: ElementType
+	logo: React.ElementType
 	plan: string
 }
 
 interface BaseNavItem {
 	title: string
 	badge?: string
-	icon?: ElementType
+	icon?: React.ElementType
 }
 
 type NavLink = BaseNavItem & {

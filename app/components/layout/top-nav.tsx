@@ -1,9 +1,7 @@
 import { IconMenu } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
-import type { HTMLAttributes } from 'react'
-
+import type React from 'react'
 import { cn } from '~/lib/utils'
-
 import { Button } from '../ui/button'
 import {
 	DropdownMenu,
@@ -12,7 +10,7 @@ import {
 	DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
 
-interface TopNavProps extends HTMLAttributes<HTMLElement> {
+interface TopNavProps extends React.HTMLAttributes<HTMLElement> {
 	links: {
 		title: string
 		href: string

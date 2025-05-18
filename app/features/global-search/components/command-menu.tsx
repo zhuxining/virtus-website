@@ -1,10 +1,8 @@
 import { IconArrowRightDashed, IconMoon, IconSun } from '@tabler/icons-react'
 import { useNavigate } from '@tanstack/react-router'
 import React from 'react'
-
 import { useSearch } from '~/features/global-search/contexts/search-context'
 import { useTheme } from '~/features/theme/contexts/theme-context'
-
 import { sidebarData } from '../../../components/layout/data/sidebar-data'
 import {
 	CommandDialog,

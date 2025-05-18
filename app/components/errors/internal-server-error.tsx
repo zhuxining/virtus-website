@@ -1,11 +1,9 @@
 import { useNavigate, useRouter } from '@tanstack/react-router'
-import type { HTMLAttributes } from 'react'
-
+import type React from 'react'
 import { cn } from '~/lib/utils'
-
 import { Button } from '../ui/button'
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
 	minimal?: boolean
 }
 

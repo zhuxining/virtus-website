@@ -1,8 +1,7 @@
-import type { HTMLAttributes } from 'react'
-
+import type React from 'react'
 import { cn } from '~/lib/utils'
 
-interface MainProps extends HTMLAttributes<HTMLElement> {
+interface MainProps extends React.HTMLAttributes<HTMLElement> {
 	fixed?: boolean
 }
 
