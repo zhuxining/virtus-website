@@ -22,12 +22,20 @@
 	// Observability options
 	"observability": {
 		"enabled": true
-	}
+	},
 
 	// Optional: Route traffic from your custom domain to this worker
 	// "routes": [{ "pattern": "your-domain.com", "custom_domain": true }],
 
 	// Optional: Bindings for Cloudflare resources (uncomment and edit as needed)
+
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "han-stack",
+			"database_id": "00000000-0000-0000-0000-000000000000"
+		}
+	]
 
 	/*
   "kv_namespaces": [

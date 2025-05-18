@@ -17,6 +17,7 @@ node_modules/
 .wrangler/
 
 # Prisma
+dev.db
 app/generated/
 prisma/data.db
 prisma/data.db-journal
