@@ -147,16 +147,11 @@ const Theme = ({
 	)
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	const handleMediaQuery = React.useCallback(
-		(e: MediaQueryListEvent | MediaQueryList) => {
-			const _resolved = getSystemTheme(e)
-
-			if (theme === 'system' && enableSystem && !forcedTheme) {
-				applyTheme('system')
-			}
-		},
-		[theme, forcedTheme],
-	)
+	const handleMediaQuery = React.useCallback(() => {
+		if (theme === 'system' && enableSystem && !forcedTheme) {
+			applyTheme('system')
+		}
+	}, [theme, forcedTheme])
 
 	// Always listen to System preference
 	React.useEffect(() => {
@@ -164,7 +159,7 @@ const Theme = ({
 
 		// Intentionally use deprecated listener methods to support iOS & old browsers
 		media.addListener(handleMediaQuery)
-		handleMediaQuery(media)
+		handleMediaQuery()
 
 		return () => media.removeListener(handleMediaQuery)
 	}, [handleMediaQuery])
@@ -254,7 +249,6 @@ const ThemeScript = React.memo(
 					__html: `(${script.toString()})(${scriptArgs})`,
 				}}
 			/>
-			// <></>
 		)
 	},
 )
