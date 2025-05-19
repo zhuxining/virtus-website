@@ -44,5 +44,8 @@
 		"source.organizeImports.biome": "explicit"
 	},
 	"editor.formatOnSave": true,
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
 	"tailwindCSS.experimental.classRegex": ["cn\\(([^)]+)\\)"]
 }
