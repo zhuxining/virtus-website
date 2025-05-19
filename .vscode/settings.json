@@ -44,5 +44,14 @@
 		"source.organizeImports.biome": "explicit"
 	},
 	"editor.formatOnSave": true,
-	"tailwindCSS.experimental.classRegex": ["cn\\(([^)]+)\\)"]
+	"tailwindCSS.experimental.classRegex": ["cn\\(([^)]+)\\)"],
+	"files.watcherExclude": {
+		"**/routeTree.gen.ts": true
+	},
+	"search.exclude": {
+		"**/routeTree.gen.ts": true
+	},
+	"files.readonlyInclude": {
+		"**/routeTree.gen.ts": true
+	}
 }

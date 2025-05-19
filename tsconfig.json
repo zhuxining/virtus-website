@@ -1,26 +1,38 @@
 {
-  "compilerOptions": {
-    // Modules
-    "moduleResolution": "Bundler",
-    "module": "ESNext",
-    "target": "ES2022",
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"include": ["**/*.ts", "**/*.tsx"],
+	"compilerOptions": {
+		"lib": ["ESNext", "DOM"],
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleDetection": "force",
+		"jsx": "react-jsx",
+		"allowJs": true,
 
-    // JSX
-    "jsx": "react-jsx",
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"verbatimModuleSyntax": true,
+		"noEmit": true,
 
-    // Strictness
-    "allowImportingTsExtensions": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "verbatimModuleSyntax": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"noFallthroughCasesInSwitch": true,
 
-    // Paths
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["app/*"]
-    }
-  }
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		// "noPropertyAccessFromIndexSignature": true,
+
+		"declaration": true,
+		"declarationMap": true,
+		"incremental": true,
+		"isolatedModules": true,
+		"noUncheckedIndexedAccess": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["app/*"]
+		}
+	}
 }

@@ -2,7 +2,7 @@ import { defineConfig } from '@tanstack/react-start/config'
 import { cloudflare } from 'unenv'
 import tsConfigPaths from 'vite-tsconfig-paths'
 
-export default defineConfig({
+const config = defineConfig({
 	server: {
 		preset: 'cloudflare-module',
 		unenv: cloudflare,
@@ -21,3 +21,5 @@ export default defineConfig({
 		},
 	},
 })
+
+export default config

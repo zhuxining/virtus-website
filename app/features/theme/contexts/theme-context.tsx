@@ -51,7 +51,7 @@ const colorSchemes = ['light', 'dark']
 const MEDIA = '(prefers-color-scheme: dark)'
 const isServer = typeof window === 'undefined'
 const ThemeContext = React.createContext<UseThemeProps | undefined>(undefined)
-// biome-ignore lint/suspicious/noEmptyBlockStatements: noop
+
 const defaultContext: UseThemeProps = { setTheme: (_) => {}, themes: [] }
 
 export const useTheme = () => React.use(ThemeContext) ?? defaultContext
