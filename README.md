@@ -1,5 +1,7 @@
 # Han Stack - Modern SaaS Template
 
+> This template is currently under development. Example code will be added soon, but it's ready for production use. (Depends on Tanstack start version)
+
 A powerful, full-stack SaaS starter template built with modern technologies. This template provides a solid foundation for building scalable SaaS applications with best practices and industry-standard tools.
 
 ## Features
@@ -81,12 +83,15 @@ A powerful, full-stack SaaS starter template built with modern technologies. Thi
 app/
 ├── components/    # Reusable UI components
 ├── constants/     # Constants
-├── contexts/      # React contexts
-├── generated/     # Generated files
-├── generated/     # Reusable hooks
-├── lib/           # Shared utilities and hooks
+├── features/      # Feature modules (e.g., theme, global search)
+├── hooks/         # Reusable React hooks
+├── lib/           # Shared utilities and helpers
 ├── routes/        # Application routes
 ├── server/        # Backend server code
+├── styles/        # Global and component styles
+├── utils/         # Utility functions and helpers
+public/            # Static assets
+prisma/            # Prisma schema and seed files
 ```
 
 ### Scripts
@@ -109,6 +114,13 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Support
 
 If you find this template helpful, please consider giving it a star ⭐️
+
+## Inspiration
+
+This project draws inspiration from the following amazing repositories:
+
+- [shadcn-admin](https://github.com/satnaing/shadcn-admin)
+- [create-better-t-stack](https://github.com/AmanVarshney01/create-better-t-stack)
 
 ---
 
