@@ -1,0 +1,23 @@
+.DS_Store
+
+# Secrets and Local Overrides
+.env
+.dev.vars
+
+# Build output
+.output/
+dist/
+.vinxi/
+tsconfig.tsbuildinfo
+
+# Dependencies
+node_modules/
+
+# Wrangler state
+.wrangler/
+
+# Prisma
+dev.db
+app/generated/
+prisma/data.db
+prisma/data.db-journal
