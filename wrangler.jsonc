@@ -8,7 +8,7 @@
 	"main": ".output/server/index.mjs",
 
 	// Node.js compatibility
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": ["nodejs_compat_v2"],
 	"compatibility_date": "2025-05-19", // Use a recent compatibility date
 
 	// Retain original function and class names (optional)
@@ -22,6 +22,9 @@
 	// Observability options
 	"observability": {
 		"enabled": true
+	},
+	"placement": {
+		"mode": "smart"
 	},
 
 	// Optional: Route traffic from your custom domain to this worker
