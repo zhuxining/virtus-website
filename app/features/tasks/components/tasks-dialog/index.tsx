@@ -1,8 +1,8 @@
-import { ConfirmDialog } from '~/components/confirm-dialog'
+import { ConfirmDialog } from '~/components/ConfirmDialog'
 import { showSubmittedData } from '~/utils/show-submitted-data'
-import { useTasks } from '../../-contexts/tasks-content'
-import { TasksImportDialog } from './tasks-import-dialog'
-import { TasksMutateDrawer } from './tasks-mutate-drawer'
+import { useTasks } from '../../contexts/tasks-content'
+import { TasksImportDialog } from './TasksImportDialog'
+import { TasksMutateDrawer } from './TasksMutateDrawer'
 
 export function TasksDialogs() {
 	const { open, setOpen, currentRow, setCurrentRow } = useTasks()

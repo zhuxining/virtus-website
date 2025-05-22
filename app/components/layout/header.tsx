@@ -1,11 +1,11 @@
 import React from 'react'
+import { Search } from '~/features/global-search/components/SearchButton'
+import { ThemeSwitch } from '~/features/theme/components/ThemeSwitch'
 import { cn } from '~/lib/utils'
-import { Search } from '../../features/global-search/components/search-button'
-import { ThemeSwitch } from '../../features/theme/components/theme-switch'
-import { ProfileDropdown } from '../profile-dropdown'
+import { ProfileDropdown } from '../ProfileDropdown'
 import { Separator } from '../ui/separator'
 import { SidebarTrigger } from '../ui/sidebar'
-import { TopNav } from './top-nav'
+import { TopNav } from './TopNav'
 
 interface HeaderProps {
 	fixed?: boolean
@@ -41,7 +41,7 @@ interface HeaderWrapperProps extends React.HTMLAttributes<HTMLElement> {
 	fixed?: boolean
 }
 
-export function HeaderWrapper({
+function HeaderWrapper({
 	className,
 	fixed,
 	children,

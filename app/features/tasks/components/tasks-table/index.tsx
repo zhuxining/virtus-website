@@ -21,8 +21,8 @@ import {
 	TableHeader,
 	TableRow,
 } from '~/components/ui/table'
-import { TasksTablePagination } from './tasks-table-pagination'
-import { TasksTableToolbar } from './tasks-table-toolbar'
+import { TasksTableToolbar } from './RasksTableToolbar'
+import { TasksTablePagination } from './TasksTablePagination'
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[]
