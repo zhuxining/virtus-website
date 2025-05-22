@@ -30,7 +30,7 @@ jobs:
         uses: bahmutov/npm-install@6bbff949458c1dd99b20e185cee8c4d6fcf1212a # v1.10.9
 
       - name: 🔎 Type check
-        run: npm run check:ts -- --if-present
+        run: npm run check:ts
 
   # vitest:
   #   permissions:
