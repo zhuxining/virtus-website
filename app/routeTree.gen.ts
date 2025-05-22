@@ -19,6 +19,10 @@ import { Route as errors500Import } from './routes/(errors)/500'
 import { Route as errors404Import } from './routes/(errors)/404'
 import { Route as errors403Import } from './routes/(errors)/403'
 import { Route as errors401Import } from './routes/(errors)/401'
+import { Route as authSignUpImport } from './routes/(auth)/sign-up'
+import { Route as authSignInImport } from './routes/(auth)/sign-in'
+import { Route as authOtpImport } from './routes/(auth)/otp'
+import { Route as authForgotPasswordImport } from './routes/(auth)/forgot-password'
 import { Route as AdminConsoleSettingsRouteImport } from './routes/_admin-console/settings/route'
 import { Route as AdminConsoleUsersIndexImport } from './routes/_admin-console/users/index'
 import { Route as AdminConsoleTasksIndexImport } from './routes/_admin-console/tasks/index'
@@ -26,10 +30,6 @@ import { Route as AdminConsoleSettingsIndexImport } from './routes/_admin-consol
 import { Route as AdminConsoleHelpCenterIndexImport } from './routes/_admin-console/help-center/index'
 import { Route as AdminConsoleChatsIndexImport } from './routes/_admin-console/chats/index'
 import { Route as AdminConsoleAppsIndexImport } from './routes/_admin-console/apps/index'
-import { Route as authSignUpIndexImport } from './routes/(auth)/sign-up/index'
-import { Route as authSignInIndexImport } from './routes/(auth)/sign-in/index'
-import { Route as authOtpIndexImport } from './routes/(auth)/otp/index'
-import { Route as authForgotPasswordIndexImport } from './routes/(auth)/forgot-password/index'
 import { Route as AdminConsoleSettingsNotificationsImport } from './routes/_admin-console/settings/notifications'
 import { Route as AdminConsoleSettingsDisplayImport } from './routes/_admin-console/settings/display'
 import { Route as AdminConsoleSettingsAppearanceImport } from './routes/_admin-console/settings/appearance'
@@ -83,6 +83,30 @@ const errors401Route = errors401Import.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const authSignUpRoute = authSignUpImport.update({
+  id: '/sign-up',
+  path: '/sign-up',
+  getParentRoute: () => authRouteRoute,
+} as any)
+
+const authSignInRoute = authSignInImport.update({
+  id: '/sign-in',
+  path: '/sign-in',
+  getParentRoute: () => authRouteRoute,
+} as any)
+
+const authOtpRoute = authOtpImport.update({
+  id: '/otp',
+  path: '/otp',
+  getParentRoute: () => authRouteRoute,
+} as any)
+
+const authForgotPasswordRoute = authForgotPasswordImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => authRouteRoute,
+} as any)
+
 const AdminConsoleSettingsRouteRoute = AdminConsoleSettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
@@ -124,30 +148,6 @@ const AdminConsoleAppsIndexRoute = AdminConsoleAppsIndexImport.update({
   id: '/apps/',
   path: '/apps/',
   getParentRoute: () => AdminConsoleRouteRoute,
-} as any)
-
-const authSignUpIndexRoute = authSignUpIndexImport.update({
-  id: '/sign-up/',
-  path: '/sign-up/',
-  getParentRoute: () => authRouteRoute,
-} as any)
-
-const authSignInIndexRoute = authSignInIndexImport.update({
-  id: '/sign-in/',
-  path: '/sign-in/',
-  getParentRoute: () => authRouteRoute,
-} as any)
-
-const authOtpIndexRoute = authOtpIndexImport.update({
-  id: '/otp/',
-  path: '/otp/',
-  getParentRoute: () => authRouteRoute,
-} as any)
-
-const authForgotPasswordIndexRoute = authForgotPasswordIndexImport.update({
-  id: '/forgot-password/',
-  path: '/forgot-password/',
-  getParentRoute: () => authRouteRoute,
 } as any)
 
 const AdminConsoleSettingsNotificationsRoute =
@@ -202,6 +202,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/settings'
       preLoaderRoute: typeof AdminConsoleSettingsRouteImport
       parentRoute: typeof AdminConsoleRouteImport
+    }
+    '/(auth)/forgot-password': {
+      id: '/(auth)/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof authForgotPasswordImport
+      parentRoute: typeof authRouteImport
+    }
+    '/(auth)/otp': {
+      id: '/(auth)/otp'
+      path: '/otp'
+      fullPath: '/otp'
+      preLoaderRoute: typeof authOtpImport
+      parentRoute: typeof authRouteImport
+    }
+    '/(auth)/sign-in': {
+      id: '/(auth)/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof authSignInImport
+      parentRoute: typeof authRouteImport
+    }
+    '/(auth)/sign-up': {
+      id: '/(auth)/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof authSignUpImport
+      parentRoute: typeof authRouteImport
     }
     '/(errors)/401': {
       id: '/(errors)/401'
@@ -273,34 +301,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminConsoleSettingsNotificationsImport
       parentRoute: typeof AdminConsoleSettingsRouteImport
     }
-    '/(auth)/forgot-password/': {
-      id: '/(auth)/forgot-password/'
-      path: '/forgot-password'
-      fullPath: '/forgot-password'
-      preLoaderRoute: typeof authForgotPasswordIndexImport
-      parentRoute: typeof authRouteImport
-    }
-    '/(auth)/otp/': {
-      id: '/(auth)/otp/'
-      path: '/otp'
-      fullPath: '/otp'
-      preLoaderRoute: typeof authOtpIndexImport
-      parentRoute: typeof authRouteImport
-    }
-    '/(auth)/sign-in/': {
-      id: '/(auth)/sign-in/'
-      path: '/sign-in'
-      fullPath: '/sign-in'
-      preLoaderRoute: typeof authSignInIndexImport
-      parentRoute: typeof authRouteImport
-    }
-    '/(auth)/sign-up/': {
-      id: '/(auth)/sign-up/'
-      path: '/sign-up'
-      fullPath: '/sign-up'
-      preLoaderRoute: typeof authSignUpIndexImport
-      parentRoute: typeof authRouteImport
-    }
     '/_admin-console/apps/': {
       id: '/_admin-console/apps/'
       path: '/apps'
@@ -349,17 +349,17 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface authRouteRouteChildren {
-  authForgotPasswordIndexRoute: typeof authForgotPasswordIndexRoute
-  authOtpIndexRoute: typeof authOtpIndexRoute
-  authSignInIndexRoute: typeof authSignInIndexRoute
-  authSignUpIndexRoute: typeof authSignUpIndexRoute
+  authForgotPasswordRoute: typeof authForgotPasswordRoute
+  authOtpRoute: typeof authOtpRoute
+  authSignInRoute: typeof authSignInRoute
+  authSignUpRoute: typeof authSignUpRoute
 }
 
 const authRouteRouteChildren: authRouteRouteChildren = {
-  authForgotPasswordIndexRoute: authForgotPasswordIndexRoute,
-  authOtpIndexRoute: authOtpIndexRoute,
-  authSignInIndexRoute: authSignInIndexRoute,
-  authSignUpIndexRoute: authSignUpIndexRoute,
+  authForgotPasswordRoute: authForgotPasswordRoute,
+  authOtpRoute: authOtpRoute,
+  authSignInRoute: authSignInRoute,
+  authSignUpRoute: authSignUpRoute,
 }
 
 const authRouteRouteWithChildren = authRouteRoute._addFileChildren(
@@ -416,6 +416,10 @@ export interface FileRoutesByFullPath {
   '/': typeof AdminConsoleIndexRoute
   '': typeof AdminConsoleRouteRouteWithChildren
   '/settings': typeof AdminConsoleSettingsRouteRouteWithChildren
+  '/forgot-password': typeof authForgotPasswordRoute
+  '/otp': typeof authOtpRoute
+  '/sign-in': typeof authSignInRoute
+  '/sign-up': typeof authSignUpRoute
   '/401': typeof errors401Route
   '/403': typeof errors403Route
   '/404': typeof errors404Route
@@ -425,10 +429,6 @@ export interface FileRoutesByFullPath {
   '/settings/appearance': typeof AdminConsoleSettingsAppearanceRoute
   '/settings/display': typeof AdminConsoleSettingsDisplayRoute
   '/settings/notifications': typeof AdminConsoleSettingsNotificationsRoute
-  '/forgot-password': typeof authForgotPasswordIndexRoute
-  '/otp': typeof authOtpIndexRoute
-  '/sign-in': typeof authSignInIndexRoute
-  '/sign-up': typeof authSignUpIndexRoute
   '/apps': typeof AdminConsoleAppsIndexRoute
   '/chats': typeof AdminConsoleChatsIndexRoute
   '/help-center': typeof AdminConsoleHelpCenterIndexRoute
@@ -439,6 +439,10 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof AdminConsoleIndexRoute
+  '/forgot-password': typeof authForgotPasswordRoute
+  '/otp': typeof authOtpRoute
+  '/sign-in': typeof authSignInRoute
+  '/sign-up': typeof authSignUpRoute
   '/401': typeof errors401Route
   '/403': typeof errors403Route
   '/404': typeof errors404Route
@@ -448,10 +452,6 @@ export interface FileRoutesByTo {
   '/settings/appearance': typeof AdminConsoleSettingsAppearanceRoute
   '/settings/display': typeof AdminConsoleSettingsDisplayRoute
   '/settings/notifications': typeof AdminConsoleSettingsNotificationsRoute
-  '/forgot-password': typeof authForgotPasswordIndexRoute
-  '/otp': typeof authOtpIndexRoute
-  '/sign-in': typeof authSignInIndexRoute
-  '/sign-up': typeof authSignUpIndexRoute
   '/apps': typeof AdminConsoleAppsIndexRoute
   '/chats': typeof AdminConsoleChatsIndexRoute
   '/help-center': typeof AdminConsoleHelpCenterIndexRoute
@@ -465,6 +465,10 @@ export interface FileRoutesById {
   '/(auth)': typeof authRouteRouteWithChildren
   '/_admin-console': typeof AdminConsoleRouteRouteWithChildren
   '/_admin-console/settings': typeof AdminConsoleSettingsRouteRouteWithChildren
+  '/(auth)/forgot-password': typeof authForgotPasswordRoute
+  '/(auth)/otp': typeof authOtpRoute
+  '/(auth)/sign-in': typeof authSignInRoute
+  '/(auth)/sign-up': typeof authSignUpRoute
   '/(errors)/401': typeof errors401Route
   '/(errors)/403': typeof errors403Route
   '/(errors)/404': typeof errors404Route
@@ -475,10 +479,6 @@ export interface FileRoutesById {
   '/_admin-console/settings/appearance': typeof AdminConsoleSettingsAppearanceRoute
   '/_admin-console/settings/display': typeof AdminConsoleSettingsDisplayRoute
   '/_admin-console/settings/notifications': typeof AdminConsoleSettingsNotificationsRoute
-  '/(auth)/forgot-password/': typeof authForgotPasswordIndexRoute
-  '/(auth)/otp/': typeof authOtpIndexRoute
-  '/(auth)/sign-in/': typeof authSignInIndexRoute
-  '/(auth)/sign-up/': typeof authSignUpIndexRoute
   '/_admin-console/apps/': typeof AdminConsoleAppsIndexRoute
   '/_admin-console/chats/': typeof AdminConsoleChatsIndexRoute
   '/_admin-console/help-center/': typeof AdminConsoleHelpCenterIndexRoute
@@ -493,6 +493,10 @@ export interface FileRouteTypes {
     | '/'
     | ''
     | '/settings'
+    | '/forgot-password'
+    | '/otp'
+    | '/sign-in'
+    | '/sign-up'
     | '/401'
     | '/403'
     | '/404'
@@ -502,10 +506,6 @@ export interface FileRouteTypes {
     | '/settings/appearance'
     | '/settings/display'
     | '/settings/notifications'
-    | '/forgot-password'
-    | '/otp'
-    | '/sign-in'
-    | '/sign-up'
     | '/apps'
     | '/chats'
     | '/help-center'
@@ -515,6 +515,10 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/forgot-password'
+    | '/otp'
+    | '/sign-in'
+    | '/sign-up'
     | '/401'
     | '/403'
     | '/404'
@@ -524,10 +528,6 @@ export interface FileRouteTypes {
     | '/settings/appearance'
     | '/settings/display'
     | '/settings/notifications'
-    | '/forgot-password'
-    | '/otp'
-    | '/sign-in'
-    | '/sign-up'
     | '/apps'
     | '/chats'
     | '/help-center'
@@ -539,6 +539,10 @@ export interface FileRouteTypes {
     | '/(auth)'
     | '/_admin-console'
     | '/_admin-console/settings'
+    | '/(auth)/forgot-password'
+    | '/(auth)/otp'
+    | '/(auth)/sign-in'
+    | '/(auth)/sign-up'
     | '/(errors)/401'
     | '/(errors)/403'
     | '/(errors)/404'
@@ -549,10 +553,6 @@ export interface FileRouteTypes {
     | '/_admin-console/settings/appearance'
     | '/_admin-console/settings/display'
     | '/_admin-console/settings/notifications'
-    | '/(auth)/forgot-password/'
-    | '/(auth)/otp/'
-    | '/(auth)/sign-in/'
-    | '/(auth)/sign-up/'
     | '/_admin-console/apps/'
     | '/_admin-console/chats/'
     | '/_admin-console/help-center/'
@@ -604,10 +604,10 @@ export const routeTree = rootRoute
     "/(auth)": {
       "filePath": "(auth)/route.tsx",
       "children": [
-        "/(auth)/forgot-password/",
-        "/(auth)/otp/",
-        "/(auth)/sign-in/",
-        "/(auth)/sign-up/"
+        "/(auth)/forgot-password",
+        "/(auth)/otp",
+        "/(auth)/sign-in",
+        "/(auth)/sign-up"
       ]
     },
     "/_admin-console": {
@@ -632,6 +632,22 @@ export const routeTree = rootRoute
         "/_admin-console/settings/notifications",
         "/_admin-console/settings/"
       ]
+    },
+    "/(auth)/forgot-password": {
+      "filePath": "(auth)/forgot-password.tsx",
+      "parent": "/(auth)"
+    },
+    "/(auth)/otp": {
+      "filePath": "(auth)/otp.tsx",
+      "parent": "/(auth)"
+    },
+    "/(auth)/sign-in": {
+      "filePath": "(auth)/sign-in.tsx",
+      "parent": "/(auth)"
+    },
+    "/(auth)/sign-up": {
+      "filePath": "(auth)/sign-up.tsx",
+      "parent": "/(auth)"
     },
     "/(errors)/401": {
       "filePath": "(errors)/401.tsx"
@@ -667,22 +683,6 @@ export const routeTree = rootRoute
     "/_admin-console/settings/notifications": {
       "filePath": "_admin-console/settings/notifications.tsx",
       "parent": "/_admin-console/settings"
-    },
-    "/(auth)/forgot-password/": {
-      "filePath": "(auth)/forgot-password/index.tsx",
-      "parent": "/(auth)"
-    },
-    "/(auth)/otp/": {
-      "filePath": "(auth)/otp/index.tsx",
-      "parent": "/(auth)"
-    },
-    "/(auth)/sign-in/": {
-      "filePath": "(auth)/sign-in/index.tsx",
-      "parent": "/(auth)"
-    },
-    "/(auth)/sign-up/": {
-      "filePath": "(auth)/sign-up/index.tsx",
-      "parent": "/(auth)"
     },
     "/_admin-console/apps/": {
       "filePath": "_admin-console/apps/index.tsx",

@@ -1,10 +1,10 @@
 import type { ColumnDef } from '@tanstack/react-table'
 import { Badge } from '~/components/ui/badge'
 import { Checkbox } from '~/components/ui/checkbox'
-import { labels, priorities, statuses } from '../../-data/data'
-import type { Task } from '../../-schema/tasks'
-import { TasksTableColumnHeader } from './tasks-table-column-header'
-import { TasksTableRowActions } from './tasks-table-row-actions'
+import { labels, priorities, statuses } from '../../data/data'
+import type { Task } from '../../schema/tasks'
+import { TasksTableColumnHeader } from './TasksTableColumnHeader'
+import { TasksTableRowActions } from './TasksTableRowActions'
 
 export const tasksColumns: ColumnDef<Task>[] = [
 	{

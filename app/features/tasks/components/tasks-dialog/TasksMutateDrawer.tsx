@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { SelectDropdown } from '~/components/select-dropdown'
+import { SelectDropdown } from '~/components/SelectDropdown'
 import { Button } from '~/components/ui/button'
 import {
 	Form,
@@ -23,7 +23,7 @@ import {
 	SheetTitle,
 } from '~/components/ui/sheet'
 import { showSubmittedData } from '~/utils/show-submitted-data'
-import type { Task } from '../../-schema/tasks'
+import type { Task } from '../../schema/tasks'
 
 interface Props {
 	open: boolean

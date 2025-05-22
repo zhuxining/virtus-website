@@ -1,8 +1,6 @@
 import { IconDownload, IconPlus } from '@tabler/icons-react'
-
 import { Button } from '~/components/ui/button'
-
-import { useTasks } from '../../-contexts/tasks-content'
+import { useTasks } from '../../contexts/tasks-content'
 
 export function TasksPrimaryButtons() {
 	const { setOpen } = useTasks()

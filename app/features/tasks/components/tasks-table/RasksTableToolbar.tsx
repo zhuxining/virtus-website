@@ -2,9 +2,9 @@ import { Cross2Icon } from '@radix-ui/react-icons'
 import type { Table } from '@tanstack/react-table'
 import { Button } from '~/components/ui/button'
 import { Input } from '~/components/ui/input'
-import { priorities, statuses } from '../../-data/data'
-import { TasksTableFacetedFilter } from './tasks-table-faceted-filter'
-import { TasksTableViewOptions } from './tasks-table-view-options'
+import { priorities, statuses } from '../../data/data'
+import { TasksTableFacetedFilter } from './TasksTableFacetedFilter'
+import { TasksTableViewOptions } from './TasksTableViewOptions'
 
 interface Props<TData> {
 	table: Table<TData>

@@ -6,10 +6,10 @@ import {
 	SidebarHeader,
 	SidebarRail,
 } from '../ui/sidebar'
+import { NavGroup } from './NavGroup'
+import { NavUser } from './NavUser'
+import { TeamSwitcher } from './TeamSwitcher'
 import { sidebarData } from './data/sidebar-data'
-import { NavGroup } from './nav-group'
-import { NavUser } from './nav-user'
-import { TeamSwitcher } from './team-switcher'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (

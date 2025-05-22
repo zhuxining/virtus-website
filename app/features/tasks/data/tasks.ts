@@ -1,5 +1,5 @@
 import type { z } from 'zod'
-import type { taskSchema } from '../-schema/tasks'
+import type { taskSchema } from '../schema/tasks'
 
 export const tasks = [
 	{

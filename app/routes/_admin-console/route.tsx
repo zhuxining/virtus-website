@@ -1,9 +1,8 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { getCookie } from '@tanstack/react-start/server'
-
-import { AppSidebar } from '~/components/layout/app-sidebar'
-import { SkipToMain } from '~/components/skip-to-main'
+import { SkipToMain } from '~/components/SkipToMain'
+import { AppSidebar } from '~/components/layout/AppSidebar'
 import { SIDEBAR_COOKIE_NAME, SidebarProvider } from '~/components/ui/sidebar'
 import { SearchProvider } from '~/features/global-search/contexts/search-context'
 import { cn } from '~/lib/utils'

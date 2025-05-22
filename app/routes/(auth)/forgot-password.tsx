@@ -7,9 +7,9 @@ import {
 	CardHeader,
 	CardTitle,
 } from '~/components/ui/card'
-import { SignUpForm } from './-components/sign-up-form'
+import { ForgotPasswordForm } from '~/features/auth/components/ForgotPasswordForm'
 
-export const Route = createFileRoute('/(auth)/sign-up/')({
+export const Route = createFileRoute('/(auth)/forgot-password')({
 	component: RouteComponent,
 })
 
@@ -18,38 +18,25 @@ function RouteComponent() {
 		<Card className="gap-4">
 			<CardHeader>
 				<CardTitle className="text-lg tracking-tight">
-					Create an account
+					Forgot Password
 				</CardTitle>
 				<CardDescription>
-					Enter your email and password to create an account. <br />
-					Already have an account?&nbsp;
-					<Link
-						to="/sign-in"
-						className="hover:text-primary underline underline-offset-4"
-					>
-						Sign In
-					</Link>
+					Enter your registered email and <br /> we will send you a link to
+					reset your password.
 				</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<SignUpForm />
+				<ForgotPasswordForm />
 			</CardContent>
 			<CardFooter>
 				<p className="text-muted-foreground px-8 text-center text-sm">
-					By creating an account, you agree to our&nbsp;
-					<a
-						href="/terms"
+					Don&apos;t have an account?&nbsp;
+					<Link
+						to="/sign-up"
 						className="hover:text-primary underline underline-offset-4"
 					>
-						Terms of Service
-					</a>
-					&nbsp; and&nbsp;
-					<a
-						href="/privacy"
-						className="hover:text-primary underline underline-offset-4"
-					>
-						Privacy Policy
-					</a>
+						Sign up
+					</Link>
 					.
 				</p>
 			</CardFooter>
