@@ -3,6 +3,8 @@ name: 🔁 CI
 on:
   pull_request:
     types: [synchronize, opened, reopened, ready_for_review]
+    paths-ignore:
+      - README.md
 
 jobs:
   biome:
@@ -29,8 +31,14 @@ jobs:
       - name: 📥 Download deps
         uses: bahmutov/npm-install@6bbff949458c1dd99b20e185cee8c4d6fcf1212a # v1.10.9
 
+      - name: 🏄 Copy test env vars
+        run: cp .env.example .env
+
+      - name: 🛠 Setup Database
+        run: npm run migrate && npm run generate
+
       - name: 🔎 Type check
-        run: npm run check:ts -- --if-present
+        run: npm run check:ts
 
   # vitest:
   #   permissions:

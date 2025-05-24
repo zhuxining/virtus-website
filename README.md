@@ -1,5 +1,7 @@
 # Han Stack - Modern SaaS Template
 
+> This template is currently under development. Example code will be added soon, but it's ready for production use. (Depends on Tanstack start version)
+
 A powerful, full-stack SaaS starter template built with modern technologies. This template provides a solid foundation for building scalable SaaS applications with best practices and industry-standard tools.
 
 ## Features
@@ -79,15 +81,55 @@ A powerful, full-stack SaaS starter template built with modern technologies. Thi
 
 ```txt
 app/
-├── components/    # Reusable UI components
-├── constants/     # Constants
-├── contexts/      # React contexts
-├── generated/     # Generated files
-├── generated/     # Reusable hooks
-├── lib/           # Shared utilities and hooks
-├── routes/        # Application routes
-├── server/        # Backend server code
+├── components/        # Reusable UI components
+│   ├── ui/            # Atomic/molecular UI components
+│   ├── layout/        # Layout-related components
+│   ├── errors/        # Error handling components
+│   └── ...            # Other shared components
+├── constants/         # Application constants
+├── features/          # Feature modules
+│   ├── auth/          # Authentication features
+│   ├── global-search/ # Global search features
+│   ├── settings/      # Settings features
+│   ├── tasks/         # Task management features
+│   └── theme/         # Theme features
+├── hooks/             # Custom React hooks
+├── lib/               # Shared libraries and helpers
+├── routes/            # Application routes and pages
+│   ├── _admin-console/ # Admin console routes
+│   ├── api/           # API routes
+│   ├── (auth)/        # Auth-related routes
+│   ├── (errors)/      # Error pages
+│   └── __root.tsx     # Root route entry
+├── server/            # Backend/server logic
+│   ├── routes/        # Server-side routes
+│   ├── handler.ts     # Server handler
+│   ├── prisma.ts      # Prisma instance
+│   └── router.ts      # Server router
+├── styles/            # Global and component styles
+├── utils/             # Utility functions
+├── client.tsx         # Client entry point
+├── ssr.tsx            # Server-side rendering entry
+├── api.ts             # API client
+├── router.tsx         # Client router
+├── routeTree.gen.ts   # Auto-generated route tree
+└── ...
+public/                # Static files (images, favicon, etc.)
+├── assets/            # Static assets (e.g., logo)
+├── favicon.ico        # Favicon
+prisma/                # Prisma schema and seed data
+├── schema.prisma      # Prisma DB schema
+├── seed.ts            # Seed data script
+
+Other key files:
+- package.json         # Project metadata and dependencies
+- tsconfig.json        # TypeScript configuration
+- postcss.config.js    # PostCSS configuration
+- wrangler.jsonc       # Cloudflare Workers configuration
+- biome.jsonc          # Biome (formatter/linter) configuration
 ```
+
+Refer to the code and comments for more details on each directory and file.
 
 ### Scripts
 
@@ -109,6 +151,13 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Support
 
 If you find this template helpful, please consider giving it a star ⭐️
+
+## Inspiration
+
+This project draws inspiration from the following amazing repositories:
+
+- [shadcn-admin](https://github.com/satnaing/shadcn-admin)
+- [create-better-t-stack](https://github.com/AmanVarshney01/create-better-t-stack)
 
 ---
 
