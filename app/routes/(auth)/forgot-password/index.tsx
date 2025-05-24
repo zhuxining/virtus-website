@@ -7,7 +7,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from '~/components/ui/card'
-import { ForgotPasswordForm } from './-components/forgot-password-form'
+import { ForgotPasswordForm } from './-components/ForgotPasswordForm'
 
 export const Route = createFileRoute('/(auth)/forgot-password/')({
 	component: RouteComponent,

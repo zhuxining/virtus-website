@@ -4,7 +4,7 @@ import { getCookie } from '@tanstack/react-start/server'
 import { SkipToMain } from '~/components/SkipToMain'
 import { AppSidebar } from '~/components/layout/AppSidebar'
 import { SIDEBAR_COOKIE_NAME, SidebarProvider } from '~/components/ui/sidebar'
-import { SearchProvider } from '~/features/global-search/contexts/search-context'
+import { SearchProvider } from '~/features/global-search/contexts/SearchContext'
 import { cn } from '~/lib/utils'
 
 const getSidebarCookie = createServerFn().handler(() => {

@@ -3,7 +3,7 @@ import { IconBrandFacebook, IconBrandGithub } from '@tabler/icons-react'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { PasswordInput } from '~/components/password-input'
+import { PasswordInput } from '~/components/PasswordInput'
 import { Button } from '~/components/ui/button'
 import {
 	Form,

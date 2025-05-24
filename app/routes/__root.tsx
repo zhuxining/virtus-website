@@ -10,7 +10,7 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import type { ReactElement, ReactNode } from 'react'
 
 import { NotFoundError } from '~/components/errors/NotFoundError'
-import { ThemeProvider } from '~/features/theme/contexts/theme-context'
+import { ThemeProvider } from '~/features/theme/contexts/ThemeContext'
 import appCss from '~/styles/app.css?url'
 
 export const Route = createRootRouteWithContext<{

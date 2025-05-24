@@ -12,8 +12,8 @@ import {
 	CommandSeparator,
 } from '~/components/ui/command'
 import { ScrollArea } from '~/components/ui/scroll-area'
-import { useSearch } from '~/features/global-search/contexts/search-context'
-import { useTheme } from '~/features/theme/contexts/theme-context'
+import { useSearch } from '~/features/global-search/contexts/SearchContext'
+import { useTheme } from '~/features/theme/contexts/ThemeContext'
 
 export function CommandMenu() {
 	const navigate = useNavigate()
