@@ -5,6 +5,8 @@ on:
     branches:
       # TODO: Change to production branch
       - main
+    paths-ignore:
+      - README.md
 
 jobs:
   deploy:

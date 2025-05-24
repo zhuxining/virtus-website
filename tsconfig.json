@@ -1,26 +1,26 @@
 {
-  "compilerOptions": {
-    // Modules
-    "moduleResolution": "Bundler",
-    "module": "ESNext",
-    "target": "ES2022",
+	"compilerOptions": {
+		// Modules
+		"moduleResolution": "Bundler",
+		"module": "ESNext",
+		"target": "ES2022",
 
-    // JSX
-    "jsx": "react-jsx",
+		// JSX
+		"jsx": "react-jsx",
 
-    // Strictness
-    "allowImportingTsExtensions": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "verbatimModuleSyntax": true,
+		// Strictness
+		"allowImportingTsExtensions": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"strictNullChecks": true,
+		"verbatimModuleSyntax": true,
 
-    // Paths
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["app/*"]
-    }
-  }
+		// Paths
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./app/*"]
+		}
+	}
 }
