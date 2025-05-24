@@ -1,25 +1,4 @@
 {
-	"[css]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[javascript]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[javascriptreact]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[jsonc]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[typescript]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "biomejs.biome"
-	},
 	"biome.enabled": true,
 	"cSpell.words": [
 		"autoincrement",
@@ -39,10 +18,6 @@
 		"VITE",
 		"vitest"
 	],
-	"editor.codeActionsOnSave": {
-		"quickfix.biome": "explicit",
-		"source.organizeImports.biome": "explicit"
-	},
 	"editor.formatOnSave": true,
 	"tailwindCSS.experimental.classRegex": ["cn\\(([^)]+)\\)"],
 	"files.watcherExclude": {
