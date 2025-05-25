@@ -11,9 +11,10 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as WebsiteRouteImport } from './routes/_website/route'
 import { Route as AdminConsoleRouteImport } from './routes/_admin-console/route'
 import { Route as authRouteImport } from './routes/(auth)/route'
-import { Route as AdminConsoleIndexImport } from './routes/_admin-console/index'
+import { Route as WebsiteIndexImport } from './routes/_website/index'
 import { Route as errors503Import } from './routes/(errors)/503'
 import { Route as errors500Import } from './routes/(errors)/500'
 import { Route as errors404Import } from './routes/(errors)/404'
@@ -24,10 +25,16 @@ import { Route as authSignInImport } from './routes/(auth)/sign-in'
 import { Route as authOtpImport } from './routes/(auth)/otp'
 import { Route as authForgotPasswordImport } from './routes/(auth)/forgot-password'
 import { Route as AdminConsoleSettingsRouteImport } from './routes/_admin-console/settings/route'
+import { Route as WebsiteEventIndexImport } from './routes/_website/event/index'
+import { Route as WebsiteDreamIndexImport } from './routes/_website/dream/index'
+import { Route as WebsiteDonationIndexImport } from './routes/_website/donation/index'
+import { Route as WebsiteBlogIndexImport } from './routes/_website/blog/index'
+import { Route as WebsiteAboutIndexImport } from './routes/_website/about/index'
 import { Route as AdminConsoleUsersIndexImport } from './routes/_admin-console/users/index'
 import { Route as AdminConsoleTasksIndexImport } from './routes/_admin-console/tasks/index'
 import { Route as AdminConsoleSettingsIndexImport } from './routes/_admin-console/settings/index'
 import { Route as AdminConsoleHelpCenterIndexImport } from './routes/_admin-console/help-center/index'
+import { Route as AdminConsoleDashboardIndexImport } from './routes/_admin-console/dashboard/index'
 import { Route as AdminConsoleChatsIndexImport } from './routes/_admin-console/chats/index'
 import { Route as AdminConsoleAppsIndexImport } from './routes/_admin-console/apps/index'
 import { Route as authSignUpIndexImport } from './routes/(auth)/sign-up/index'
@@ -41,6 +48,11 @@ import { Route as AdminConsoleSettingsAccountImport } from './routes/_admin-cons
 
 // Create/Update Routes
 
+const WebsiteRouteRoute = WebsiteRouteImport.update({
+  id: '/_website',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AdminConsoleRouteRoute = AdminConsoleRouteImport.update({
   id: '/_admin-console',
   getParentRoute: () => rootRoute,
@@ -51,10 +63,10 @@ const authRouteRoute = authRouteImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AdminConsoleIndexRoute = AdminConsoleIndexImport.update({
+const WebsiteIndexRoute = WebsiteIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AdminConsoleRouteRoute,
+  getParentRoute: () => WebsiteRouteRoute,
 } as any)
 
 const errors503Route = errors503Import.update({
@@ -117,6 +129,36 @@ const AdminConsoleSettingsRouteRoute = AdminConsoleSettingsRouteImport.update({
   getParentRoute: () => AdminConsoleRouteRoute,
 } as any)
 
+const WebsiteEventIndexRoute = WebsiteEventIndexImport.update({
+  id: '/event/',
+  path: '/event/',
+  getParentRoute: () => WebsiteRouteRoute,
+} as any)
+
+const WebsiteDreamIndexRoute = WebsiteDreamIndexImport.update({
+  id: '/dream/',
+  path: '/dream/',
+  getParentRoute: () => WebsiteRouteRoute,
+} as any)
+
+const WebsiteDonationIndexRoute = WebsiteDonationIndexImport.update({
+  id: '/donation/',
+  path: '/donation/',
+  getParentRoute: () => WebsiteRouteRoute,
+} as any)
+
+const WebsiteBlogIndexRoute = WebsiteBlogIndexImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => WebsiteRouteRoute,
+} as any)
+
+const WebsiteAboutIndexRoute = WebsiteAboutIndexImport.update({
+  id: '/about/',
+  path: '/about/',
+  getParentRoute: () => WebsiteRouteRoute,
+} as any)
+
 const AdminConsoleUsersIndexRoute = AdminConsoleUsersIndexImport.update({
   id: '/users/',
   path: '/users/',
@@ -141,6 +183,14 @@ const AdminConsoleHelpCenterIndexRoute =
     path: '/help-center/',
     getParentRoute: () => AdminConsoleRouteRoute,
   } as any)
+
+const AdminConsoleDashboardIndexRoute = AdminConsoleDashboardIndexImport.update(
+  {
+    id: '/dashboard/',
+    path: '/dashboard/',
+    getParentRoute: () => AdminConsoleRouteRoute,
+  } as any,
+)
 
 const AdminConsoleChatsIndexRoute = AdminConsoleChatsIndexImport.update({
   id: '/chats/',
@@ -224,6 +274,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminConsoleRouteImport
       parentRoute: typeof rootRoute
     }
+    '/_website': {
+      id: '/_website'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof WebsiteRouteImport
+      parentRoute: typeof rootRoute
+    }
     '/_admin-console/settings': {
       id: '/_admin-console/settings'
       path: '/settings'
@@ -294,12 +351,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof errors503Import
       parentRoute: typeof rootRoute
     }
-    '/_admin-console/': {
-      id: '/_admin-console/'
+    '/_website/': {
+      id: '/_website/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof AdminConsoleIndexImport
-      parentRoute: typeof AdminConsoleRouteImport
+      preLoaderRoute: typeof WebsiteIndexImport
+      parentRoute: typeof WebsiteRouteImport
     }
     '/_admin-console/settings/account': {
       id: '/_admin-console/settings/account'
@@ -371,6 +428,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminConsoleChatsIndexImport
       parentRoute: typeof AdminConsoleRouteImport
     }
+    '/_admin-console/dashboard/': {
+      id: '/_admin-console/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AdminConsoleDashboardIndexImport
+      parentRoute: typeof AdminConsoleRouteImport
+    }
     '/_admin-console/help-center/': {
       id: '/_admin-console/help-center/'
       path: '/help-center'
@@ -398,6 +462,41 @@ declare module '@tanstack/react-router' {
       fullPath: '/users'
       preLoaderRoute: typeof AdminConsoleUsersIndexImport
       parentRoute: typeof AdminConsoleRouteImport
+    }
+    '/_website/about/': {
+      id: '/_website/about/'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof WebsiteAboutIndexImport
+      parentRoute: typeof WebsiteRouteImport
+    }
+    '/_website/blog/': {
+      id: '/_website/blog/'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof WebsiteBlogIndexImport
+      parentRoute: typeof WebsiteRouteImport
+    }
+    '/_website/donation/': {
+      id: '/_website/donation/'
+      path: '/donation'
+      fullPath: '/donation'
+      preLoaderRoute: typeof WebsiteDonationIndexImport
+      parentRoute: typeof WebsiteRouteImport
+    }
+    '/_website/dream/': {
+      id: '/_website/dream/'
+      path: '/dream'
+      fullPath: '/dream'
+      preLoaderRoute: typeof WebsiteDreamIndexImport
+      parentRoute: typeof WebsiteRouteImport
+    }
+    '/_website/event/': {
+      id: '/_website/event/'
+      path: '/event'
+      fullPath: '/event'
+      preLoaderRoute: typeof WebsiteEventIndexImport
+      parentRoute: typeof WebsiteRouteImport
     }
   }
 }
@@ -493,9 +592,9 @@ const AdminConsoleSettingsRouteRouteWithChildren =
 
 interface AdminConsoleRouteRouteChildren {
   AdminConsoleSettingsRouteRoute: typeof AdminConsoleSettingsRouteRouteWithChildren
-  AdminConsoleIndexRoute: typeof AdminConsoleIndexRoute
   AdminConsoleAppsIndexRoute: typeof AdminConsoleAppsIndexRoute
   AdminConsoleChatsIndexRoute: typeof AdminConsoleChatsIndexRoute
+  AdminConsoleDashboardIndexRoute: typeof AdminConsoleDashboardIndexRoute
   AdminConsoleHelpCenterIndexRoute: typeof AdminConsoleHelpCenterIndexRoute
   AdminConsoleTasksIndexRoute: typeof AdminConsoleTasksIndexRoute
   AdminConsoleUsersIndexRoute: typeof AdminConsoleUsersIndexRoute
@@ -503,9 +602,9 @@ interface AdminConsoleRouteRouteChildren {
 
 const AdminConsoleRouteRouteChildren: AdminConsoleRouteRouteChildren = {
   AdminConsoleSettingsRouteRoute: AdminConsoleSettingsRouteRouteWithChildren,
-  AdminConsoleIndexRoute: AdminConsoleIndexRoute,
   AdminConsoleAppsIndexRoute: AdminConsoleAppsIndexRoute,
   AdminConsoleChatsIndexRoute: AdminConsoleChatsIndexRoute,
+  AdminConsoleDashboardIndexRoute: AdminConsoleDashboardIndexRoute,
   AdminConsoleHelpCenterIndexRoute: AdminConsoleHelpCenterIndexRoute,
   AdminConsoleTasksIndexRoute: AdminConsoleTasksIndexRoute,
   AdminConsoleUsersIndexRoute: AdminConsoleUsersIndexRoute,
@@ -514,9 +613,31 @@ const AdminConsoleRouteRouteChildren: AdminConsoleRouteRouteChildren = {
 const AdminConsoleRouteRouteWithChildren =
   AdminConsoleRouteRoute._addFileChildren(AdminConsoleRouteRouteChildren)
 
+interface WebsiteRouteRouteChildren {
+  WebsiteIndexRoute: typeof WebsiteIndexRoute
+  WebsiteAboutIndexRoute: typeof WebsiteAboutIndexRoute
+  WebsiteBlogIndexRoute: typeof WebsiteBlogIndexRoute
+  WebsiteDonationIndexRoute: typeof WebsiteDonationIndexRoute
+  WebsiteDreamIndexRoute: typeof WebsiteDreamIndexRoute
+  WebsiteEventIndexRoute: typeof WebsiteEventIndexRoute
+}
+
+const WebsiteRouteRouteChildren: WebsiteRouteRouteChildren = {
+  WebsiteIndexRoute: WebsiteIndexRoute,
+  WebsiteAboutIndexRoute: WebsiteAboutIndexRoute,
+  WebsiteBlogIndexRoute: WebsiteBlogIndexRoute,
+  WebsiteDonationIndexRoute: WebsiteDonationIndexRoute,
+  WebsiteDreamIndexRoute: WebsiteDreamIndexRoute,
+  WebsiteEventIndexRoute: WebsiteEventIndexRoute,
+}
+
+const WebsiteRouteRouteWithChildren = WebsiteRouteRoute._addFileChildren(
+  WebsiteRouteRouteChildren,
+)
+
 export interface FileRoutesByFullPath {
-  '/': typeof AdminConsoleIndexRoute
-  '': typeof AdminConsoleRouteRouteWithChildren
+  '/': typeof WebsiteIndexRoute
+  '': typeof WebsiteRouteRouteWithChildren
   '/settings': typeof AdminConsoleSettingsRouteRouteWithChildren
   '/forgot-password': typeof authForgotPasswordRouteWithChildren
   '/otp': typeof authOtpRouteWithChildren
@@ -537,14 +658,21 @@ export interface FileRoutesByFullPath {
   '/sign-up/': typeof authSignUpIndexRoute
   '/apps': typeof AdminConsoleAppsIndexRoute
   '/chats': typeof AdminConsoleChatsIndexRoute
+  '/dashboard': typeof AdminConsoleDashboardIndexRoute
   '/help-center': typeof AdminConsoleHelpCenterIndexRoute
   '/settings/': typeof AdminConsoleSettingsIndexRoute
   '/tasks': typeof AdminConsoleTasksIndexRoute
   '/users': typeof AdminConsoleUsersIndexRoute
+  '/about': typeof WebsiteAboutIndexRoute
+  '/blog': typeof WebsiteBlogIndexRoute
+  '/donation': typeof WebsiteDonationIndexRoute
+  '/dream': typeof WebsiteDreamIndexRoute
+  '/event': typeof WebsiteEventIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof AdminConsoleIndexRoute
+  '/': typeof WebsiteIndexRoute
+  '': typeof AdminConsoleRouteRouteWithChildren
   '/401': typeof errors401Route
   '/403': typeof errors403Route
   '/404': typeof errors404Route
@@ -560,16 +688,23 @@ export interface FileRoutesByTo {
   '/sign-up': typeof authSignUpIndexRoute
   '/apps': typeof AdminConsoleAppsIndexRoute
   '/chats': typeof AdminConsoleChatsIndexRoute
+  '/dashboard': typeof AdminConsoleDashboardIndexRoute
   '/help-center': typeof AdminConsoleHelpCenterIndexRoute
   '/settings': typeof AdminConsoleSettingsIndexRoute
   '/tasks': typeof AdminConsoleTasksIndexRoute
   '/users': typeof AdminConsoleUsersIndexRoute
+  '/about': typeof WebsiteAboutIndexRoute
+  '/blog': typeof WebsiteBlogIndexRoute
+  '/donation': typeof WebsiteDonationIndexRoute
+  '/dream': typeof WebsiteDreamIndexRoute
+  '/event': typeof WebsiteEventIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/(auth)': typeof authRouteRouteWithChildren
   '/_admin-console': typeof AdminConsoleRouteRouteWithChildren
+  '/_website': typeof WebsiteRouteRouteWithChildren
   '/_admin-console/settings': typeof AdminConsoleSettingsRouteRouteWithChildren
   '/(auth)/forgot-password': typeof authForgotPasswordRouteWithChildren
   '/(auth)/otp': typeof authOtpRouteWithChildren
@@ -580,7 +715,7 @@ export interface FileRoutesById {
   '/(errors)/404': typeof errors404Route
   '/(errors)/500': typeof errors500Route
   '/(errors)/503': typeof errors503Route
-  '/_admin-console/': typeof AdminConsoleIndexRoute
+  '/_website/': typeof WebsiteIndexRoute
   '/_admin-console/settings/account': typeof AdminConsoleSettingsAccountRoute
   '/_admin-console/settings/appearance': typeof AdminConsoleSettingsAppearanceRoute
   '/_admin-console/settings/display': typeof AdminConsoleSettingsDisplayRoute
@@ -591,10 +726,16 @@ export interface FileRoutesById {
   '/(auth)/sign-up/': typeof authSignUpIndexRoute
   '/_admin-console/apps/': typeof AdminConsoleAppsIndexRoute
   '/_admin-console/chats/': typeof AdminConsoleChatsIndexRoute
+  '/_admin-console/dashboard/': typeof AdminConsoleDashboardIndexRoute
   '/_admin-console/help-center/': typeof AdminConsoleHelpCenterIndexRoute
   '/_admin-console/settings/': typeof AdminConsoleSettingsIndexRoute
   '/_admin-console/tasks/': typeof AdminConsoleTasksIndexRoute
   '/_admin-console/users/': typeof AdminConsoleUsersIndexRoute
+  '/_website/about/': typeof WebsiteAboutIndexRoute
+  '/_website/blog/': typeof WebsiteBlogIndexRoute
+  '/_website/donation/': typeof WebsiteDonationIndexRoute
+  '/_website/dream/': typeof WebsiteDreamIndexRoute
+  '/_website/event/': typeof WebsiteEventIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -622,13 +763,20 @@ export interface FileRouteTypes {
     | '/sign-up/'
     | '/apps'
     | '/chats'
+    | '/dashboard'
     | '/help-center'
     | '/settings/'
     | '/tasks'
     | '/users'
+    | '/about'
+    | '/blog'
+    | '/donation'
+    | '/dream'
+    | '/event'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | ''
     | '/401'
     | '/403'
     | '/404'
@@ -644,14 +792,21 @@ export interface FileRouteTypes {
     | '/sign-up'
     | '/apps'
     | '/chats'
+    | '/dashboard'
     | '/help-center'
     | '/settings'
     | '/tasks'
     | '/users'
+    | '/about'
+    | '/blog'
+    | '/donation'
+    | '/dream'
+    | '/event'
   id:
     | '__root__'
     | '/(auth)'
     | '/_admin-console'
+    | '/_website'
     | '/_admin-console/settings'
     | '/(auth)/forgot-password'
     | '/(auth)/otp'
@@ -662,7 +817,7 @@ export interface FileRouteTypes {
     | '/(errors)/404'
     | '/(errors)/500'
     | '/(errors)/503'
-    | '/_admin-console/'
+    | '/_website/'
     | '/_admin-console/settings/account'
     | '/_admin-console/settings/appearance'
     | '/_admin-console/settings/display'
@@ -673,16 +828,23 @@ export interface FileRouteTypes {
     | '/(auth)/sign-up/'
     | '/_admin-console/apps/'
     | '/_admin-console/chats/'
+    | '/_admin-console/dashboard/'
     | '/_admin-console/help-center/'
     | '/_admin-console/settings/'
     | '/_admin-console/tasks/'
     | '/_admin-console/users/'
+    | '/_website/about/'
+    | '/_website/blog/'
+    | '/_website/donation/'
+    | '/_website/dream/'
+    | '/_website/event/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   authRouteRoute: typeof authRouteRouteWithChildren
   AdminConsoleRouteRoute: typeof AdminConsoleRouteRouteWithChildren
+  WebsiteRouteRoute: typeof WebsiteRouteRouteWithChildren
   errors401Route: typeof errors401Route
   errors403Route: typeof errors403Route
   errors404Route: typeof errors404Route
@@ -693,6 +855,7 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   authRouteRoute: authRouteRouteWithChildren,
   AdminConsoleRouteRoute: AdminConsoleRouteRouteWithChildren,
+  WebsiteRouteRoute: WebsiteRouteRouteWithChildren,
   errors401Route: errors401Route,
   errors403Route: errors403Route,
   errors404Route: errors404Route,
@@ -712,6 +875,7 @@ export const routeTree = rootRoute
       "children": [
         "/(auth)",
         "/_admin-console",
+        "/_website",
         "/(errors)/401",
         "/(errors)/403",
         "/(errors)/404",
@@ -732,12 +896,23 @@ export const routeTree = rootRoute
       "filePath": "_admin-console/route.tsx",
       "children": [
         "/_admin-console/settings",
-        "/_admin-console/",
         "/_admin-console/apps/",
         "/_admin-console/chats/",
+        "/_admin-console/dashboard/",
         "/_admin-console/help-center/",
         "/_admin-console/tasks/",
         "/_admin-console/users/"
+      ]
+    },
+    "/_website": {
+      "filePath": "_website/route.tsx",
+      "children": [
+        "/_website/",
+        "/_website/about/",
+        "/_website/blog/",
+        "/_website/donation/",
+        "/_website/dream/",
+        "/_website/event/"
       ]
     },
     "/_admin-console/settings": {
@@ -794,9 +969,9 @@ export const routeTree = rootRoute
     "/(errors)/503": {
       "filePath": "(errors)/503.tsx"
     },
-    "/_admin-console/": {
-      "filePath": "_admin-console/index.tsx",
-      "parent": "/_admin-console"
+    "/_website/": {
+      "filePath": "_website/index.tsx",
+      "parent": "/_website"
     },
     "/_admin-console/settings/account": {
       "filePath": "_admin-console/settings/account.tsx",
@@ -838,6 +1013,10 @@ export const routeTree = rootRoute
       "filePath": "_admin-console/chats/index.tsx",
       "parent": "/_admin-console"
     },
+    "/_admin-console/dashboard/": {
+      "filePath": "_admin-console/dashboard/index.tsx",
+      "parent": "/_admin-console"
+    },
     "/_admin-console/help-center/": {
       "filePath": "_admin-console/help-center/index.tsx",
       "parent": "/_admin-console"
@@ -853,6 +1032,26 @@ export const routeTree = rootRoute
     "/_admin-console/users/": {
       "filePath": "_admin-console/users/index.tsx",
       "parent": "/_admin-console"
+    },
+    "/_website/about/": {
+      "filePath": "_website/about/index.tsx",
+      "parent": "/_website"
+    },
+    "/_website/blog/": {
+      "filePath": "_website/blog/index.tsx",
+      "parent": "/_website"
+    },
+    "/_website/donation/": {
+      "filePath": "_website/donation/index.tsx",
+      "parent": "/_website"
+    },
+    "/_website/dream/": {
+      "filePath": "_website/dream/index.tsx",
+      "parent": "/_website"
+    },
+    "/_website/event/": {
+      "filePath": "_website/event/index.tsx",
+      "parent": "/_website"
     }
   }
 }

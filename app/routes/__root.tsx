@@ -25,7 +25,7 @@ export const Route = createRootRouteWithContext<{
 				href: appCss,
 			},
 			{
-				href: '/favicon.ico',
+				href: '/favicon.webp',
 				rel: 'icon',
 			},
 		],
@@ -38,7 +38,7 @@ export const Route = createRootRouteWithContext<{
 				name: 'viewport',
 			},
 			{
-				title: 'HanStack',
+				title: 'Virtus Foundation Limited',
 			},
 		],
 	}),

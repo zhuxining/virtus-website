@@ -1,0 +1,57 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 中国地图背景 -->
+  <path d="M200,100 Q300,50 400,100 Q500,150 600,100 Q650,200 600,300 Q550,400 600,500 Q500,550 400,500 Q300,550 200,500 Q150,400 200,300 Q150,200 200,100 Z" fill="#E6F7FF" stroke="#0EA5E9" stroke-width="2"/>
+  
+  <!-- 省份边界线（简化） -->
+  <path d="M300,100 Q350,200 300,300" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+  <path d="M400,100 Q450,200 400,300" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+  <path d="M500,100 Q550,200 500,300" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+  <path d="M200,300 Q300,350 400,300 Q500,350 600,300" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+  <path d="M200,400 Q300,450 400,400 Q500,450 600,400" stroke="#0EA5E9" stroke-width="1" opacity="0.5"/>
+  
+  <!-- 助学足迹标记点 -->
+  <!-- 江西宜春 -->
+  <circle cx="450" cy="350" r="8" fill="#F97316"/>
+  <text x="460" y="350" font-size="12" fill="#1E3A8A">江西宜春</text>
+  
+  <!-- 安徽黄山 -->
+  <circle cx="430" cy="320" r="8" fill="#F97316"/>
+  <text x="440" y="320" font-size="12" fill="#1E3A8A">安徽黄山</text>
+  
+  <!-- 江西赣州 -->
+  <circle cx="460" cy="370" r="8" fill="#F97316"/>
+  <text x="470" y="370" font-size="12" fill="#1E3A8A">江西赣州</text>
+  
+  <!-- 宁夏银川 -->
+  <circle cx="350" cy="250" r="8" fill="#F97316"/>
+  <text x="360" y="250" font-size="12" fill="#1E3A8A">宁夏银川</text>
+  
+  <!-- 甘肃兰州 -->
+  <circle cx="320" cy="280" r="8" fill="#F97316"/>
+  <text x="330" y="280" font-size="12" fill="#1E3A8A">甘肃兰州</text>
+  
+  <!-- 甘肃天水 -->
+  <circle cx="330" cy="300" r="8" fill="#F97316"/>
+  <text x="340" y="300" font-size="12" fill="#1E3A8A">甘肃天水</text>
+  
+  <!-- 甘肃白银 -->
+  <circle cx="310" cy="270" r="8" fill="#F97316"/>
+  <text x="320" y="270" font-size="12" fill="#1E3A8A">甘肃白银</text>
+  
+  <!-- 黑龙江牡丹江 -->
+  <circle cx="500" cy="150" r="8" fill="#F97316"/>
+  <text x="510" y="150" font-size="12" fill="#1E3A8A">黑龙江牡丹江</text>
+  
+  <!-- 广东清远 -->
+  <circle cx="450" cy="420" r="8" fill="#F97316"/>
+  <text x="460" y="420" font-size="12" fill="#1E3A8A">广东清远</text>
+  
+  <!-- 图例 -->
+  <rect x="600" y="450" width="150" height="100" rx="5" fill="white" stroke="#0EA5E9" stroke-width="1"/>
+  <text x="610" y="470" font-size="14" font-weight="bold" fill="#1E3A8A">助学足迹</text>
+  <circle cx="620" cy="490" r="8" fill="#F97316"/>
+  <text x="635" y="495" font-size="12" fill="#1E3A8A">助学地点</text>
+  
+  <!-- 标题 -->
+  <text x="400" y="50" font-size="20" font-weight="bold" text-anchor="middle" fill="#1E3A8A">助学足迹（2006-2021）</text>
+</svg>
