@@ -1,0 +1,37 @@
+model EventLog {
+    id          Int      @id @default(autoincrement())
+    title       String
+    description String
+    content     String
+    banner      String
+    operator    User     @relation(fields: [operatorId], references: [id])
+    operatorId  String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+
+    @@map("event_log")
+}
+
+model DonorInfo {
+    id             Int      @id @default(autoincrement())
+    name           String
+    avatar         String?
+    description    String?
+    donationAmount Int?
+    donationDate   DateTime
+    operator       User     @relation(fields: [operatorId], references: [id])
+    operatorId     String
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+
+    @@map("donor_info")
+}
+
+model MilestoneData {
+    id           Int      @id @default(autoincrement())
+    startYear    Int
+    studentCount Int
+    cityCount    Int
+    createdAt    DateTime @default(now())
+    updatedAt    DateTime @updatedAt
+}

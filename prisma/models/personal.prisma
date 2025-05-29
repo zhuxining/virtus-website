@@ -1,0 +1,50 @@
+model Essay {
+  id        Int          @id @default(autoincrement())
+  title     String
+  banner    String?
+  content   String
+  author    User         @relation(fields: [authorId], references: [id])
+  authorId  String
+  status    Int          @default(0) // 0: 草稿, 1: 审核中, 2: 审核通过, 3: 审核不通过
+  audit     EssayAudit[]
+  EssayLike EssayLike[]
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  @@map("essay")
+}
+
+model EssayAudit {
+  id          Int      @id @default(autoincrement())
+  essay       Essay    @relation(fields: [essayId], references: [id])
+  essayId     Int
+  auditStatus Int      @default(0) // 0: 待审核, 1: 审核通过, 2: 审核不通过
+  auditMsg    String?
+  operator    User     @relation(fields: [operatorId], references: [id])
+  operatorId  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("essay_audit")
+}
+
+model EssayLike {
+  id         Int      @id @default(autoincrement())
+  essay      Essay    @relation(fields: [essayId], references: [id])
+  essayId    Int
+  operator   User     @relation(fields: [operatorId], references: [id])
+  operatorId String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("essay_like")
+}
+
+model EssayStatistics {
+  id Int @id @default(autoincrement())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("essay_statistics")
+}

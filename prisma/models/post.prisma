@@ -1,7 +1,0 @@
-model Post {
-    id          String  @id
-    name        String
-    description String?
-
-    @@map("post")
-}
