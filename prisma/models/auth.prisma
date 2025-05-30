@@ -1,5 +1,5 @@
 model User {
-    id            String       @id
+    id            String         @id
     name          String
     email         String
     emailVerified Boolean
@@ -8,11 +8,11 @@ model User {
     updatedAt     DateTime
     sessions      Session[]
     accounts      Account[]
-    role          Role         @default(USER)
+    role          Role           @default(USER)
     essay         Essay[]
     essayAudit    EssayAudit[]
     essayLike     EssayLike[]
-    eventLog      EventLog[]
+    eventHistory  EventHistory[]
     donorInfo     DonorInfo[]
 
     @@unique([email])

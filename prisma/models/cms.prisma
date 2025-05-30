@@ -1,4 +1,4 @@
-model EventLog {
+model EventHistory {
     id          Int      @id @default(autoincrement())
     title       String
     description String
@@ -9,7 +9,7 @@ model EventLog {
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
 
-    @@map("event_log")
+    @@map("event_history")
 }
 
 model DonorInfo {
@@ -34,4 +34,6 @@ model MilestoneData {
     cityCount    Int
     createdAt    DateTime @default(now())
     updatedAt    DateTime @updatedAt
+
+    @@map("milestone_data")
 }
