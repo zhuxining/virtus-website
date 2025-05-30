@@ -5,7 +5,7 @@ model Essay {
   content   String
   author    User         @relation(fields: [authorId], references: [id])
   authorId  String
-  status    Int          @default(0) // 0: 草稿, 1: 审核中, 2: 审核通过, 3: 审核不通过
+  status    EssayStatus  @default(DRAFT)
   audit     EssayAudit[]
   EssayLike EssayLike[]
   createdAt DateTime     @default(now())
@@ -15,15 +15,15 @@ model Essay {
 }
 
 model EssayAudit {
-  id          Int      @id @default(autoincrement())
-  essay       Essay    @relation(fields: [essayId], references: [id])
+  id          Int         @id @default(autoincrement())
+  essay       Essay       @relation(fields: [essayId], references: [id])
   essayId     Int
-  auditStatus Int      @default(0) // 0: 待审核, 1: 审核通过, 2: 审核不通过
+  auditStatus AuditStatus @default(PENDING)
   auditMsg    String?
-  operator    User     @relation(fields: [operatorId], references: [id])
+  operator    User        @relation(fields: [operatorId], references: [id])
   operatorId  String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
   @@map("essay_audit")
 }
@@ -47,4 +47,17 @@ model EssayStatistics {
   updatedAt DateTime @updatedAt
 
   @@map("essay_statistics")
+}
+
+enum EssayStatus {
+  DRAFT
+  PENDING_REVIEW
+  PUBLISHED
+  REJECTED
+}
+
+enum AuditStatus {
+  PENDING
+  APPROVED
+  REJECTED
 }
