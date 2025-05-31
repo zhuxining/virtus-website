@@ -21,3 +21,6 @@ dev.db
 app/generated/
 prisma/data.db
 prisma/data.db-journal
+
+# virtus history data
+data/history

@@ -14,19 +14,11 @@ const prisma = new PrismaClient({ adapter })
 async function seed() {
 	console.time('🌱 Database has been seeded')
 
-	const findPost = await prisma.post.findFirst()
+	const findEssay = await prisma.essay.findFirst()
 
-	if (findPost) {
+	if (findEssay) {
 		return
 	}
-
-	await prisma.post.create({
-		data: {
-			id: faker.string.uuid(),
-			name: faker.person.fullName(),
-			description: faker.lorem.paragraph(),
-		},
-	})
 
 	console.timeEnd('🌱 Database has been seeded')
 }
@@ -39,3 +31,5 @@ seed()
 	.finally(async () => {
 		await prisma.$disconnect()
 	})
+
+export default prisma
