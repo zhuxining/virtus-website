@@ -128,6 +128,7 @@
 		"tailwind-merge": "^3.3.0",
 		"tailwind-scrollbar-hide": "^2.0.0",
 		"tailwindcss": "^4.1.8",
+		"tailwindcss-animated": "^2.0.0",
 		"tw-animate-css": "^1.3.2",
 		"unenv": "^1.10.0",
 		"uploadthing": "7.7.2",
@@ -139,7 +140,6 @@
 		"@biomejs/biome": "1.9.4",
 		"@cloudflare/vite-plugin": "^1.3.1",
 		"@faker-js/faker": "^9.8.0",
-		"@prisma/adapter-better-sqlite3": "^6.8.2",
 		"@tanstack/react-query-devtools": "^5.79.0",
 		"@tanstack/react-router-devtools": "^1.120.13",
 		"@types/react": "^19.1.6",
@@ -153,9 +153,6 @@
 		"zod-prisma-types": "^3.2.4"
 	},
 	"sideEffects": false,
-	"prisma": {
-		"seed": "tsx prisma/seed.ts"
-	},
 	"packageManager": "bun@1.2.14",
 	"trustedDependencies": [
 		"@biomejs/biome",

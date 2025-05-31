@@ -1,4 +1,4 @@
-import prisma from '../prisma/seed'
+import { db as prisma } from '../app/lib/db'
 
 async function seed() {
 	console.time('🌱 Database has been seeded')

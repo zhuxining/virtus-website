@@ -8,7 +8,7 @@ import {
 	UserSchema,
 	UserUpdateArgsSchema,
 } from '~/generated/zod'
-import { db } from '~/server/prisma'
+import { db } from '~/lib/db'
 
 export const usersRouter = {
 	list: os

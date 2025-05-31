@@ -2,7 +2,6 @@ import path from 'node:path'
 import { PrismaD1HTTP } from '@prisma/adapter-d1'
 import type { PrismaConfig } from 'prisma'
 
-// import your .env file
 import 'dotenv/config'
 
 type Env = {
@@ -18,9 +17,15 @@ export default {
 
 	migrate: {
 		async adapter(env) {
-			// if (import.meta.env.NODE_ENV !== 'production') {
-			// 	return new PrismaBetterSQLite3({ url: env.DATABASE_URL });
-			// }
+			return new PrismaD1HTTP({
+				CLOUDFLARE_D1_TOKEN: env.CLOUDFLARE_D1_TOKEN,
+				CLOUDFLARE_ACCOUNT_ID: env.CLOUDFLARE_ACCOUNT_ID,
+				CLOUDFLARE_DATABASE_ID: env.CLOUDFLARE_DATABASE_ID,
+			})
+		},
+	},
+	studio: {
+		adapter: async (env) => {
 			return new PrismaD1HTTP({
 				CLOUDFLARE_D1_TOKEN: env.CLOUDFLARE_D1_TOKEN,
 				CLOUDFLARE_ACCOUNT_ID: env.CLOUDFLARE_ACCOUNT_ID,
