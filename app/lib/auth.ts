@@ -2,7 +2,7 @@ import { betterAuth } from 'better-auth'
 import { prismaAdapter } from 'better-auth/adapters/prisma'
 import { genericOAuth } from 'better-auth/plugins'
 import { db } from '~/lib/db'
-import { getEnterpriseToken, getUserInfoByCode } from '~/lib/wechat-work'
+import { getUserInfoByCodeWithCache } from '~/lib/wechat-work'
 
 export const auth = betterAuth({
 	database: prismaAdapter(db, {
@@ -30,7 +30,7 @@ export const auth = betterAuth({
 						agentid: process.env.WECHAT_WORK_AGENT_ID as string,
 						login_type: 'CorpApp',
 					},
-
+					overrideUserInfo: true,
 					getUserInfo: async (
 						token,
 					): Promise<{
@@ -38,31 +38,28 @@ export const auth = betterAuth({
 						email: string
 						name: string
 						image?: string | null
+						gender?: string | null
+						department?: number | null
+						grade?: string | null
 						emailVerified: boolean
 						createdAt: Date
 						updatedAt: Date
 					}> => {
-						// 从伪造的 token 中提取code
-
 						console.info('Token:', token)
-
 						try {
-							// // 获取企业级 access_token
-							// const accessToken = await getEnterpriseToken()
-
-							// 使用 code 获取用户信息
-							const userInfo = await getUserInfoByCode(
-								token.accessToken as string,
+							// 使用企业微信的 code 获取用户信息，code 伪造成 tokenType
+							const userInfo = await getUserInfoByCodeWithCache(
 								token.tokenType as string,
 							)
-
 							console.info('获取到的用户信息:', userInfo)
-
 							return {
 								id: userInfo.userid || '',
 								email: userInfo.email || '',
-								name: (userInfo.name || userInfo.userid) ?? '',
+								name: userInfo.name || '',
 								image: userInfo.avatar || null,
+								gender: userInfo.gender || '',
+								department: userInfo.department?.at(-1),
+								grade: userInfo.grade || '',
 								emailVerified: true,
 								createdAt: new Date(),
 								updatedAt: new Date(),
@@ -72,6 +69,21 @@ export const auth = betterAuth({
 							throw new Error(
 								`获取企业微信用户信息失败: ${error instanceof Error ? error.message : '未知错误'}`,
 							)
+						}
+					},
+					mapProfileToUser: async (profile) => {
+						console.info('Profile:', profile)
+						return {
+							id: profile.id,
+							email: profile.email,
+							name: profile.name,
+							image: profile.image,
+							gender: profile.gender,
+							department: profile.department,
+							grade: profile.grade,
+							emailVerified: true,
+							createdAt: profile.createdAt,
+							updatedAt: profile.updatedAt,
 						}
 					},
 				},

@@ -1,6 +1,6 @@
 import { json } from '@tanstack/react-start'
 import { createAPIFileRoute } from '@tanstack/react-start/api'
-import { getEnterpriseToken } from '~/lib/wechat-work'
+import { getEnterpriseTokenWithCache } from '~/lib/wechat-work'
 
 export const APIRoute = createAPIFileRoute('/api/wechat-work-code')({
 	POST: async ({ request }) => {
@@ -30,7 +30,7 @@ export const APIRoute = createAPIFileRoute('/api/wechat-work-code')({
 					{ status: 400 },
 				)
 			}
-			const accessToken = await getEnterpriseToken()
+			const accessToken = await getEnterpriseTokenWithCache()
 
 			// 用 token 里的 token_type 替换 code
 			// 因为 better-auth 只支持标准的 token
