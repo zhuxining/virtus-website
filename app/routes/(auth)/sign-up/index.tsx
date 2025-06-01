@@ -32,7 +32,7 @@ function RouteComponent() {
 				</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<SignUpForm />
+				<SignUpForm className="  border-amber-300 bg-amber-500" />
 			</CardContent>
 			<CardFooter>
 				<p className="text-muted-foreground px-8 text-center text-sm">

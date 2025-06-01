@@ -100,6 +100,7 @@
 		"@udecode/plate-toggle": "^48.0.0",
 		"@udecode/plate-trailing-block": "^48.0.0",
 		"@uploadthing/react": "7.3.1",
+		"@wecom/jssdk": "^2.3.1",
 		"ai": "^4.3.16",
 		"better-auth": "^1.2.8",
 		"class-variance-authority": "^0.7.1",
