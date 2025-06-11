@@ -41,7 +41,7 @@ export const Route = createRootRouteWithContext<{
 		],
 	}),
 	component: RootComponent,
-	notFoundComponent: NotFoundError,
+	// notFoundComponent: NotFoundError,
 })
 
 function RootComponent(): ReactElement {

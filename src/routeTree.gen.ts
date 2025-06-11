@@ -40,6 +40,7 @@ import { Route as AdminConsoleSettingsDisplayRouteImport } from './routes/_admin
 import { Route as AdminConsoleSettingsAppearanceRouteImport } from './routes/_admin-console/settings/appearance'
 import { Route as AdminConsoleSettingsAccountRouteImport } from './routes/_admin-console/settings/account'
 import { ServerRoute as ApiWechatWorkCodeServerRouteImport } from './routes/api/wechat-work-code'
+import { ServerRoute as ApiRpcServerRouteImport } from './routes/api/rpc'
 import { ServerRoute as ApiRpcSplatServerRouteImport } from './routes/api/rpc.$'
 import { ServerRoute as ApiAuthSplatServerRouteImport } from './routes/api/auth/$'
 
@@ -195,10 +196,15 @@ const ApiWechatWorkCodeServerRoute = ApiWechatWorkCodeServerRouteImport.update({
   path: '/api/wechat-work-code',
   getParentRoute: () => rootServerRouteImport,
 } as any)
-const ApiRpcSplatServerRoute = ApiRpcSplatServerRouteImport.update({
-  id: '/api/rpc/$',
-  path: '/api/rpc/$',
+const ApiRpcServerRoute = ApiRpcServerRouteImport.update({
+  id: '/api/rpc',
+  path: '/api/rpc',
   getParentRoute: () => rootServerRouteImport,
+} as any)
+const ApiRpcSplatServerRoute = ApiRpcSplatServerRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => ApiRpcServerRoute,
 } as any)
 const ApiAuthSplatServerRoute = ApiAuthSplatServerRouteImport.update({
   id: '/api/auth/$',
@@ -391,33 +397,41 @@ export interface RootRouteChildren {
   errors503Route: typeof errors503Route
 }
 export interface FileServerRoutesByFullPath {
+  '/api/rpc': typeof ApiRpcServerRouteWithChildren
   '/api/wechat-work-code': typeof ApiWechatWorkCodeServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
   '/api/rpc/$': typeof ApiRpcSplatServerRoute
 }
 export interface FileServerRoutesByTo {
+  '/api/rpc': typeof ApiRpcServerRouteWithChildren
   '/api/wechat-work-code': typeof ApiWechatWorkCodeServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
   '/api/rpc/$': typeof ApiRpcSplatServerRoute
 }
 export interface FileServerRoutesById {
   __root__: typeof rootServerRouteImport
+  '/api/rpc': typeof ApiRpcServerRouteWithChildren
   '/api/wechat-work-code': typeof ApiWechatWorkCodeServerRoute
   '/api/auth/$': typeof ApiAuthSplatServerRoute
   '/api/rpc/$': typeof ApiRpcSplatServerRoute
 }
 export interface FileServerRouteTypes {
   fileServerRoutesByFullPath: FileServerRoutesByFullPath
-  fullPaths: '/api/wechat-work-code' | '/api/auth/$' | '/api/rpc/$'
+  fullPaths: '/api/rpc' | '/api/wechat-work-code' | '/api/auth/$' | '/api/rpc/$'
   fileServerRoutesByTo: FileServerRoutesByTo
-  to: '/api/wechat-work-code' | '/api/auth/$' | '/api/rpc/$'
-  id: '__root__' | '/api/wechat-work-code' | '/api/auth/$' | '/api/rpc/$'
+  to: '/api/rpc' | '/api/wechat-work-code' | '/api/auth/$' | '/api/rpc/$'
+  id:
+    | '__root__'
+    | '/api/rpc'
+    | '/api/wechat-work-code'
+    | '/api/auth/$'
+    | '/api/rpc/$'
   fileServerRoutesById: FileServerRoutesById
 }
 export interface RootServerRouteChildren {
+  ApiRpcServerRoute: typeof ApiRpcServerRouteWithChildren
   ApiWechatWorkCodeServerRoute: typeof ApiWechatWorkCodeServerRoute
   ApiAuthSplatServerRoute: typeof ApiAuthSplatServerRoute
-  ApiRpcSplatServerRoute: typeof ApiRpcSplatServerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -715,9 +729,9 @@ declare module '@tanstack/react-start/server' {
     }
     '/api/rpc': {
       id: '/api/rpc'
-      path: ''
+      path: '/api/rpc'
       fullPath: '/api/rpc'
-      preLoaderRoute: unknown
+      preLoaderRoute: typeof ApiRpcServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
     '/api/wechat-work-code': {
@@ -771,10 +785,10 @@ declare module '@tanstack/react-start/server' {
     }
     '/api/rpc/$': {
       id: '/api/rpc/$'
-      path: '/api/rpc/$'
+      path: '/$'
       fullPath: '/api/rpc/$'
       preLoaderRoute: typeof ApiRpcSplatServerRouteImport
-      parentRoute: typeof rootServerRouteImport
+      parentRoute: typeof ApiRpcServerRoute
     }
     '/(auth)/sign-in/': {
       id: '/(auth)/sign-in/'
@@ -959,6 +973,18 @@ const WebsiteRouteRouteWithChildren = WebsiteRouteRoute._addFileChildren(
   WebsiteRouteRouteChildren,
 )
 
+interface ApiRpcServerRouteChildren {
+  ApiRpcSplatServerRoute: typeof ApiRpcSplatServerRoute
+}
+
+const ApiRpcServerRouteChildren: ApiRpcServerRouteChildren = {
+  ApiRpcSplatServerRoute: ApiRpcSplatServerRoute,
+}
+
+const ApiRpcServerRouteWithChildren = ApiRpcServerRoute._addFileChildren(
+  ApiRpcServerRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   authRouteRoute: authRouteRouteWithChildren,
   AdminConsoleRouteRoute: AdminConsoleRouteRouteWithChildren,
@@ -973,9 +999,9 @@ export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 const rootServerRouteChildren: RootServerRouteChildren = {
+  ApiRpcServerRoute: ApiRpcServerRouteWithChildren,
   ApiWechatWorkCodeServerRoute: ApiWechatWorkCodeServerRoute,
   ApiAuthSplatServerRoute: ApiAuthSplatServerRoute,
-  ApiRpcSplatServerRoute: ApiRpcSplatServerRoute,
 }
 export const serverRouteTree = rootServerRouteImport
   ._addFileChildren(rootServerRouteChildren)

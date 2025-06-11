@@ -6,8 +6,9 @@
 
 # Build output
 .output/
+.nitro/
+.tanstack/
 dist/
-.vinxi/
 tsconfig.tsbuildinfo
 
 # Dependencies
@@ -18,7 +19,7 @@ node_modules/
 
 # Prisma
 dev.db
-app/generated/
+src/generated/
 prisma/data.db
 
 

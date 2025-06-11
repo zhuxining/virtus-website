@@ -9,8 +9,9 @@ export function createRouter() {
 
 	return routerWithQueryClient(
 		createTanStackRouter({
-			context: { queryClient },
 			routeTree,
+			context: { queryClient },
+			defaultPreload: 'intent',
 			scrollRestoration: true,
 		}),
 		queryClient,
