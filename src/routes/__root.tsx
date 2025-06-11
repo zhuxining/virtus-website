@@ -41,7 +41,7 @@ export const Route = createRootRouteWithContext<{
 		],
 	}),
 	component: RootComponent,
-	// notFoundComponent: NotFoundError,
+	notFoundComponent: NotFoundError,
 })
 
 function RootComponent(): ReactElement {
@@ -62,12 +62,8 @@ function RootDocument({ children }: { children: ReactNode }) {
 			</head>
 			<body>
 				{children}
-				{import.meta.env.MODE === 'development' && (
-					<>
-						<ReactQueryDevtools buttonPosition="bottom-left" />
-						<TanStackRouterDevtools position="bottom-right" />
-					</>
-				)}
+				<ReactQueryDevtools buttonPosition="bottom-left" />
+				<TanStackRouterDevtools position="bottom-right" />
 				<Scripts />
 			</body>
 		</html>
