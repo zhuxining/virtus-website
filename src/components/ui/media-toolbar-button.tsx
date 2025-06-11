@@ -32,15 +32,15 @@ import {
 	AlertDialogFooter,
 	AlertDialogHeader,
 	AlertDialogTitle,
-} from '*/components/ui/alert-dialog'
+} from '@/components/ui/alert-dialog'
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '*/components/ui/dropdown-menu'
-import { Input } from '*/components/ui/input'
+} from '@/components/ui/dropdown-menu'
+import { Input } from '@/components/ui/input'
 
 import {
 	ToolbarSplitButton,

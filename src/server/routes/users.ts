@@ -7,8 +7,8 @@ import {
 	UserFindUniqueArgsSchema,
 	UserSchema,
 	UserUpdateArgsSchema,
-} from '*/generated/zod'
-import { db } from '*/lib/db'
+} from '@/generated/zod'
+import { db } from '@/lib/db'
 
 export const usersRouter = {
 	list: os

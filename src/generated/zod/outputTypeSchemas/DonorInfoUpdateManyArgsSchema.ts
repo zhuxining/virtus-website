@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { DonorInfoUpdateManyMutationInputSchema } from '../inputTypeSchemas/DonorInfoUpdateManyMutationInputSchema'
 import { DonorInfoUncheckedUpdateManyInputSchema } from '../inputTypeSchemas/DonorInfoUncheckedUpdateManyInputSchema'
 import { DonorInfoWhereInputSchema } from '../inputTypeSchemas/DonorInfoWhereInputSchema'

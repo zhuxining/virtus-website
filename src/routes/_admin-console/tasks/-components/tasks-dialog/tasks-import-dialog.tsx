@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { Button } from '*/components/ui/button'
+import { Button } from '@/components/ui/button'
 import {
 	Dialog,
 	DialogClose,
@@ -10,7 +10,7 @@ import {
 	DialogFooter,
 	DialogHeader,
 	DialogTitle,
-} from '*/components/ui/dialog'
+} from '@/components/ui/dialog'
 import {
 	Form,
 	FormControl,
@@ -18,10 +18,10 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '*/components/ui/form'
-import { Input } from '*/components/ui/input'
-import { fileSchema } from '*/utils/schema'
-import { showSubmittedData } from '*/utils/show-submitted-data'
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { fileSchema } from '@/utils/schema'
+import { showSubmittedData } from '@/utils/show-submitted-data'
 
 const formSchema = z.object({
 	file: fileSchema

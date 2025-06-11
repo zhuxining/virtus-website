@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { SessionUpdateManyMutationInputSchema } from '../inputTypeSchemas/SessionUpdateManyMutationInputSchema'
 import { SessionUncheckedUpdateManyInputSchema } from '../inputTypeSchemas/SessionUncheckedUpdateManyInputSchema'
 import { SessionWhereInputSchema } from '../inputTypeSchemas/SessionWhereInputSchema'

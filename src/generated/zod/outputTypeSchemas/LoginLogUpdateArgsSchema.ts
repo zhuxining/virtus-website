@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { LoginLogUpdateInputSchema } from '../inputTypeSchemas/LoginLogUpdateInputSchema'
 import { LoginLogUncheckedUpdateInputSchema } from '../inputTypeSchemas/LoginLogUncheckedUpdateInputSchema'
 import { LoginLogWhereUniqueInputSchema } from '../inputTypeSchemas/LoginLogWhereUniqueInputSchema'

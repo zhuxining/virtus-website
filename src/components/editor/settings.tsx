@@ -14,7 +14,7 @@ import {
 	Wand2Icon,
 } from 'lucide-react'
 
-import { Button } from '*/components/ui/button'
+import { Button } from '@/components/ui/button'
 import {
 	Command,
 	CommandEmpty,
@@ -22,7 +22,7 @@ import {
 	CommandInput,
 	CommandItem,
 	CommandList,
-} from '*/components/ui/command'
+} from '@/components/ui/command'
 import {
 	Dialog,
 	DialogContent,
@@ -30,14 +30,14 @@ import {
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
-} from '*/components/ui/dialog'
-import { Input } from '*/components/ui/input'
+} from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
 import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger,
-} from '*/components/ui/popover'
-import { cn } from '*/lib/utils'
+} from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
 
 interface Model {
 	label: string

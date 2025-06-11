@@ -19,8 +19,8 @@ import {
 	DropdownMenuRadioGroup,
 	DropdownMenuRadioItem,
 	DropdownMenuTrigger,
-} from '*/components/ui/dropdown-menu'
-import { STRUCTURAL_TYPES } from '*/components/editor/transforms'
+} from '@/components/ui/dropdown-menu'
+import { STRUCTURAL_TYPES } from '@/components/editor/transforms'
 
 import { ToolbarButton } from './toolbar'
 

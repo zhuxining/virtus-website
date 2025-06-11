@@ -1,12 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Header } from '*/components/layout/Header'
-import { Main } from '*/components/layout/Main'
-import { TasksDialogs } from '*/features/tasks/components/tasks-dialog'
-import { TasksTable } from '*/features/tasks/components/tasks-table'
-import { tasksColumns } from '*/features/tasks/components/tasks-table/TasksColumns'
-import { TasksPrimaryButtons } from '*/features/tasks/components/tasks-table/TasksPrimaryButtons'
-import TasksProvider from '*/features/tasks/contexts/TasksContent'
-import { tasks } from '*/features/tasks/data/tasks'
+import { Header } from '@/components/layout/Header'
+import { Main } from '@/components/layout/Main'
+import { TasksDialogs } from '@/features/tasks/components/tasks-dialog'
+import { TasksTable } from '@/features/tasks/components/tasks-table'
+import { tasksColumns } from '@/features/tasks/components/tasks-table/TasksColumns'
+import { TasksPrimaryButtons } from '@/features/tasks/components/tasks-table/TasksPrimaryButtons'
+import TasksProvider from '@/features/tasks/contexts/TasksContent'
+import { tasks } from '@/features/tasks/data/tasks'
 
 export const Route = createFileRoute('/_admin-console/tasks/')({
 	component: RouteComponent,

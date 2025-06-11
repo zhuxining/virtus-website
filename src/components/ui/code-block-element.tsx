@@ -11,7 +11,7 @@ import {
 import { type PlateElementProps, PlateElement } from '@udecode/plate/react'
 import { BracesIcon, CheckIcon, CopyIcon } from 'lucide-react'
 
-import { Button } from '*/components/ui/button'
+import { Button } from '@/components/ui/button'
 
 import { CodeBlockCombobox } from './code-block-combobox'
 

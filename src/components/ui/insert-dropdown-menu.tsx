@@ -51,11 +51,11 @@ import {
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '*/components/ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 import {
 	insertBlock,
 	insertInlineElement,
-} from '*/components/editor/transforms'
+} from '@/components/editor/transforms'
 
 import { ToolbarButton, ToolbarMenuGroup } from './toolbar'
 

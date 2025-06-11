@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { LoginLogCreateInputSchema } from '../inputTypeSchemas/LoginLogCreateInputSchema'
 import { LoginLogUncheckedCreateInputSchema } from '../inputTypeSchemas/LoginLogUncheckedCreateInputSchema'
 // Select schema needs to be in file to prevent circular imports

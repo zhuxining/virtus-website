@@ -11,7 +11,7 @@ import {
 	usePlaceholderState,
 } from '@udecode/plate/react'
 
-import { cn } from '*/lib/utils'
+import { cn } from '@/lib/utils'
 
 export const Placeholder = (props: PlaceholderProps) => {
 	const { attributes, children, placeholder } = props

@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { SelectDropdown } from '*/components/SelectDropdown'
-import { Button } from '*/components/ui/button'
+import { SelectDropdown } from '@/components/SelectDropdown'
+import { Button } from '@/components/ui/button'
 import {
 	Form,
 	FormControl,
@@ -10,9 +10,9 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '*/components/ui/form'
-import { Input } from '*/components/ui/input'
-import { RadioGroup, RadioGroupItem } from '*/components/ui/radio-group'
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import {
 	Sheet,
 	SheetClose,
@@ -21,8 +21,8 @@ import {
 	SheetFooter,
 	SheetHeader,
 	SheetTitle,
-} from '*/components/ui/sheet'
-import { showSubmittedData } from '*/utils/show-submitted-data'
+} from '@/components/ui/sheet'
+import { showSubmittedData } from '@/utils/show-submitted-data'
 import type { Task } from '../../schema/tasks'
 
 interface Props {

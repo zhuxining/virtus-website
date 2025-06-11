@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { VerificationCreateInputSchema } from '../inputTypeSchemas/VerificationCreateInputSchema'
 import { VerificationUncheckedCreateInputSchema } from '../inputTypeSchemas/VerificationUncheckedCreateInputSchema'
 // Select schema needs to be in file to prevent circular imports

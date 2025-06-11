@@ -10,8 +10,8 @@ import {
 } from '@udecode/plate-indent-list/react'
 import { useReadOnly } from '@udecode/plate/react'
 
-import { Checkbox } from '*/components/ui/checkbox'
-import { cn } from '*/lib/utils'
+import { Checkbox } from '@/components/ui/checkbox'
+import { cn } from '@/lib/utils'
 
 export function TodoMarker(props: Omit<SlateRenderElementProps, 'children'>) {
 	const state = useIndentTodoListElementState({ element: props.element })

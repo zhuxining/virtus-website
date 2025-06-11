@@ -6,7 +6,7 @@ import type { TEquationElement } from '@udecode/plate-math'
 import { SlateElement } from '@udecode/plate'
 import { getEquationHtml } from '@udecode/plate-math'
 
-import { cn } from '*/lib/utils'
+import { cn } from '@/lib/utils'
 
 export function InlineEquationElementStatic(
 	props: SlateElementProps<TEquationElement>,

@@ -16,9 +16,9 @@ import {
 } from '@udecode/plate/react'
 import { type LucideProps, Trash2Icon } from 'lucide-react'
 
-import { Button } from '*/components/ui/button'
-import { Popover, PopoverAnchor, PopoverContent } from '*/components/ui/popover'
-import { Separator } from '*/components/ui/separator'
+import { Button } from '@/components/ui/button'
+import { Popover, PopoverAnchor, PopoverContent } from '@/components/ui/popover'
+import { Separator } from '@/components/ui/separator'
 
 export function ColumnGroupElement(props: PlateElementProps) {
 	return (

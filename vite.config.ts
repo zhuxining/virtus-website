@@ -1,13 +1,16 @@
 import { defineConfig } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
-import { cloudflare } from '@cloudflare/vite-plugin'
+
+import tsconfigPaths from 'vite-tsconfig-paths' // 修正了变量名
 
 export default defineConfig({
+	server: {
+		port: 3000,
+	},
 	plugins: [
-		tsconfigPaths(),
-		cloudflare(),
-		// tailwindcss(),
+		tsconfigPaths({
+			projects: ['./tsconfig.json'],
+		}),
 		tanstackStart(),
 	],
 })

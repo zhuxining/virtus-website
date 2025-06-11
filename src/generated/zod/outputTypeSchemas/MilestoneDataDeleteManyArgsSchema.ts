@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { MilestoneDataWhereInputSchema } from '../inputTypeSchemas/MilestoneDataWhereInputSchema'
 
 export const MilestoneDataDeleteManyArgsSchema: z.ZodType<Prisma.MilestoneDataDeleteManyArgs> =

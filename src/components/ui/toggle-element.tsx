@@ -11,7 +11,7 @@ import {
 import { PlateElement } from '@udecode/plate/react'
 import { ChevronRight } from 'lucide-react'
 
-import { Button } from '*/components/ui/button'
+import { Button } from '@/components/ui/button'
 
 export function ToggleElement(props: PlateElementProps) {
 	const element = props.element

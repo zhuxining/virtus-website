@@ -25,17 +25,17 @@ import {
 	XIcon,
 } from 'lucide-react'
 
-import { Avatar, AvatarFallback, AvatarImage } from '*/components/ui/avatar'
-import { Button } from '*/components/ui/button'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from '*/components/ui/dropdown-menu'
-import { cn } from '*/lib/utils'
-import { discussionPlugin } from '*/components/editor/plugins/discussion-plugin'
+} from '@/components/ui/dropdown-menu'
+import { cn } from '@/lib/utils'
+import { discussionPlugin } from '@/components/editor/plugins/discussion-plugin'
 
 import { useCommentEditor } from './comment-create-form'
 import { Editor, EditorContainer } from './editor'

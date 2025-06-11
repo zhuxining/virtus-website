@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { UserArgsSchema } from '../outputTypeSchemas/UserArgsSchema'
 
 export const SessionIncludeSchema: z.ZodType<Prisma.SessionInclude> = z

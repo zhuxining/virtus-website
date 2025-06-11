@@ -27,19 +27,19 @@ import {
 	PencilLineIcon,
 } from 'lucide-react'
 
-import { Button } from '*/components/ui/button'
+import { Button } from '@/components/ui/button'
 import {
 	Popover,
 	PopoverAnchor,
 	PopoverContent,
 	PopoverTrigger,
-} from '*/components/ui/popover'
-import { commentsPlugin } from '*/components/editor/plugins/comments-plugin'
+} from '@/components/ui/popover'
+import { commentsPlugin } from '@/components/editor/plugins/comments-plugin'
 import {
 	type TDiscussion,
 	discussionPlugin,
-} from '*/components/editor/plugins/discussion-plugin'
-import { suggestionPlugin } from '*/components/editor/plugins/suggestion-plugin'
+} from '@/components/editor/plugins/discussion-plugin'
+import { suggestionPlugin } from '@/components/editor/plugins/suggestion-plugin'
 
 import {
 	BlockSuggestionCard,

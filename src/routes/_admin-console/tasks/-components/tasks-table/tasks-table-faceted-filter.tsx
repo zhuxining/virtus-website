@@ -1,8 +1,8 @@
 import { CheckIcon, PlusCircledIcon } from '@radix-ui/react-icons'
 import type { Column } from '@tanstack/react-table'
 import type React from 'react'
-import { Badge } from '*/components/ui/badge'
-import { Button } from '*/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import {
 	Command,
 	CommandEmpty,
@@ -11,14 +11,14 @@ import {
 	CommandItem,
 	CommandList,
 	CommandSeparator,
-} from '*/components/ui/command'
+} from '@/components/ui/command'
 import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger,
-} from '*/components/ui/popover'
-import { Separator } from '*/components/ui/separator'
-import { cn } from '*/lib/utils'
+} from '@/components/ui/popover'
+import { Separator } from '@/components/ui/separator'
+import { cn } from '@/lib/utils'
 
 interface Props<TData, TValue> {
 	column?: Column<TData, TValue>

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { LoginLogWhereInputSchema } from '../inputTypeSchemas/LoginLogWhereInputSchema'
 import { LoginLogOrderByWithAggregationInputSchema } from '../inputTypeSchemas/LoginLogOrderByWithAggregationInputSchema'
 import { LoginLogScalarFieldEnumSchema } from '../inputTypeSchemas/LoginLogScalarFieldEnumSchema'

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { MilestoneDataWhereUniqueInputSchema } from '../inputTypeSchemas/MilestoneDataWhereUniqueInputSchema'
 import { MilestoneDataCreateInputSchema } from '../inputTypeSchemas/MilestoneDataCreateInputSchema'
 import { MilestoneDataUncheckedCreateInputSchema } from '../inputTypeSchemas/MilestoneDataUncheckedCreateInputSchema'

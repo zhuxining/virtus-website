@@ -11,7 +11,7 @@ import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuTrigger,
-} from '*/components/ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 
 import { DEFAULT_COLORS, DEFAULT_CUSTOM_COLORS } from './color-constants'
 import { ColorPicker } from './color-picker'

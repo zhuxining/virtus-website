@@ -7,16 +7,16 @@ import {
 } from '@tabler/icons-react'
 import { Link, useLocation, useNavigate } from '@tanstack/react-router'
 import React from 'react'
-import { buttonVariants } from '*/components/ui/button'
-import { ScrollArea } from '*/components/ui/scroll-area'
+import { buttonVariants } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from '*/components/ui/select'
-import { cn } from '*/lib/utils'
+} from '@/components/ui/select'
+import { cn } from '@/lib/utils'
 
 const sidebarNavItems = [
 	{

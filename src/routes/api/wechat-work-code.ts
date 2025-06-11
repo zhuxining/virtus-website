@@ -1,8 +1,10 @@
 import { createServerFileRoute } from '@tanstack/react-start/server'
 import { json } from '@tanstack/react-start'
-import { getEnterpriseTokenWithCache } from '*/lib/wechat-work'
+import { getEnterpriseTokenWithCache } from '@/lib/wechat-work'
 
-export const ServerRoute = createServerFileRoute('/api/wechat-work-code').methods({
+export const ServerRoute = createServerFileRoute(
+	'/api/wechat-work-code',
+).methods({
 	POST: async ({ request }) => {
 		try {
 			// 从请求中提取必要的参数

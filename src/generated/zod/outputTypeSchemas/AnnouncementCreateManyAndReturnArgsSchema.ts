@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { AnnouncementCreateManyInputSchema } from '../inputTypeSchemas/AnnouncementCreateManyInputSchema'
 
 export const AnnouncementCreateManyAndReturnArgsSchema: z.ZodType<Prisma.AnnouncementCreateManyAndReturnArgs> =

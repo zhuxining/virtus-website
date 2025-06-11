@@ -1,6 +1,6 @@
 import React from 'react'
 
-import useDialogState from '*/hooks/use-dialog-state'
+import useDialogState from '@/hooks/use-dialog-state'
 
 import type { Task } from '../-schema/tasks'
 

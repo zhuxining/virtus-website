@@ -7,7 +7,7 @@ import { SlateLeaf } from '@udecode/plate'
 import { BaseSuggestionPlugin } from '@udecode/plate-suggestion'
 import { useEditorPlugin } from '@udecode/plate/react'
 
-import { cn } from '*/lib/utils'
+import { cn } from '@/lib/utils'
 
 export function SuggestionLeafStatic(props: SlateLeafProps<TSuggestionText>) {
 	const { api } = useEditorPlugin(BaseSuggestionPlugin)

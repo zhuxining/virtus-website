@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { AccountWhereInputSchema } from '../inputTypeSchemas/AccountWhereInputSchema'
 import { AccountOrderByWithAggregationInputSchema } from '../inputTypeSchemas/AccountOrderByWithAggregationInputSchema'
 import { AccountScalarFieldEnumSchema } from '../inputTypeSchemas/AccountScalarFieldEnumSchema'

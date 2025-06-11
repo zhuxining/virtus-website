@@ -20,7 +20,7 @@ import {
 	TableHead,
 	TableHeader,
 	TableRow,
-} from '*/components/ui/table'
+} from '@/components/ui/table'
 import { TasksTablePagination } from './tasks-table-pagination'
 import { TasksTableToolbar } from './tasks-table-toolbar'
 

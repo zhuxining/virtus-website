@@ -8,10 +8,10 @@ import {
 } from '@udecode/plate-font/react'
 import { PlusIcon } from 'lucide-react'
 
-import { buttonVariants } from '*/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 // import { ColorInput } from './color-input';
-import { DropdownMenuItem } from '*/components/ui/dropdown-menu'
-import { cn } from '*/lib/utils'
+import { DropdownMenuItem } from '@/components/ui/dropdown-menu'
+import { cn } from '@/lib/utils'
 
 import {
 	type TColor,

@@ -9,26 +9,14 @@ import {
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import type { ReactElement, ReactNode } from 'react'
 
-import { NotFoundError } from '*/components/errors/NotFoundError'
-import { ThemeProvider } from '*/features/theme/contexts/ThemeContext'
-import appCss from '*/styles/app.css?url'
+import { NotFoundError } from '@/components/errors/NotFoundError'
+import { ThemeProvider } from '@/features/theme/contexts/ThemeContext'
+import appCss from '@/styles/app.css?url'
 
 export const Route = createRootRouteWithContext<{
 	queryClient: QueryClient
 }>()({
-	component: RootComponent,
-	notFoundComponent: NotFoundError,
 	head: () => ({
-		links: [
-			{
-				rel: 'stylesheet',
-				href: appCss,
-			},
-			{
-				href: '/favicon.webp',
-				rel: 'icon',
-			},
-		],
 		meta: [
 			{
 				charSet: 'utf-8',
@@ -41,7 +29,19 @@ export const Route = createRootRouteWithContext<{
 				title: 'Virtus Foundation Limited',
 			},
 		],
+		links: [
+			{
+				rel: 'stylesheet',
+				href: appCss,
+			},
+			{
+				href: '/favicon.webp',
+				rel: 'icon',
+			},
+		],
 	}),
+	component: RootComponent,
+	notFoundComponent: NotFoundError,
 })
 
 function RootComponent(): ReactElement {

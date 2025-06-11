@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { VerificationUpdateInputSchema } from '../inputTypeSchemas/VerificationUpdateInputSchema'
 import { VerificationUncheckedUpdateInputSchema } from '../inputTypeSchemas/VerificationUncheckedUpdateInputSchema'
 import { VerificationWhereUniqueInputSchema } from '../inputTypeSchemas/VerificationWhereUniqueInputSchema'

@@ -1,5 +1,5 @@
-import { ConfirmDialog } from '*/components/confirm-dialog'
-import { showSubmittedData } from '*/utils/show-submitted-data'
+import { ConfirmDialog } from '@/components/confirm-dialog'
+import { showSubmittedData } from '@/utils/show-submitted-data'
 import { useTasks } from '../../-contexts/tasks-content'
 import { TasksImportDialog } from './tasks-import-dialog'
 import { TasksMutateDrawer } from './tasks-mutate-drawer'

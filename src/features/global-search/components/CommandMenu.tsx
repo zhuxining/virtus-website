@@ -1,7 +1,7 @@
 import { IconArrowRightDashed, IconMoon, IconSun } from '@tabler/icons-react'
 import { useNavigate } from '@tanstack/react-router'
 import React from 'react'
-import { sidebarData } from '*/components/layout/data/sidebar-data'
+import { sidebarData } from '@/components/layout/data/sidebar-data'
 import {
 	CommandDialog,
 	CommandEmpty,
@@ -10,10 +10,10 @@ import {
 	CommandItem,
 	CommandList,
 	CommandSeparator,
-} from '*/components/ui/command'
-import { ScrollArea } from '*/components/ui/scroll-area'
-import { useSearch } from '*/features/global-search/contexts/SearchContext'
-import { useTheme } from '*/features/theme/contexts/ThemeContext'
+} from '@/components/ui/command'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { useSearch } from '@/features/global-search/contexts/SearchContext'
+import { useTheme } from '@/features/theme/contexts/ThemeContext'
 
 export function CommandMenu() {
 	const navigate = useNavigate()

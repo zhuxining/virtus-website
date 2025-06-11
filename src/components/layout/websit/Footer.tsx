@@ -1,9 +1,9 @@
 import { Link } from '@tanstack/react-router'
 Button
 import type React from 'react'
-import { Button } from '*/components/ui/button'
+import { Button } from '@/components/ui/button'
 
-import { cn } from '*/lib/utils'
+import { cn } from '@/lib/utils'
 
 interface FooterProps extends React.HTMLAttributes<HTMLElement> {}
 

@@ -11,7 +11,7 @@ import {
 } from '@udecode/plate-selection/react'
 import { usePluginOption } from '@udecode/plate/react'
 
-import { cn } from '*/lib/utils'
+import { cn } from '@/lib/utils'
 
 export function Cursor({
 	id,

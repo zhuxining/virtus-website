@@ -34,14 +34,14 @@ import {
 import { useReadOnly, useSelected } from '@udecode/plate/react'
 import { GripVertical } from 'lucide-react'
 
-import { Button } from '*/components/ui/button'
+import { Button } from '@/components/ui/button'
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from '*/components/ui/tooltip'
-import { cn } from '*/lib/utils'
-import { STRUCTURAL_TYPES } from '*/components/editor/transforms'
+} from '@/components/ui/tooltip'
+import { cn } from '@/lib/utils'
+import { STRUCTURAL_TYPES } from '@/components/editor/transforms'
 
 const UNDRAGGABLE_KEYS = [
 	ColumnItemPlugin.key,

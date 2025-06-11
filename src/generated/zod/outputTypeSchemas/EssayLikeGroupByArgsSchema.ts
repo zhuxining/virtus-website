@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { EssayLikeWhereInputSchema } from '../inputTypeSchemas/EssayLikeWhereInputSchema'
 import { EssayLikeOrderByWithAggregationInputSchema } from '../inputTypeSchemas/EssayLikeOrderByWithAggregationInputSchema'
 import { EssayLikeScalarFieldEnumSchema } from '../inputTypeSchemas/EssayLikeScalarFieldEnumSchema'

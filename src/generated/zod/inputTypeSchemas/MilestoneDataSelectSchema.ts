@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 
 export const MilestoneDataSelectSchema: z.ZodType<Prisma.MilestoneDataSelect> =
 	z

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { DonorInfoWhereInputSchema } from '../inputTypeSchemas/DonorInfoWhereInputSchema'
 import { DonorInfoOrderByWithAggregationInputSchema } from '../inputTypeSchemas/DonorInfoOrderByWithAggregationInputSchema'
 import { DonorInfoScalarFieldEnumSchema } from '../inputTypeSchemas/DonorInfoScalarFieldEnumSchema'

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { MilestoneDataUpdateManyMutationInputSchema } from '../inputTypeSchemas/MilestoneDataUpdateManyMutationInputSchema'
 import { MilestoneDataUncheckedUpdateManyInputSchema } from '../inputTypeSchemas/MilestoneDataUncheckedUpdateManyInputSchema'
 import { MilestoneDataWhereInputSchema } from '../inputTypeSchemas/MilestoneDataWhereInputSchema'

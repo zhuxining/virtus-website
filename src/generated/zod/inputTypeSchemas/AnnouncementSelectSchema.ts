@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 
 export const AnnouncementSelectSchema: z.ZodType<Prisma.AnnouncementSelect> = z
 	.object({

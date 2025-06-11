@@ -6,7 +6,7 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from '*/components/ui/card'
+} from '@/components/ui/card'
 import { SignInForm } from './-components/SignInForm'
 
 export const Route = createFileRoute('/(auth)/sign-in/')({

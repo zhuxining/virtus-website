@@ -61,11 +61,11 @@ import {
 import { usePlateEditor } from '@udecode/plate/react'
 import { all, createLowlight } from 'lowlight'
 
-import { markdownPlugin } from '*/components/editor/plugins/markdown-plugin'
+import { markdownPlugin } from '@/components/editor/plugins/markdown-plugin'
 import {
 	TodoLiStatic,
 	TodoMarkerStatic,
-} from '*/components/ui/indent-todo-marker-static'
+} from '@/components/ui/indent-todo-marker-static'
 
 import { BlockquoteElementStatic } from './blockquote-element-static'
 import { CalloutElementStatic } from './callout-element-static'

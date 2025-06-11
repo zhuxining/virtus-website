@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { EssayLikeIncludeSchema } from '../inputTypeSchemas/EssayLikeIncludeSchema'
 import { EssayLikeCreateInputSchema } from '../inputTypeSchemas/EssayLikeCreateInputSchema'
 import { EssayLikeUncheckedCreateInputSchema } from '../inputTypeSchemas/EssayLikeUncheckedCreateInputSchema'

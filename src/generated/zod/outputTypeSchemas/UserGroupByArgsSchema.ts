@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { UserWhereInputSchema } from '../inputTypeSchemas/UserWhereInputSchema'
 import { UserOrderByWithAggregationInputSchema } from '../inputTypeSchemas/UserOrderByWithAggregationInputSchema'
 import { UserScalarFieldEnumSchema } from '../inputTypeSchemas/UserScalarFieldEnumSchema'

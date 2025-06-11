@@ -5,13 +5,13 @@ import type { PlateElementProps } from '@udecode/plate/react'
 
 import { PlateElement, useReadOnly } from '@udecode/plate/react'
 
-import { Calendar } from '*/components/ui/calendar'
+import { Calendar } from '@/components/ui/calendar'
 import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger,
-} from '*/components/ui/popover'
-import { cn } from '*/lib/utils'
+} from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
 
 export function DateElement(props: PlateElementProps<TDateElement>) {
 	const { editor, element } = props

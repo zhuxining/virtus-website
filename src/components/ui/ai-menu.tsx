@@ -20,10 +20,10 @@ import {
 import { Command as CommandPrimitive } from 'cmdk'
 import { Loader2Icon } from 'lucide-react'
 
-import { Command, CommandList } from '*/components/ui/command'
-import { Popover, PopoverAnchor, PopoverContent } from '*/components/ui/popover'
-import { cn } from '*/lib/utils'
-import { useChat } from '*/components/editor/use-chat'
+import { Command, CommandList } from '@/components/ui/command'
+import { Popover, PopoverAnchor, PopoverContent } from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
+import { useChat } from '@/components/editor/use-chat'
 
 import { AIChatEditor } from './ai-chat-editor'
 import { AIMenuItems } from './ai-menu-items'

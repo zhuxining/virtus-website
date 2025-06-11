@@ -6,9 +6,9 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 
 import { Plate } from '@udecode/plate/react'
 
-import { SettingsDialog } from '*/components/editor/settings'
-import { useCreateEditor } from '*/components/editor/use-create-editor'
-import { Editor, EditorContainer } from '*/components/ui/editor'
+import { SettingsDialog } from '@/components/editor/settings'
+import { useCreateEditor } from '@/components/editor/use-create-editor'
+import { Editor, EditorContainer } from '@/components/ui/editor'
 
 export function PlateEditor() {
 	const editor = useCreateEditor()

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { EssayStatisticsWhereInputSchema } from '../inputTypeSchemas/EssayStatisticsWhereInputSchema'
 
 export const EssayStatisticsDeleteManyArgsSchema: z.ZodType<Prisma.EssayStatisticsDeleteManyArgs> =

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { EssayStatisticsWhereUniqueInputSchema } from '../inputTypeSchemas/EssayStatisticsWhereUniqueInputSchema'
 import { EssayStatisticsCreateInputSchema } from '../inputTypeSchemas/EssayStatisticsCreateInputSchema'
 import { EssayStatisticsUncheckedCreateInputSchema } from '../inputTypeSchemas/EssayStatisticsUncheckedCreateInputSchema'

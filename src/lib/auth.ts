@@ -1,8 +1,8 @@
 import { betterAuth } from 'better-auth'
 import { prismaAdapter } from 'better-auth/adapters/prisma'
 import { genericOAuth } from 'better-auth/plugins'
-import { db } from '*/lib/db'
-import { getUserInfoByCodeWithCache } from '*/lib/wechat-work'
+import { db } from '@/lib/db'
+import { getUserInfoByCodeWithCache } from '@/lib/wechat-work'
 
 export const auth = betterAuth({
 	database: prismaAdapter(db, {

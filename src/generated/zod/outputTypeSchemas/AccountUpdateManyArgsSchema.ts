@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { AccountUpdateManyMutationInputSchema } from '../inputTypeSchemas/AccountUpdateManyMutationInputSchema'
 import { AccountUncheckedUpdateManyInputSchema } from '../inputTypeSchemas/AccountUncheckedUpdateManyInputSchema'
 import { AccountWhereInputSchema } from '../inputTypeSchemas/AccountWhereInputSchema'

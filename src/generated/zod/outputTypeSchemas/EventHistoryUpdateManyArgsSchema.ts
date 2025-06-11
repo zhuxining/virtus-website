@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { EventHistoryUpdateManyMutationInputSchema } from '../inputTypeSchemas/EventHistoryUpdateManyMutationInputSchema'
 import { EventHistoryUncheckedUpdateManyInputSchema } from '../inputTypeSchemas/EventHistoryUncheckedUpdateManyInputSchema'
 import { EventHistoryWhereInputSchema } from '../inputTypeSchemas/EventHistoryWhereInputSchema'

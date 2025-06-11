@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { LoginLogWhereInputSchema } from '../inputTypeSchemas/LoginLogWhereInputSchema'
 import { LoginLogOrderByWithRelationInputSchema } from '../inputTypeSchemas/LoginLogOrderByWithRelationInputSchema'
 import { LoginLogWhereUniqueInputSchema } from '../inputTypeSchemas/LoginLogWhereUniqueInputSchema'

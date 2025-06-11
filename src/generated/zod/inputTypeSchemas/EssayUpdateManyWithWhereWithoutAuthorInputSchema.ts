@@ -1,4 +1,4 @@
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 
 import { z } from 'zod'
 import { EssayScalarWhereInputSchema } from './EssayScalarWhereInputSchema'

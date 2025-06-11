@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { SessionSelectSchema } from '../inputTypeSchemas/SessionSelectSchema'
 import { SessionIncludeSchema } from '../inputTypeSchemas/SessionIncludeSchema'
 

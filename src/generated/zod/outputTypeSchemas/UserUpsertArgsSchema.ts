@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { UserIncludeSchema } from '../inputTypeSchemas/UserIncludeSchema'
 import { UserWhereUniqueInputSchema } from '../inputTypeSchemas/UserWhereUniqueInputSchema'
 import { UserCreateInputSchema } from '../inputTypeSchemas/UserCreateInputSchema'

@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import type { Prisma } from '*/generated/prisma'
+import type { Prisma } from '@/generated/prisma'
 import { AnnouncementWhereInputSchema } from '../inputTypeSchemas/AnnouncementWhereInputSchema'
 import { AnnouncementOrderByWithAggregationInputSchema } from '../inputTypeSchemas/AnnouncementOrderByWithAggregationInputSchema'
 import { AnnouncementScalarFieldEnumSchema } from '../inputTypeSchemas/AnnouncementScalarFieldEnumSchema'

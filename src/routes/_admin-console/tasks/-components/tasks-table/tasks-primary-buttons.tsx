@@ -1,6 +1,6 @@
 import { IconDownload, IconPlus } from '@tabler/icons-react'
 
-import { Button } from '*/components/ui/button'
+import { Button } from '@/components/ui/button'
 
 import { useTasks } from '../../-contexts/tasks-content'
 

@@ -13,8 +13,8 @@ import {
 } from '@udecode/plate-suggestion'
 import { toTPlatePlugin } from '@udecode/plate/react'
 
-import { discussionPlugin } from '*/components/editor/plugins/discussion-plugin'
-import { BlockSuggestion } from '*/components/ui/block-suggestion'
+import { discussionPlugin } from '@/components/editor/plugins/discussion-plugin'
+import { BlockSuggestion } from '@/components/ui/block-suggestion'
 
 export type SuggestionConfig = ExtendConfig<
 	BaseSuggestionConfig,
