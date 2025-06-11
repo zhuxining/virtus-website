@@ -15,7 +15,7 @@ generator client {
 generator zod {
   provider         = "zod-prisma-types"
   output           = "../app/generated/zod"
-  prismaClientPath = "~/generated/prisma"
+  prismaClientPath = "@/generated/prisma"
   useMultipleFiles = true
   // createModelTypes = false
 }

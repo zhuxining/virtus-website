@@ -1,0 +1,16 @@
+import { z } from 'zod'
+import type { Prisma } from '*/generated/prisma'
+
+export const MilestoneDataSelectSchema: z.ZodType<Prisma.MilestoneDataSelect> =
+	z
+		.object({
+			id: z.boolean().optional(),
+			startYear: z.boolean().optional(),
+			studentCount: z.boolean().optional(),
+			cityCount: z.boolean().optional(),
+			createdAt: z.boolean().optional(),
+			updatedAt: z.boolean().optional(),
+		})
+		.strict()
+
+export default MilestoneDataSelectSchema

@@ -1,0 +1,15 @@
+import type { Prisma } from '*/generated/prisma'
+
+import { z } from 'zod'
+import { AccountWhereInputSchema } from './AccountWhereInputSchema'
+
+export const AccountListRelationFilterSchema: z.ZodType<Prisma.AccountListRelationFilter> =
+	z
+		.object({
+			every: z.lazy(() => AccountWhereInputSchema).optional(),
+			some: z.lazy(() => AccountWhereInputSchema).optional(),
+			none: z.lazy(() => AccountWhereInputSchema).optional(),
+		})
+		.strict()
+
+export default AccountListRelationFilterSchema
