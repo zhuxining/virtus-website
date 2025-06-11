@@ -1,6 +1,6 @@
-import { createServerFileRoute } from '@tanstack/react-start/server'
-import { json } from '@tanstack/react-start'
 import { getEnterpriseTokenWithCache } from '@/lib/wechat-work'
+import { json } from '@tanstack/react-start'
+import { createServerFileRoute } from '@tanstack/react-start/server'
 
 export const ServerRoute = createServerFileRoute(
 	'/api/wechat-work-code',

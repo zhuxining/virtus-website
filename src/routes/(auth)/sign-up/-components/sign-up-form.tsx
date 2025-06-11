@@ -1,8 +1,8 @@
-import { IconBrandGithub } from '@tabler/icons-react'
-import React from 'react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { IconBrandGithub } from '@tabler/icons-react'
 import { createAuthClient } from 'better-auth/client'
+import React from 'react'
 
 type UserAuthFormProps = React.HTMLAttributes<HTMLFormElement>
 

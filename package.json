@@ -15,7 +15,7 @@
 		"db:reset": "prisma migrate dev reset",
 		"migrate:dev": "prisma migrate dev",
 		"migrate": "prisma migrate deploy",
-		"fix:biome": "biome check --write --unsafe ./app",
+		"fix:biome": "biome check --write --unsafe ./src",
 		"check:ts": "tsc -b --incremental"
 	},
 	"dependencies": {
@@ -50,7 +50,7 @@
 		"@radix-ui/react-toolbar": "^1.1.10",
 		"@radix-ui/react-tooltip": "^1.2.7",
 		"@tabler/icons-react": "^3.34.0",
-		"@tailwindcss/postcss": "^4.1.8",
+		"@tailwindcss/vite": "^4.1.8",
 		"@tanstack/react-query": "^5.80.6",
 		"@tanstack/react-router": "^1.121.0",
 		"@tanstack/react-router-with-query": "^1.121.0",
@@ -113,7 +113,6 @@
 		"lowlight": "^3.3.0",
 		"lucide-react": "^0.511.0",
 		"pdf-lib": "^1.17.1",
-		"postcss": "^8.5.4",
 		"react": "^19.1.0",
 		"react-day-picker": "8.10.1",
 		"react-dnd": "^16.0.1",

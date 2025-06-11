@@ -1,4 +1,12 @@
 import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from '@/components/ui/table'
+import {
 	type ColumnDef,
 	type ColumnFiltersState,
 	type SortingState,
@@ -13,14 +21,6 @@ import {
 	useReactTable,
 } from '@tanstack/react-table'
 import React from 'react'
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from '@/components/ui/table'
 import { TasksTablePagination } from './tasks-table-pagination'
 import { TasksTableToolbar } from './tasks-table-toolbar'
 

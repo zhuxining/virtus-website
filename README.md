@@ -80,7 +80,7 @@ A powerful, full-stack SaaS starter template built with modern technologies. Thi
 ### Project Structure
 
 ```txt
-app/
+src/
 ├── components/        # Reusable UI components
 │   ├── ui/            # Atomic/molecular UI components
 │   ├── layout/        # Layout-related components
@@ -124,7 +124,7 @@ prisma/                # Prisma schema and seed data
 Other key files:
 - package.json         # Project metadata and dependencies
 - tsconfig.json        # TypeScript configuration
-- postcss.config.js    # PostCSS configuration
+
 - wrangler.jsonc       # Cloudflare Workers configuration
 - biome.jsonc          # Biome (formatter/linter) configuration
 ```

@@ -1,6 +1,6 @@
+import { cn } from '@/lib/utils'
 import { useNavigate } from '@tanstack/react-router'
 import type React from 'react'
-import { cn } from '@/lib/utils'
 import { Button } from '../ui/button'
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {

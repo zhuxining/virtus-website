@@ -1,4 +1,4 @@
-import { db as prisma } from '../app/lib/db'
+import { db as prisma } from '../src/lib/db'
 import fs from 'node:fs'
 import path from 'node:path'
 

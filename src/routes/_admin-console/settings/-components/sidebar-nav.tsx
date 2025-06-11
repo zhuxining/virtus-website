@@ -1,12 +1,3 @@
-import {
-	IconBrowserCheck,
-	IconNotification,
-	IconPalette,
-	IconTool,
-	IconUser,
-} from '@tabler/icons-react'
-import { Link, useLocation, useNavigate } from '@tanstack/react-router'
-import React from 'react'
 import { buttonVariants } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import {
@@ -17,6 +8,15 @@ import {
 	SelectValue,
 } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
+import {
+	IconBrowserCheck,
+	IconNotification,
+	IconPalette,
+	IconTool,
+	IconUser,
+} from '@tabler/icons-react'
+import { Link, useLocation, useNavigate } from '@tanstack/react-router'
+import React from 'react'
 
 const sidebarNavItems = [
 	{

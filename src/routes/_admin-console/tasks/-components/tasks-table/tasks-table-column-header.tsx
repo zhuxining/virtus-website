@@ -1,11 +1,3 @@
-import {
-	ArrowDownIcon,
-	ArrowUpIcon,
-	CaretSortIcon,
-	EyeNoneIcon,
-} from '@radix-ui/react-icons'
-import type { Column } from '@tanstack/react-table'
-import type React from 'react'
 import { Button } from '@/components/ui/button'
 import {
 	DropdownMenu,
@@ -15,6 +7,14 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { cn } from '@/lib/utils'
+import {
+	ArrowDownIcon,
+	ArrowUpIcon,
+	CaretSortIcon,
+	EyeNoneIcon,
+} from '@radix-ui/react-icons'
+import type { Column } from '@tanstack/react-table'
+import type React from 'react'
 
 interface Props<TData, TValue> extends React.HTMLAttributes<HTMLDivElement> {
 	column: Column<TData, TValue>

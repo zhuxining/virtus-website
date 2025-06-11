@@ -1,4 +1,3 @@
-import { Link, createFileRoute } from '@tanstack/react-router'
 import {
 	Card,
 	CardContent,
@@ -7,6 +6,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import { SignUpForm } from './-components/sign-up-form'
 
 export const Route = createFileRoute('/(auth)/sign-up/')({

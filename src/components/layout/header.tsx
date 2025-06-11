@@ -1,7 +1,7 @@
-import React from 'react'
 import { Search } from '@/features/global-search/components/SearchButton'
 import { ThemeSwitch } from '@/features/theme/components/ThemeSwitch'
 import { cn } from '@/lib/utils'
+import React from 'react'
 import { ProfileDropdown } from '../ProfileDropdown'
 import { Separator } from '../ui/separator'
 import { SidebarTrigger } from '../ui/sidebar'

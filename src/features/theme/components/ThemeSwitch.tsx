@@ -1,4 +1,3 @@
-import { IconCheck, IconMoon, IconSun } from '@tabler/icons-react'
 import { Button } from '@/components/ui/button'
 import {
 	DropdownMenu,
@@ -7,6 +6,7 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { cn } from '@/lib/utils'
+import { IconCheck, IconMoon, IconSun } from '@tabler/icons-react'
 
 import { useTheme } from '../contexts/ThemeContext'
 

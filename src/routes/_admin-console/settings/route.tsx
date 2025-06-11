@@ -1,8 +1,8 @@
-import { Outlet, createFileRoute } from '@tanstack/react-router'
 import { Header } from '@/components/layout/Header'
 import { Main } from '@/components/layout/Main'
 import { Separator } from '@/components/ui/separator'
 import { SidebarNav } from '@/features/settings/components/SidebarNav'
+import { Outlet, createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_admin-console/settings')({
 	component: RouteComponent,

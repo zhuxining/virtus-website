@@ -1,6 +1,3 @@
-import { DotsHorizontalIcon } from '@radix-ui/react-icons'
-import { IconTrash } from '@tabler/icons-react'
-import type { Row } from '@tanstack/react-table'
 import { Button } from '@/components/ui/button'
 import {
 	DropdownMenu,
@@ -15,6 +12,9 @@ import {
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { DotsHorizontalIcon } from '@radix-ui/react-icons'
+import { IconTrash } from '@tabler/icons-react'
+import type { Row } from '@tanstack/react-table'
 import { useTasks } from '../../contexts/TasksContent'
 import { labels } from '../../data/data'
 import { taskSchema } from '../../schema/tasks'

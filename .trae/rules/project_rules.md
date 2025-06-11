@@ -34,7 +34,7 @@
 ## 项目结构
 
 ```text
-app/
+src/
 ├── components/        # Reusable UI components
 │   ├── ui/            # Shadcn/ui components
 │   ├── layout/        # Layout-related components
@@ -80,7 +80,6 @@ prisma/                # Prisma schema and seed data
 Other key files:
 - package.json         # Project metadata and dependencies
 - tsconfig.json        # TypeScript configuration
-- postcss.config.js    # PostCSS configuration
 - wrangler.jsonc       # Cloudflare Workers configuration
 - biome.jsonc          # Biome (formatter/linter) configuration
 ```

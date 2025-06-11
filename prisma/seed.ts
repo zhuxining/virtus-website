@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { db } from '../app/lib/db'
+import { db } from '../src/lib/db'
 import 'dotenv/config'
 
 async function seed() {

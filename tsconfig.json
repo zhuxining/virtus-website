@@ -1,14 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
-	"include": [
-		"**/*.ts",
-		"**/*.tsx"
-	],
+	"include": ["**/*.ts", "**/*.tsx"],
 	"compilerOptions": {
-		"lib": [
-			"ESNext",
-			"DOM"
-		],
+		"lib": ["ESNext", "DOM"],
 		"target": "ESNext",
 		"module": "ESNext",
 		"moduleDetection": "force",
@@ -34,9 +28,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/*": [
-				"./src/*"
-			]
+			"@/*": ["./src/*"]
 		}
 	}
 }
