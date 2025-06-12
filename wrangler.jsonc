@@ -6,7 +6,7 @@
 	"main": ".output/server/index.mjs",
 	// Node.js compatibility
 	"compatibility_flags": ["nodejs_compat"],
-	"compatibility_date": "2024-04-08", // Use a recent compatibility date
+	"compatibility_date": "2025-04-03", // Use a recent compatibility date
 	// Retain original function and class names (optional)
 	"keep_names": false,
 	// Static asset configuration (e.g., for Vite/Vinxi)
