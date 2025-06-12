@@ -436,11 +436,11 @@ export interface RootServerRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/(auth)': {
-      id: '/(auth)'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof authRouteRouteImport
+    '/_website': {
+      id: '/_website'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof WebsiteRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_admin-console': {
@@ -450,67 +450,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminConsoleRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_website': {
-      id: '/_website'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof WebsiteRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_admin-console/settings': {
-      id: '/_admin-console/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof AdminConsoleSettingsRouteRouteImport
-      parentRoute: typeof AdminConsoleRouteRoute
-    }
-    '/(errors)/401': {
-      id: '/(errors)/401'
-      path: '/401'
-      fullPath: '/401'
-      preLoaderRoute: typeof errors401RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/403': {
-      id: '/(errors)/403'
-      path: '/403'
-      fullPath: '/403'
-      preLoaderRoute: typeof errors403RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/404': {
-      id: '/(errors)/404'
-      path: '/404'
-      fullPath: '/404'
-      preLoaderRoute: typeof errors404RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/500': {
-      id: '/(errors)/500'
-      path: '/500'
-      fullPath: '/500'
-      preLoaderRoute: typeof errors500RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/503': {
-      id: '/(errors)/503'
-      path: '/503'
-      fullPath: '/503'
-      preLoaderRoute: typeof errors503RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/rpc': {
-      id: '/api/rpc'
-      path: ''
-      fullPath: '/api/rpc'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/wechat-work-code': {
-      id: '/api/wechat-work-code'
-      path: ''
-      fullPath: '/api/wechat-work-code'
-      preLoaderRoute: unknown
+    '/(auth)': {
+      id: '/(auth)'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof authRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_website/': {
@@ -520,130 +464,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WebsiteIndexRouteImport
       parentRoute: typeof WebsiteRouteRoute
     }
-    '/_admin-console/settings/account': {
-      id: '/_admin-console/settings/account'
-      path: '/account'
-      fullPath: '/settings/account'
-      preLoaderRoute: typeof AdminConsoleSettingsAccountRouteImport
-      parentRoute: typeof AdminConsoleSettingsRouteRoute
-    }
-    '/_admin-console/settings/appearance': {
-      id: '/_admin-console/settings/appearance'
-      path: '/appearance'
-      fullPath: '/settings/appearance'
-      preLoaderRoute: typeof AdminConsoleSettingsAppearanceRouteImport
-      parentRoute: typeof AdminConsoleSettingsRouteRoute
-    }
-    '/_admin-console/settings/display': {
-      id: '/_admin-console/settings/display'
-      path: '/display'
-      fullPath: '/settings/display'
-      preLoaderRoute: typeof AdminConsoleSettingsDisplayRouteImport
-      parentRoute: typeof AdminConsoleSettingsRouteRoute
-    }
-    '/_admin-console/settings/notifications': {
-      id: '/_admin-console/settings/notifications'
-      path: '/notifications'
-      fullPath: '/settings/notifications'
-      preLoaderRoute: typeof AdminConsoleSettingsNotificationsRouteImport
-      parentRoute: typeof AdminConsoleSettingsRouteRoute
-    }
-    '/api/auth/$': {
-      id: '/api/auth/$'
-      path: ''
-      fullPath: '/api/auth/$'
-      preLoaderRoute: unknown
+    '/(errors)/503': {
+      id: '/(errors)/503'
+      path: '/503'
+      fullPath: '/503'
+      preLoaderRoute: typeof errors503RouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/rpc/$': {
-      id: '/api/rpc/$'
-      path: ''
-      fullPath: '/api/rpc/$'
-      preLoaderRoute: unknown
+    '/(errors)/500': {
+      id: '/(errors)/500'
+      path: '/500'
+      fullPath: '/500'
+      preLoaderRoute: typeof errors500RouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(auth)/sign-in/': {
-      id: '/(auth)/sign-in/'
-      path: '/sign-in'
-      fullPath: '/sign-in'
-      preLoaderRoute: typeof authSignInIndexRouteImport
-      parentRoute: typeof authRouteRoute
+    '/(errors)/404': {
+      id: '/(errors)/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof errors404RouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/(auth)/sign-up/': {
-      id: '/(auth)/sign-up/'
-      path: '/sign-up'
-      fullPath: '/sign-up'
-      preLoaderRoute: typeof authSignUpIndexRouteImport
-      parentRoute: typeof authRouteRoute
+    '/(errors)/403': {
+      id: '/(errors)/403'
+      path: '/403'
+      fullPath: '/403'
+      preLoaderRoute: typeof errors403RouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_admin-console/apps/': {
-      id: '/_admin-console/apps/'
-      path: '/apps'
-      fullPath: '/apps'
-      preLoaderRoute: typeof AdminConsoleAppsIndexRouteImport
+    '/(errors)/401': {
+      id: '/(errors)/401'
+      path: '/401'
+      fullPath: '/401'
+      preLoaderRoute: typeof errors401RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_admin-console/settings': {
+      id: '/_admin-console/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AdminConsoleSettingsRouteRouteImport
       parentRoute: typeof AdminConsoleRouteRoute
     }
-    '/_admin-console/chats/': {
-      id: '/_admin-console/chats/'
-      path: '/chats'
-      fullPath: '/chats'
-      preLoaderRoute: typeof AdminConsoleChatsIndexRouteImport
-      parentRoute: typeof AdminConsoleRouteRoute
-    }
-    '/_admin-console/dashboard/': {
-      id: '/_admin-console/dashboard/'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AdminConsoleDashboardIndexRouteImport
-      parentRoute: typeof AdminConsoleRouteRoute
-    }
-    '/_admin-console/help-center/': {
-      id: '/_admin-console/help-center/'
-      path: '/help-center'
-      fullPath: '/help-center'
-      preLoaderRoute: typeof AdminConsoleHelpCenterIndexRouteImport
-      parentRoute: typeof AdminConsoleRouteRoute
-    }
-    '/_admin-console/settings/': {
-      id: '/_admin-console/settings/'
-      path: '/'
-      fullPath: '/settings/'
-      preLoaderRoute: typeof AdminConsoleSettingsIndexRouteImport
-      parentRoute: typeof AdminConsoleSettingsRouteRoute
-    }
-    '/_admin-console/tasks/': {
-      id: '/_admin-console/tasks/'
-      path: '/tasks'
-      fullPath: '/tasks'
-      preLoaderRoute: typeof AdminConsoleTasksIndexRouteImport
-      parentRoute: typeof AdminConsoleRouteRoute
-    }
-    '/_admin-console/users/': {
-      id: '/_admin-console/users/'
-      path: '/users'
-      fullPath: '/users'
-      preLoaderRoute: typeof AdminConsoleUsersIndexRouteImport
-      parentRoute: typeof AdminConsoleRouteRoute
-    }
-    '/_website/about/': {
-      id: '/_website/about/'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof WebsiteAboutIndexRouteImport
-      parentRoute: typeof WebsiteRouteRoute
-    }
-    '/_website/blog/': {
-      id: '/_website/blog/'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof WebsiteBlogIndexRouteImport
-      parentRoute: typeof WebsiteRouteRoute
-    }
-    '/_website/donation/': {
-      id: '/_website/donation/'
-      path: '/donation'
-      fullPath: '/donation'
-      preLoaderRoute: typeof WebsiteDonationIndexRouteImport
+    '/_website/event/': {
+      id: '/_website/event/'
+      path: '/event'
+      fullPath: '/event'
+      preLoaderRoute: typeof WebsiteEventIndexRouteImport
       parentRoute: typeof WebsiteRouteRoute
     }
     '/_website/dream/': {
@@ -653,78 +520,127 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WebsiteDreamIndexRouteImport
       parentRoute: typeof WebsiteRouteRoute
     }
-    '/_website/event/': {
-      id: '/_website/event/'
-      path: '/event'
-      fullPath: '/event'
-      preLoaderRoute: typeof WebsiteEventIndexRouteImport
+    '/_website/donation/': {
+      id: '/_website/donation/'
+      path: '/donation'
+      fullPath: '/donation'
+      preLoaderRoute: typeof WebsiteDonationIndexRouteImport
       parentRoute: typeof WebsiteRouteRoute
+    }
+    '/_website/blog/': {
+      id: '/_website/blog/'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof WebsiteBlogIndexRouteImport
+      parentRoute: typeof WebsiteRouteRoute
+    }
+    '/_website/about/': {
+      id: '/_website/about/'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof WebsiteAboutIndexRouteImport
+      parentRoute: typeof WebsiteRouteRoute
+    }
+    '/_admin-console/users/': {
+      id: '/_admin-console/users/'
+      path: '/users'
+      fullPath: '/users'
+      preLoaderRoute: typeof AdminConsoleUsersIndexRouteImport
+      parentRoute: typeof AdminConsoleRouteRoute
+    }
+    '/_admin-console/tasks/': {
+      id: '/_admin-console/tasks/'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof AdminConsoleTasksIndexRouteImport
+      parentRoute: typeof AdminConsoleRouteRoute
+    }
+    '/_admin-console/settings/': {
+      id: '/_admin-console/settings/'
+      path: '/'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof AdminConsoleSettingsIndexRouteImport
+      parentRoute: typeof AdminConsoleSettingsRouteRoute
+    }
+    '/_admin-console/help-center/': {
+      id: '/_admin-console/help-center/'
+      path: '/help-center'
+      fullPath: '/help-center'
+      preLoaderRoute: typeof AdminConsoleHelpCenterIndexRouteImport
+      parentRoute: typeof AdminConsoleRouteRoute
+    }
+    '/_admin-console/dashboard/': {
+      id: '/_admin-console/dashboard/'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AdminConsoleDashboardIndexRouteImport
+      parentRoute: typeof AdminConsoleRouteRoute
+    }
+    '/_admin-console/chats/': {
+      id: '/_admin-console/chats/'
+      path: '/chats'
+      fullPath: '/chats'
+      preLoaderRoute: typeof AdminConsoleChatsIndexRouteImport
+      parentRoute: typeof AdminConsoleRouteRoute
+    }
+    '/_admin-console/apps/': {
+      id: '/_admin-console/apps/'
+      path: '/apps'
+      fullPath: '/apps'
+      preLoaderRoute: typeof AdminConsoleAppsIndexRouteImport
+      parentRoute: typeof AdminConsoleRouteRoute
+    }
+    '/(auth)/sign-up/': {
+      id: '/(auth)/sign-up/'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof authSignUpIndexRouteImport
+      parentRoute: typeof authRouteRoute
+    }
+    '/(auth)/sign-in/': {
+      id: '/(auth)/sign-in/'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof authSignInIndexRouteImport
+      parentRoute: typeof authRouteRoute
+    }
+    '/_admin-console/settings/notifications': {
+      id: '/_admin-console/settings/notifications'
+      path: '/notifications'
+      fullPath: '/settings/notifications'
+      preLoaderRoute: typeof AdminConsoleSettingsNotificationsRouteImport
+      parentRoute: typeof AdminConsoleSettingsRouteRoute
+    }
+    '/_admin-console/settings/display': {
+      id: '/_admin-console/settings/display'
+      path: '/display'
+      fullPath: '/settings/display'
+      preLoaderRoute: typeof AdminConsoleSettingsDisplayRouteImport
+      parentRoute: typeof AdminConsoleSettingsRouteRoute
+    }
+    '/_admin-console/settings/appearance': {
+      id: '/_admin-console/settings/appearance'
+      path: '/appearance'
+      fullPath: '/settings/appearance'
+      preLoaderRoute: typeof AdminConsoleSettingsAppearanceRouteImport
+      parentRoute: typeof AdminConsoleSettingsRouteRoute
+    }
+    '/_admin-console/settings/account': {
+      id: '/_admin-console/settings/account'
+      path: '/account'
+      fullPath: '/settings/account'
+      preLoaderRoute: typeof AdminConsoleSettingsAccountRouteImport
+      parentRoute: typeof AdminConsoleSettingsRouteRoute
     }
   }
 }
 declare module '@tanstack/react-start/server' {
   interface ServerFileRoutesByPath {
-    '/(auth)': {
-      id: '/(auth)'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console': {
-      id: '/_admin-console'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_website': {
-      id: '/_website'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/settings': {
-      id: '/_admin-console/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/(errors)/401': {
-      id: '/(errors)/401'
-      path: '/401'
-      fullPath: '/401'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/(errors)/403': {
-      id: '/(errors)/403'
-      path: '/403'
-      fullPath: '/403'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/(errors)/404': {
-      id: '/(errors)/404'
-      path: '/404'
-      fullPath: '/404'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/(errors)/500': {
-      id: '/(errors)/500'
-      path: '/500'
-      fullPath: '/500'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/(errors)/503': {
-      id: '/(errors)/503'
-      path: '/503'
-      fullPath: '/503'
-      preLoaderRoute: unknown
+    '/api/wechat-work-code': {
+      id: '/api/wechat-work-code'
+      path: '/api/wechat-work-code'
+      fullPath: '/api/wechat-work-code'
+      preLoaderRoute: typeof ApiWechatWorkCodeServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
     '/api/rpc': {
@@ -734,55 +650,6 @@ declare module '@tanstack/react-start/server' {
       preLoaderRoute: typeof ApiRpcServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
-    '/api/wechat-work-code': {
-      id: '/api/wechat-work-code'
-      path: '/api/wechat-work-code'
-      fullPath: '/api/wechat-work-code'
-      preLoaderRoute: typeof ApiWechatWorkCodeServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_website/': {
-      id: '/_website/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/settings/account': {
-      id: '/_admin-console/settings/account'
-      path: '/account'
-      fullPath: '/settings/account'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/settings/appearance': {
-      id: '/_admin-console/settings/appearance'
-      path: '/appearance'
-      fullPath: '/settings/appearance'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/settings/display': {
-      id: '/_admin-console/settings/display'
-      path: '/display'
-      fullPath: '/settings/display'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/settings/notifications': {
-      id: '/_admin-console/settings/notifications'
-      path: '/notifications'
-      fullPath: '/settings/notifications'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/api/auth/$': {
-      id: '/api/auth/$'
-      path: '/api/auth/$'
-      fullPath: '/api/auth/$'
-      preLoaderRoute: typeof ApiAuthSplatServerRouteImport
-      parentRoute: typeof rootServerRouteImport
-    }
     '/api/rpc/$': {
       id: '/api/rpc/$'
       path: '/$'
@@ -790,102 +657,11 @@ declare module '@tanstack/react-start/server' {
       preLoaderRoute: typeof ApiRpcSplatServerRouteImport
       parentRoute: typeof ApiRpcServerRoute
     }
-    '/(auth)/sign-in/': {
-      id: '/(auth)/sign-in/'
-      path: '/sign-in'
-      fullPath: '/sign-in'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/(auth)/sign-up/': {
-      id: '/(auth)/sign-up/'
-      path: '/sign-up'
-      fullPath: '/sign-up'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/apps/': {
-      id: '/_admin-console/apps/'
-      path: '/apps'
-      fullPath: '/apps'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/chats/': {
-      id: '/_admin-console/chats/'
-      path: '/chats'
-      fullPath: '/chats'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/dashboard/': {
-      id: '/_admin-console/dashboard/'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/help-center/': {
-      id: '/_admin-console/help-center/'
-      path: '/help-center'
-      fullPath: '/help-center'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/settings/': {
-      id: '/_admin-console/settings/'
-      path: '/'
-      fullPath: '/settings/'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/tasks/': {
-      id: '/_admin-console/tasks/'
-      path: '/tasks'
-      fullPath: '/tasks'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_admin-console/users/': {
-      id: '/_admin-console/users/'
-      path: '/users'
-      fullPath: '/users'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_website/about/': {
-      id: '/_website/about/'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_website/blog/': {
-      id: '/_website/blog/'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_website/donation/': {
-      id: '/_website/donation/'
-      path: '/donation'
-      fullPath: '/donation'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_website/dream/': {
-      id: '/_website/dream/'
-      path: '/dream'
-      fullPath: '/dream'
-      preLoaderRoute: unknown
-      parentRoute: typeof rootServerRouteImport
-    }
-    '/_website/event/': {
-      id: '/_website/event/'
-      path: '/event'
-      fullPath: '/event'
-      preLoaderRoute: unknown
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatServerRouteImport
       parentRoute: typeof rootServerRouteImport
     }
   }

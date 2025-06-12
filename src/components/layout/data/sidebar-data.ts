@@ -27,7 +27,7 @@ export const sidebarData: SidebarData = {
 	user: {
 		name: 'Insik Han',
 		email: 'inshiku.han@gmail.com',
-		avatar: '/avatars/shadcn.jpg',
+		avatar: '/favicon.webp',
 	},
 	teams: [
 		{
