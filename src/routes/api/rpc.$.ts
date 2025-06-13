@@ -1,23 +1,20 @@
+import { RPCHandler } from '@orpc/server/fetch'
 import { createServerFileRoute } from '@tanstack/react-start/server'
 
-import { RPC_PATH_PREFIX } from '@/constants/rpc'
-import { serverHandler } from '@/server/handler'
-
 async function handle({ request }: { request: Request }) {
-	const { response } = await serverHandler.handle(request, {
+	const { response } = await handler.handle(request, {
+		prefix: '/api/rpc',
 		context: {}, // Provide initial context if needed
-		prefix: RPC_PATH_PREFIX,
 	})
 
 	return response ?? new Response('Not Found', { status: 404 })
 }
-export const ServerRoute = createServerFileRoute(
-	`${RPC_PATH_PREFIX}/$`,
-).methods({
-	DELETE: handle,
-	GET: handle,
+
+export const ServerRoute = createServerFileRoute('/api/rpc/$').methods({
 	HEAD: handle,
-	PATCH: handle,
+	GET: handle,
 	POST: handle,
 	PUT: handle,
+	PATCH: handle,
+	DELETE: handle,
 })

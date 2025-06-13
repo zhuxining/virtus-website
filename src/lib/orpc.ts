@@ -1,16 +1,13 @@
-import { RPC_PATH_PREFIX } from '@/constants/rpc'
-import { serverRouter } from '@/server/router'
-import { createORPCClient } from '@orpc/client'
-import { RPCLink } from '@orpc/client/fetch'
-import { createORPCReactQueryUtils } from '@orpc/react-query'
 import { createRouterClient } from '@orpc/server'
 import type { RouterClient } from '@orpc/server'
-import { createIsomorphicFn } from '@tanstack/react-start'
+import { createORPCClient } from '@orpc/client'
+import { RPCLink } from '@orpc/client/fetch'
 import { getHeaders } from '@tanstack/react-start/server'
+import { createIsomorphicFn } from '@tanstack/react-start'
 
 const getORPCClient = createIsomorphicFn()
 	.server(() =>
-		createRouterClient(serverRouter, {
+		createRouterClient(router, {
 			/**
 			 * Provide initial context if needed.
 			 *
@@ -19,18 +16,16 @@ const getORPCClient = createIsomorphicFn()
 			 * For per-request context, use middleware context or pass a function as the initial context.
 			 */
 			context: async () => ({
-				headers: getHeaders(),
+				headers: getHeaders(), // provide headers if initial context required
 			}),
 		}),
 	)
-	.client((): RouterClient<typeof serverRouter> => {
+	.client((): RouterClient<typeof router> => {
 		const link = new RPCLink({
-			url: new URL(RPC_PATH_PREFIX, window.location.href),
+			url: `${window.location.origin}/api/rpc`,
 		})
 
 		return createORPCClient(link)
 	})
 
-export const client: RouterClient<typeof serverRouter> = getORPCClient()
-
-export const orpc = createORPCReactQueryUtils(client)
+export const client: RouterClient<typeof router> = getORPCClient()
