@@ -4,6 +4,9 @@
 .env
 .dev.vars
 
+# Log
+log
+
 # Build output
 .output/
 .nitro/

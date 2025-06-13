@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import path from 'node:path'
 import tailwindcss from '@tailwindcss/vite'
-import { cloudflare } from '@cloudflare/vite-plugin'
 
 import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
@@ -14,8 +13,7 @@ export default defineConfig({
 			projects: ['./tsconfig.json'],
 		}),
 		tailwindcss({}),
-		tanstackStart({}),
-		cloudflare({}),
+		tanstackStart({ target: 'cloudflare-module' }),
 	],
 	resolve: {
 		alias: {
